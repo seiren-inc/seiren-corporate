@@ -1,94 +1,144 @@
 /**
  * 株式会社 清蓮 コーポレートサイト 共通JavaScript
+ * Apple / LEXUS 準拠デザイン対応
  */
 
-(function() {
-  'use strict';
+(function () {
+  "use strict";
 
   // ========================================
   // モバイルメニュー制御
   // ========================================
   function initMobileMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const headerNav = document.querySelector('.header-nav');
-    
+    const menuToggle = document.querySelector(".menu-toggle");
+    const headerNav = document.querySelector(".header-nav");
+
     if (menuToggle && headerNav) {
-      menuToggle.addEventListener('click', function() {
-        headerNav.classList.toggle('active');
-        
-        // アクセシビリティ対応
-        const isExpanded = headerNav.classList.contains('active');
-        menuToggle.setAttribute('aria-expanded', isExpanded);
+      menuToggle.addEventListener("click", function () {
+        headerNav.classList.toggle("active");
+        const isExpanded = headerNav.classList.contains("active");
+        menuToggle.setAttribute("aria-expanded", isExpanded);
       });
-      
-      // メニュー外をクリックしたら閉じる
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.header-container')) {
-          headerNav.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
+
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".header-container")) {
+          headerNav.classList.remove("active");
+          menuToggle.setAttribute("aria-expanded", "false");
         }
       });
     }
   }
 
   // ========================================
+  // スクロールリビール（IntersectionObserver）
+  // ========================================
+  function initReveal() {
+    // prefers-reduced-motion 対応
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReduced) {
+      // アニメーション無効：即座に表示
+      document.querySelectorAll(".reveal").forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px",
+      },
+    );
+
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  // ========================================
+  // ヘッダースクロール制御
+  // ========================================
+  function initHeaderScroll() {
+    var header = document.querySelector(".header");
+    if (!header) return;
+
+    var lastY = 0;
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        var y = window.scrollY;
+        if (y > 100) {
+          header.style.boxShadow = "var(--shadow-sm)";
+        } else {
+          header.style.boxShadow = "none";
+        }
+        lastY = y;
+      },
+      { passive: true },
+    );
+  }
+
+  // ========================================
   // フォーム送信処理（ダミー）
   // ========================================
   function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    
+    var contactForm = document.getElementById("contact-form");
+
     if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
+      contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        
-        // バリデーション
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const phone = formData.get('phone');
-        const category = formData.get('category');
-        const message = formData.get('message');
-        const agreement = formData.get('agreement');
-        
-        // 必須項目チェック
+
+        var formData = new FormData(contactForm);
+        var name = formData.get("name");
+        var phone = formData.get("phone");
+        var category = formData.get("category");
+        var message = formData.get("message");
+        var agreement = formData.get("agreement");
+
         if (!name || !phone || !category || !message || !agreement) {
-          alert('必須項目をすべて入力してください。');
+          alert("必須項目をすべて入力してください。");
           return;
         }
-        
-        // 送信処理（ダミー）
-        // 実際の実装では、ここでバックエンドAPIへ送信するか、
-        // mailto:を使用するか、外部フォームサービスを利用します
-        
-        // 完了メッセージ表示
-        const formContainer = document.querySelector('.contact-form-container');
+
+        var formContainer = document.querySelector(".contact-form-container");
         if (formContainer) {
-          formContainer.innerHTML = `
-            <div class="form-success" style="text-align: center; padding: var(--spacing-lg);">
-              <h2 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">
-                お問い合わせを受け付けました
-              </h2>
-              <p style="margin-bottom: var(--spacing-sm);">
-                お問い合わせいただきありがとうございます。<br>
-                内容を確認の上、担当者より折り返しご連絡させていただきます。
-              </p>
-              <p style="margin-bottom: var(--spacing-md); color: var(--color-text-light);">
-                お急ぎの場合は、お電話でもお問い合わせいただけます。
-              </p>
-              <p style="font-size: var(--font-size-xl); font-weight: 700; color: var(--color-primary);">
-                TEL: 045-881-9952
-              </p>
-              <p style="margin-top: var(--spacing-lg);">
-                <a href="/" class="btn btn-primary">トップページへ戻る</a>
-              </p>
-            </div>
-          `;
+          formContainer.innerHTML =
+            '<div class="form-success" style="text-align: center; padding: var(--sp-xl);">' +
+            '<h2 style="color: var(--brand-primary); margin-bottom: var(--sp-md);">' +
+            "お問い合わせを受け付けました" +
+            "</h2>" +
+            '<p style="margin-bottom: var(--sp-sm);">' +
+            "お問い合わせいただきありがとうございます。<br>" +
+            "内容を確認の上、担当者より折り返しご連絡させていただきます。" +
+            "</p>" +
+            '<p style="margin-bottom: var(--sp-md); color: var(--muted);">' +
+            "お急ぎの場合は、お電話でもお問い合わせいただけます。" +
+            "</p>" +
+            '<p style="font-size: var(--fs-xl); font-weight: 700; color: var(--brand-primary);">' +
+            "TEL: 045-881-9952" +
+            "</p>" +
+            '<p style="margin-top: var(--sp-lg);">' +
+            '<a href="/" class="btn btn-primary">トップページへ戻る</a>' +
+            "</p>" +
+            "</div>";
         }
-        
-        // GA4イベント送信（実装時に有効化）
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'form_submit', {
-            'event_category': 'contact',
-            'event_label': category
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "form_submit", {
+            event_category: "contact",
+            event_label: category,
           });
         }
       });
@@ -99,27 +149,27 @@
   // スムーススクロール
   // ========================================
   function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-      link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        
-        // ハッシュのみの場合はスキップ
-        if (href === '#' || href === '#!') {
+    var links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var href = this.getAttribute("href");
+
+        if (href === "#" || href === "#!") {
           e.preventDefault();
           return;
         }
-        
-        const target = document.querySelector(href);
+
+        var target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
-          const targetPosition = target.offsetTop - headerHeight;
-          
+          var headerEl = document.querySelector(".header");
+          var headerHeight = headerEl ? headerEl.offsetHeight : 0;
+          var targetPosition = target.offsetTop - headerHeight;
+
           window.scrollTo({
             top: targetPosition,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
       });
@@ -130,17 +180,16 @@
   // 外部リンククリック計測
   // ========================================
   function initOutboundTracking() {
-    const outboundLinks = document.querySelectorAll('a[data-outbound]');
-    
-    outboundLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        const label = this.getAttribute('data-outbound');
-        
-        // GA4イベント送信（実装時に有効化）
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'outbound_click', {
-            'event_category': 'business',
-            'event_label': label
+    var outboundLinks = document.querySelectorAll("a[data-outbound]");
+
+    outboundLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        var label = this.getAttribute("data-outbound");
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "outbound_click", {
+            event_category: "business",
+            event_label: label,
           });
         }
       });
@@ -151,14 +200,13 @@
   // 現在のページをナビゲーションでハイライト
   // ========================================
   function highlightCurrentPage() {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.header-nav a');
-    
-    navLinks.forEach(link => {
-      const linkPath = new URL(link.href).pathname;
+    var currentPath = window.location.pathname;
+    var navLinks = document.querySelectorAll(".header-nav a");
+
+    navLinks.forEach(function (link) {
+      var linkPath = new URL(link.href).pathname;
       if (currentPath === linkPath) {
-        link.style.fontWeight = '700';
-        link.style.color = 'var(--color-primary)';
+        link.setAttribute("aria-current", "page");
       }
     });
   }
@@ -166,12 +214,13 @@
   // ========================================
   // 初期化
   // ========================================
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
     initMobileMenu();
+    initReveal();
+    initHeaderScroll();
     initContactForm();
     initSmoothScroll();
     initOutboundTracking();
     highlightCurrentPage();
   });
-
 })();

@@ -82,10 +82,10 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- Google Tag Manager -->
     <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
     <!-- End Google Tag Manager -->
   </head>
 
@@ -93,17 +93,16 @@
     <a class="skip-link" href="#main-content">本文へスキップ</a>
     <!-- Google Tag Manager (noscript) -->
     <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
+
     <!-- ヘッダー -->
     <header class="header">
-      <div class="header-container container">
+      <div class="header-container">
         <div class="header-logo">
           <a href="/">株式会社 清蓮</a>
         </div>
-        <button class="menu-toggle" aria-label="メニュー" aria-expanded="false">
-          ☰
-        </button>
+        <button class="menu-toggle" aria-label="メニュー" aria-expanded="false">☰</button>
         <nav class="header-nav" aria-label="メインナビゲーション">
           <a href="/" aria-current="page">TOP</a>
           <a href="/business.html">事業紹介</a>
@@ -116,12 +115,28 @@
     </header>
 
     <main id="main-content">
+
       <!-- ヒーローセクション -->
       <section class="hero">
-        <div class="container">
-          <h1 class="hero-title">人生の節目に、確かな判断と実務を。</h1>
-          <p class="hero-subtitle">
-            株式会社 清蓮は、海洋散骨・遺骨サービス・終活支援など、<br />
+        <div class="hero-media">
+          <picture>
+            <source srcset="/assets/img/hero-sea.webp" type="image/webp">
+            <img src="/assets/img/hero-sea.png"
+                 alt="穏やかな海の水平線の写真"
+                 width="1920" height="1080"
+                 loading="eager"
+                 fetchpriority="high">
+          </picture>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow">
+            <span class="accent-dot"></span>
+            株式会社 清蓮
+          </p>
+          <h1 class="hero-title">人生の節目に、<br>確かな判断と実務を。</h1>
+          <p class="hero-lead">
+            海洋散骨・遺骨サービス・終活支援など、<br>
             人生の大切な節目に関わる複数事業を運営・企画・連携するハブ企業です。
           </p>
           <div class="hero-cta">
@@ -129,75 +144,94 @@
             <a href="/contact.html" class="btn btn-outline">お問い合わせ</a>
           </div>
         </div>
+        <div class="hero-scroll">
+          <span>Scroll</span>
+          <div class="hero-scroll-line"></div>
+        </div>
       </section>
 
-      <!-- 会社概要セクション -->
+      <!-- 清蓮について -->
       <section class="section">
         <div class="container">
-          <h2 class="section-title">清蓮について</h2>
-          <p class="section-subtitle">私たちの立ち位置</p>
-
-          <div style="max-width: 800px; margin: 0 auto; text-align: left">
-            <p style="margin-bottom: var(--spacing-md); line-height: 1.9">
-              株式会社
-              清蓮は、人生の節目における意思決定と実務をサポートする会社です。<br />
-              海洋散骨、遺骨ケア、お墓じまい、終活コンシェルジュなど、複数の事業を運営・企画し、
-              国内外の専門事業者と連携しながら、お客様一人ひとりの状況に合わせた選択肢を整理します。
-            </p>
-            <p style="margin-bottom: var(--spacing-md); line-height: 1.9">
-              私たちは「正解の押し付け」をしません。<br />
-              ご本人・ご家族の想いや事情を丁寧にお聞きし、判断材料を整理し、実務まで責任を持って対応します。
-            </p>
-            <p style="line-height: 1.9">
-              相談で終わらせず、実行まで伴走する。それが清蓮の役割です。
-            </p>
+          <div class="about-grid">
+            <div class="about-image reveal">
+              <picture>
+                <source srcset="/assets/img/about-office.webp" type="image/webp">
+                <img src="/assets/img/about-office.png"
+                     alt="清蓮の相談スペースの写真"
+                     width="800" height="600"
+                     loading="lazy">
+              </picture>
+            </div>
+            <div class="about-text reveal">
+              <div class="section-eyebrow">About</div>
+              <h2 class="section-title" style="text-align:left;">清蓮について</h2>
+              <p>
+                株式会社 清蓮は、人生の節目における意思決定と実務をサポートする会社です。
+                海洋散骨、遺骨ケア、お墓じまい、終活コンシェルジュなど、複数の事業を運営・企画し、
+                国内外の専門事業者と連携しながら、お客様一人ひとりの状況に合わせた選択肢を整理します。
+              </p>
+              <p>
+                私たちは「正解の押し付け」をしません。
+                ご本人・ご家族の想いや事情を丁寧にお聞きし、判断材料を整理し、実務まで責任を持って対応します。
+              </p>
+              <p>
+                相談で終わらせず、実行まで伴走する。それが清蓮の役割です。
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- 事業領域サマリー -->
-      <section class="section" style="background-color: var(--color-bg-light)">
+      <section class="section section--surface business-bg">
+        <div class="business-bg-image">
+          <picture>
+            <source srcset="/assets/img/business-texture.webp" type="image/webp">
+            <img src="/assets/img/business-texture.png"
+                 alt=""
+                 width="1920" height="1080"
+                 loading="lazy"
+                 aria-hidden="true">
+          </picture>
+        </div>
         <div class="container">
-          <h2 class="section-title">事業領域</h2>
-          <p class="section-subtitle">清蓮が関わる主な事業分野</p>
+          <div class="section-eyebrow reveal" style="justify-content:center;">Business</div>
+          <h2 class="section-title reveal">事業領域</h2>
+          <p class="section-subtitle reveal">清蓮が関わる主な事業分野</p>
 
-          <div class="card-grid">
-            <div class="card">
+          <div class="card-grid reveal-stagger">
+            <div class="card reveal">
               <h3 class="card-title">海洋散骨</h3>
               <p class="card-description">
                 国内・海外を含め、安心して海洋散骨を行うための専門サービスを提供しています。
               </p>
             </div>
-
-            <div class="card">
+            <div class="card reveal">
               <h3 class="card-title">遺骨サービス</h3>
               <p class="card-description">
                 洗骨・粉骨など、遺骨の状態やご事情に合わせた専門的なケア・加工を行います。
               </p>
             </div>
-
-            <div class="card">
+            <div class="card reveal">
               <h3 class="card-title">お墓じまい・改葬</h3>
               <p class="card-description">
                 お墓の整理や改葬に関する意思決定と段取りを、わかりやすく整理します。
               </p>
             </div>
-
-            <div class="card">
+            <div class="card reveal">
               <h3 class="card-title">終活コンシェルジュ</h3>
               <p class="card-description">
                 終活の不安や検討事項を整理し、ご本人・ご家族の負担を軽くする伴走サービスです。
               </p>
             </div>
-
-            <div class="card">
+            <div class="card reveal">
               <h3 class="card-title">墓地・納骨先検索</h3>
               <p class="card-description">
                 墓地・納骨先を探すための検索プラットフォームを開発・運営しています。
               </p>
             </div>
-
-            <div class="card">
+            <div class="card reveal">
               <h3 class="card-title">手元供養品</h3>
               <p class="card-description">
                 日々の暮らしの中で手元に祈れる供養品を企画・販売しています。
@@ -205,10 +239,8 @@
             </div>
           </div>
 
-          <div style="text-align: center; margin-top: var(--spacing-lg)">
-            <a href="/business.html" class="btn btn-primary"
-              >すべての事業を見る</a
-            >
+          <div style="text-align: center; margin-top: var(--sp-xl);" class="reveal">
+            <a href="/business.html" class="btn btn-primary">すべての事業を見る</a>
           </div>
         </div>
       </section>
@@ -216,74 +248,36 @@
       <!-- 強みへの導線 -->
       <section class="section">
         <div class="container">
-          <h2 class="section-title">清蓮の強み</h2>
-          <p class="section-subtitle">なぜ清蓮が選ばれるのか</p>
+          <div class="section-eyebrow reveal" style="justify-content:center;">Strength</div>
+          <h2 class="section-title reveal">清蓮の強み</h2>
+          <p class="section-subtitle reveal">なぜ清蓮が選ばれるのか</p>
 
-          <div style="max-width: 800px; margin: 0 auto; text-align: center">
-            <p style="margin-bottom: var(--spacing-lg); line-height: 1.9">
-              複数事業を横断できる体制、国内外のネットワーク、<br />
-              判断と実務を分けない姿勢、個別事情を前提とした設計思想。<br />
+          <div class="strength-intro reveal">
+            <p>
+              複数事業を横断できる体制、国内外のネットワーク、<br>
+              判断と実務を分けない姿勢、個別事情を前提とした設計思想。<br>
               清蓮が大切にしている4つの強みをご紹介します。
             </p>
-            <a href="/strength.html" class="btn btn-primary"
-              >強みを詳しく見る</a
-            >
+            <a href="/strength.html" class="btn btn-primary">強みを詳しく見る</a>
           </div>
         </div>
       </section>
 
       <!-- CTAセクション -->
-      <section
-        class="section"
-        style="background-color: var(--color-primary); color: var(--color-bg)"
-      >
-        <div class="container" style="text-align: center">
-          <h2
-            style="
-              font-size: var(--font-size-xxl);
-              margin-bottom: var(--spacing-md);
-            "
-          >
-            お問い合わせ
-          </h2>
-          <p
-            style="
-              font-size: var(--font-size-lg);
-              margin-bottom: var(--spacing-lg);
-              opacity: 0.9;
-            "
-          >
-            会社について、提携・業務相談、取材など、<br />
+      <section class="cta-section">
+        <div class="container reveal">
+          <h2>お問い合わせ</h2>
+          <p>
+            会社について、提携・業務相談、取材など、<br>
             お気軽にお問い合わせください。
           </p>
-          <div
-            style="
-              display: flex;
-              gap: var(--spacing-md);
-              justify-content: center;
-              flex-wrap: wrap;
-            "
-          >
-            <a
-              href="/contact.html"
-              class="btn"
-              style="
-                background-color: var(--color-bg);
-                color: var(--color-primary);
-              "
-            >
-              お問い合わせフォーム
-            </a>
-            <a
-              href="tel:045-881-9952"
-              class="btn btn-outline"
-              style="border-color: var(--color-bg); color: var(--color-bg)"
-            >
-              TEL: 045-881-9952
-            </a>
+          <div class="cta-buttons">
+            <a href="/contact.html" class="btn btn-primary">お問い合わせフォーム</a>
+            <a href="tel:045-881-9952" class="btn btn-outline">TEL: 045-881-9952</a>
           </div>
         </div>
       </section>
+
     </main>
 
     <!-- フッター -->
@@ -293,15 +287,14 @@
           <div class="footer-section">
             <h3>株式会社 清蓮</h3>
             <p>
-              〒244-0003<br />
-              神奈川県横浜市戸塚区戸塚町4170<br />
+              〒244-0003<br>
+              神奈川県横浜市戸塚区戸塚町4170<br>
               高橋ビル1F
             </p>
-            <p style="margin-top: var(--spacing-sm)">
+            <p style="margin-top: var(--sp-sm);">
               TEL: 045-881-9952（代表）
             </p>
           </div>
-
           <div class="footer-section">
             <h3>サイトマップ</h3>
             <nav class="footer-nav" aria-label="フッターナビゲーション">
@@ -313,7 +306,6 @@
               <a href="/contact.html">お問い合わせ</a>
             </nav>
           </div>
-
           <div class="footer-section">
             <h3>法的情報</h3>
             <nav class="footer-nav" aria-label="フッターナビゲーション">
@@ -322,7 +314,6 @@
             </nav>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p>&copy; 2026 株式会社 清蓮 All Rights Reserved.</p>
         </div>
