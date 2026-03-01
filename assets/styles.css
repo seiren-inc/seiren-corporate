@@ -143,7 +143,7 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -229,7 +229,7 @@ a:hover {
 
 .header-nav a {
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--muted);
   padding: var(--sp-xs) var(--sp-sm);
   border-radius: var(--radius);
@@ -321,7 +321,7 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
@@ -505,6 +505,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
   padding: 0.875rem 2.5rem;
   font-size: var(--fs-sm);
   font-weight: 600;
@@ -622,7 +623,7 @@ a:hover {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: 400;
   border-radius: 20px;
   white-space: nowrap;
 }
@@ -818,9 +819,16 @@ a:hover {
   background-color: var(--bg);
 }
 
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
+/* --- グローバル :focus-visible (Spec 14 §6) --- */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* フォーム要素はカスタムフォーカスリング */
+.form-input:focus-visible,
+.form-select:focus-visible,
+.form-textarea:focus-visible {
   outline: none;
   border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px rgba(47, 140, 156, 0.12);
@@ -1073,8 +1081,9 @@ a:hover {
   transition: top 0.2s ease-out;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
   top: 0;
+  outline: none;
 }
 
 .text-center {
@@ -1110,4 +1119,870 @@ a:hover {
 }
 .visible {
   display: block;
+}
+
+/* ========================================
+   MODERN INTERACTION SYSTEM (Spec 03, 04, 05)
+   ======================================== */
+
+/* 1. 信頼即提示ブロック (Trust Block) */
+.trust-block {
+  background-color: var(--surface);
+  padding: var(--sp-sm) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-lg);
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-base);
+  color: var(--text);
+  font-weight: 400;
+}
+
+.trust-badge {
+  background-color: var(--text);
+  color: var(--bg);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.trust-tel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trust-label {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.trust-tel a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+.trust-tel a:hover {
+  color: var(--brand-primary-2);
+}
+
+.trust-hours {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+.trust-access-link {
+  font-size: var(--fs-sm);
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.trust-access-link:hover {
+  color: var(--brand-primary-2);
+}
+
+@media (max-width: 768px) {
+  .trust-content {
+    flex-direction: column;
+    gap: var(--sp-sm);
+    text-align: center;
+  }
+}
+
+/* 2. ボタン・カードの微細アニメーション (Hover Micro Interaction) */
+
+.btn-hover-effect {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(47, 140, 156, 0);
+}
+
+.btn-primary.btn-hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(47, 140, 156, 0.2);
+}
+
+.btn-primary.btn-hover-effect:active {
+  transform: translateY(0);
+}
+
+.btn-outline.btn-hover-effect {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.btn-outline.btn-hover-effect:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  transform: translateY(-1px);
+}
+.btn-outline.btn-hover-effect:active {
+  transform: translateY(0);
+}
+
+/* Hero内のアウトラインボタンは背景色反転 */
+.hero-content .btn-outline.btn-hover-effect {
+  color: var(--bg);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-content .btn-outline.btn-hover-effect:hover {
+  border-color: var(--bg);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* カードHover改修 */
+.card-grid .card {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s var(--ease);
+}
+.card-grid .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 32, 0.04);
+  border-color: var(--brand-primary);
+}
+.card-grid .card:hover::before {
+  opacity: 0; /* 古い線のエフェクトを無効化 */
+}
+
+/* 3. Heroのモダン表現 (Gren effect & Split text) */
+
+.bg-grain::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-title .split-line {
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* 4. Clip Reveal (画像用) */
+
+.clip-reveal-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.clip-reveal-inner {
+  transform-origin: left center;
+  /* js経由で .is-visible になった後に展開されるため初期状態を記述 */
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.clip-reveal-container.is-visible .clip-reveal-inner {
+  clip-path: inset(0 0 0 0);
+}
+
+.clip-reveal-inner img {
+  /* Spec 10: scale アニメ禁止。clip-path展開のみでreveal */
+  transform: none;
+  transition: none;
+}
+
+
+/* 5. Sticky Progress */
+
+.sticky-progress-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--line);
+  z-index: 10;
+}
+
+.sticky-progress-section {
+  position: relative;
+}
+
+.sticky-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--brand-primary);
+  will-change: width;
+}
+
+/* 6. お知らせリスト */
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-lg) 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.news-item {
+  padding: var(--sp-md) 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: var(--sp-md);
+  align-items: baseline;
+}
+
+.news-date {
+  font-family: Arial, sans-serif;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  min-width: 100px;
+}
+
+.news-title {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: var(--fs-base);
+  transition: color 0.3s var(--ease);
+}
+
+.news-title:hover {
+  color: var(--brand-primary);
+}
+
+@media (max-width: 768px) {
+  .news-item {
+    flex-direction: column;
+    gap: var(--sp-xs);
+  }
+}
+
+/* PREFERS REDUCED MOTION 徹底 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .clip-reveal-inner {
+    clip-path: inset(0 0 0 0) !important;
+    transition: none !important;
+  }
+  
+  .clip-reveal-inner img {
+    transform: scale(1) !important;
+    transition: none !important;
+  }
+
+  .sticky-progress-container {
+    display: none !important;
+  }
+
+  /* 浮き沈みなどのhover無効化 */
+  .btn-hover-effect:hover,
+  .card-grid .card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ========================================
+   LAYOUT & TYPOGRAPHY SYSTEM (Spec 06 + 07)
+   ======================================== */
+
+/* -- セクションヘッダー統一 -- */
+.section-header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.section-header.align-left {
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.section-header h2 {
+  font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+}
+
+.section-header h2::after {
+  display: none; /* 旧デコレーション線を無効化 */
+}
+
+.section-header .lead {
+  max-width: 720px;
+  margin: 16px auto 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: var(--fs-base);
+}
+
+.section-header.align-left .lead {
+  margin-left: 0;
+}
+
+/* .section-body: コンテンツエリア（セクションヘッダーの下）。構造用クラス。 */
+
+/* -- ページヘッダー (h1 + subtitle) -- */
+.page-header {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.page-header .page-eyebrow {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.page-header .page-desc {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  text-align: left;
+  margin-top: 32px;
+}
+
+/* -- タイポグラフィ共通 (Spec 07) -- */
+h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+p {
+  line-height: 1.8;
+}
+
+/* 本文段落間 */
+p + p {
+  margin-top: 24px;
+}
+
+/* -- テーブルスタイル共通 (company.html) -- */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-table th,
+.info-table td {
+  padding: 16px 24px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-base);
+  line-height: 1.8;
+}
+
+.info-table th {
+  background-color: var(--bg);
+  font-weight: 600;
+  color: var(--text);
+  width: 30%;
+  white-space: nowrap;
+}
+
+.info-table td {
+  color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  .info-table th,
+  .info-table td {
+    display: block;
+    width: 100%;
+  }
+  .info-table th {
+    font-weight: 600;
+    padding-bottom: 4px;
+    border-bottom: none;
+  }
+}
+
+/* -- 電話番号ブロック -- */
+.tel-block {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.tel-block .tel-label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.tel-block .tel-number {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+.tel-block .tel-number a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tel-block .tel-hours {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* -- 法的ページ本文（narrow） -- */
+.legal-body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal-body > p {
+  margin-bottom: 32px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.legal-body ul {
+  margin-left: 24px;
+  margin-top: 8px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.legal-body .legal-date {
+  margin-top: 48px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* .section-eyebrow は .eyebrow の旧称。同一スタイルを適用 */
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* ========================================
+   NAVIGATION & IA SYSTEM (Spec 09)
+   ======================================== */
+
+/* -- ヘッダーナビ hover: brand-primary + アンダーライン -- */
+.header-nav a:not(.btn-primary) {
+  position: relative;
+  color: var(--muted);
+  background-color: transparent;
+}
+
+.header-nav a:not(.btn-primary)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--brand-primary);
+  transition: width 200ms var(--ease), left 200ms var(--ease);
+}
+
+.header-nav a:not(.btn-primary):hover {
+  color: var(--brand-primary);
+  background-color: transparent;
+}
+
+.header-nav a:not(.btn-primary):hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.header-nav a[aria-current="page"]:not(.btn-primary) {
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.header-nav a[aria-current="page"]:not(.btn-primary)::after {
+  width: 100%;
+  left: 0;
+}
+
+/* -- パンくずリスト: 最終項目を強調 -- */
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.breadcrumb a:hover {
+  color: var(--brand-primary);
+}
+
+/* 最終項目（currentアイテム = spanの最後）を強調 */
+.breadcrumb > span:last-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.breadcrumb-separator {
+  color: var(--line-dark, #ccc);
+  user-select: none;
+}
+
+/* -- フッター 4カラム対応 -- */
+@media (min-width: 900px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+/* ========================================
+   TOP PAGE SPEC 11: New Components
+   ======================================== */
+
+/* -- 強みセクション 3カラム -- */
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.strength-item {
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+
+.strength-title {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.strength-desc {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .strength-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 100%;
+  }
+  .strength-item {
+    padding: 24px 0;
+  }
+}
+
+/* -- 会社情報ミニマル表示 (dl/dt/dd 罫線区切り) -- */
+.company-minimal {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.company-minimal-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.company-minimal-row:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.company-minimal dt {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.company-minimal dd {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .company-minimal-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 16px 0;
+  }
+}
+
+/* -- partner-card (トップ用シンプル版) -- */
+.partner-card {
+  padding: var(--sp-md);
+  background: var(--bg);
+  border-top: 2px solid var(--brand-primary);
+}
+
+.partner-card h3 {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  margin-bottom: var(--sp-xs);
+  color: var(--text);
+}
+
+.partner-card p {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* -- CTA ラベル -- */
+.cta-label {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+/* -- カード内 btn-link -- */
+.btn-link {
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--brand-primary);
+  text-decoration: none;
+  transition: opacity 200ms;
+}
+
+.btn-link:hover {
+  opacity: 0.7;
+}
+
+/* -- card-footerのマージン確保 -- */
+.card-footer {
+  margin-top: 16px;
+}
+
+/* ========================================
+   REFERENCE SITE ANALYSIS ENHANCEMENTS
+   余白の呼吸 / セクション区切り / カードhover洗練
+   blur-fadeアニメーション / 信頼ブロック左寄せ
+   ======================================== */
+
+/* -- A. セクションの「呼吸」強化 (PC: 140px / SP: 80px) -- */
+.section {
+  padding: 140px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+}
+
+/* -- セクション間デコ区切り線 -- */
+.section + .section::before,
+.section--surface + .section::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 1px;
+  background-color: var(--brand-primary);
+  margin: 0 auto 80px;
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  .section + .section::before,
+  .section--surface + .section::before {
+    margin-bottom: 48px;
+  }
+}
+
+/* -- B. Hero blur-fade (CSS側) -- */
+.hero-content [data-stagger="hero"] {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(8px);
+  transition:
+    opacity 500ms cubic-bezier(0.2, 0.6, 0.3, 1),
+    transform 500ms cubic-bezier(0.2, 0.6, 0.3, 1),
+    filter 500ms cubic-bezier(0.2, 0.6, 0.3, 1);
+}
+
+.hero-content.is-visible [data-stagger="hero"] {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* stagger delays (100ms increments, max 500ms total) */
+.hero-content.is-visible [data-stagger="hero"]:nth-child(1) { transition-delay: 0ms; }
+.hero-content.is-visible [data-stagger="hero"]:nth-child(2) { transition-delay: 100ms; }
+.hero-content.is-visible [data-stagger="hero"]:nth-child(3) { transition-delay: 200ms; }
+.hero-content.is-visible [data-stagger="hero"]:nth-child(4) { transition-delay: 300ms; }
+.hero-content.is-visible [data-stagger="hero"]:nth-child(5) { transition-delay: 400ms; }
+
+/* -- C. カードhover洗練 -- */
+.card {
+  transition:
+    transform 300ms var(--ease),
+    box-shadow 300ms var(--ease),
+    border-color 300ms var(--ease);
+  border-top: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border-top-color: var(--brand-primary);
+}
+
+/* -- D. 信頼即提示ブロック左寄せ (spec 11 §4: 中央寄せ不可) -- */
+.trust-content {
+  justify-content: flex-start;
+}
+
+/* -- E. 会社情報ミニマル: dt前にブランドドット -- */
+.company-minimal dt::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: var(--brand-primary);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* -- F. SP最適化: ボタン100%幅 + Heroボタン -- */
+@media (max-width: 768px) {
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cta-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* -- セクションheader後のleadにmax-width -- */
+.section-header .lead {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: var(--fs-sm);
+  margin-top: 16px;
+}
+
+/* -- prefers-reduced-motion -- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content [data-stagger="hero"] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .card {
+    transition: none;
+  }
+  .section + .section::before {
+    display: none;
+  }
 }

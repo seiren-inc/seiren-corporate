@@ -1,10 +1,13 @@
 /**
  * 株式会社 清蓮 コーポレートサイト 共通JavaScript
- * Apple / LEXUS 準拠デザイン対応
+ * Apple / LEXUS 準拠デザイン対応 / モダンモーション対応 (Spec-04)
  */
 
 (function () {
   "use strict";
+
+  // prefers-reduced-motion のチェック（一元管理）
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ========================================
   // モバイルメニュー制御
@@ -30,184 +33,179 @@
   }
 
   // ========================================
-  // スクロールリビール（IntersectionObserver）
+  // スクロールリビール（IntersectionObserver）とStagger制御
   // ========================================
   function initReveal() {
-    // prefers-reduced-motion 対応
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
     if (prefersReduced) {
-      // アニメーション無効：即座に表示
-      document.querySelectorAll(".reveal").forEach(function (el) {
+      document.querySelectorAll(".reveal, .clip-reveal-container").forEach(function (el) {
         el.classList.add("is-visible");
       });
       return;
     }
 
-    var observer = new IntersectionObserver(
+    // 遅延キューとグループ管理用の変数
+    const staggerGroups = {};
+    const baseDelay = 80;
+
+    const observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+            const el = entry.target;
+            const staggerGroupName = el.getAttribute("data-stagger");
+
+            if (staggerGroupName) {
+              if (!staggerGroups[staggerGroupName]) {
+                staggerGroups[staggerGroupName] = [];
+              }
+              staggerGroups[staggerGroupName].push(el);
+              
+              // グループごとに遅延を計算してクラス付与をスケジュール
+              setTimeout(() => {
+                const groupElements = staggerGroups[staggerGroupName];
+                if (groupElements.length > 0) {
+                  // ソートはDOM上の順序等でも良いが、pushされた順（≒ビューに入った順）で処理
+                  groupElements.forEach((element, index) => {
+                    setTimeout(() => {
+                      element.classList.add("is-visible");
+                      // clip-reveal 対応
+                      if(element.classList.contains("clip-reveal-container")){
+                          element.classList.add("is-visible");
+                      }
+                    }, index * baseDelay);
+                  });
+                  // 処理後リセット
+                  staggerGroups[staggerGroupName] = [];
+                }
+              }, 50); // デバウンス用のわずかな待機時間
+            } else {
+              // Stagger不要の要素
+              el.classList.add("is-visible");
+            }
+            
+            observer.unobserve(el);
           }
         });
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px",
-      },
+        threshold: 0.1,
+        rootMargin: "0px 0px -60px 0px",
+      }
     );
 
-    document.querySelectorAll(".reveal").forEach(function (el) {
+    document.querySelectorAll(".reveal, .clip-reveal-container").forEach(function (el) {
       observer.observe(el);
     });
+
+    // Heroセクション: .hero-content に is-visible を付与して
+    // CSS blur-fade stagger を発動させる (Spec 11 §3-3)
+    setTimeout(() => {
+        const heroContent = document.querySelector(".hero-content.reveal-stagger");
+        if (heroContent) {
+          heroContent.classList.add("is-visible");
+        }
+    }, 100);
   }
 
   // ========================================
   // ヘッダースクロール制御
   // ========================================
   function initHeaderScroll() {
-    var header = document.querySelector(".header");
+    const header = document.querySelector(".header");
     if (!header) return;
-
-    var lastY = 0;
 
     window.addEventListener(
       "scroll",
       function () {
-        var y = window.scrollY;
+        const y = window.scrollY;
         if (y > 100) {
           header.style.boxShadow = "var(--shadow-sm)";
         } else {
           header.style.boxShadow = "none";
         }
-        lastY = y;
       },
-      { passive: true },
+      { passive: true }
     );
   }
 
   // ========================================
-  // フォーム送信処理（ダミー）
+  // Sticky Progress (スクロール進行バー)
   // ========================================
-  function initContactForm() {
-    var contactForm = document.getElementById("contact-form");
+  function initStickyProgress() {
+    if (prefersReduced) return;
 
-    if (contactForm) {
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+    const sections = document.querySelectorAll(".sticky-progress-section");
+    if (sections.length === 0) return;
 
-        var formData = new FormData(contactForm);
-        var name = formData.get("name");
-        var phone = formData.get("phone");
-        var category = formData.get("category");
-        var message = formData.get("message");
-        var agreement = formData.get("agreement");
+    let ticking = false;
 
-        if (!name || !phone || !category || !message || !agreement) {
-          alert("必須項目をすべて入力してください。");
-          return;
-        }
+    function updateProgress() {
+      sections.forEach(function (section) {
+        const barContainer = section.querySelector(".sticky-progress-container");
+        const bar = section.querySelector(".sticky-progress-bar");
+        if (!bar || !barContainer) return;
 
-        var formContainer = document.querySelector(".contact-form-container");
-        if (formContainer) {
-          formContainer.innerHTML =
-            '<div class="form-success" style="text-align: center; padding: var(--sp-xl);">' +
-            '<h2 style="color: var(--brand-primary); margin-bottom: var(--sp-md);">' +
-            "お問い合わせを受け付けました" +
-            "</h2>" +
-            '<p style="margin-bottom: var(--sp-sm);">' +
-            "お問い合わせいただきありがとうございます。<br>" +
-            "内容を確認の上、担当者より折り返しご連絡させていただきます。" +
-            "</p>" +
-            '<p style="margin-bottom: var(--sp-md); color: var(--muted);">' +
-            "お急ぎの場合は、お電話でもお問い合わせいただけます。" +
-            "</p>" +
-            '<p style="font-size: var(--fs-xl); font-weight: 700; color: var(--brand-primary);">' +
-            "TEL: 045-881-9952" +
-            "</p>" +
-            '<p style="margin-top: var(--sp-lg);">' +
-            '<a href="/" class="btn btn-primary">トップページへ戻る</a>' +
-            "</p>" +
-            "</div>";
-        }
+        const rect = section.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
 
-        if (typeof gtag !== "undefined") {
-          gtag("event", "form_submit", {
-            event_category: "contact",
-            event_label: category,
-          });
+        // セクションがビューポート内にあるか
+        if (rect.top <= viewportHeight && rect.bottom >= 0) {
+          // 進行度の計算: 0 (見え始め) から 1 (見え終わり)
+          // 完全に見え始める（画面下端に触れる）〜完全に消える（画面上端を抜ける）
+          const totalDistance = rect.height + viewportHeight;
+          const currentDistance = viewportHeight - rect.top;
+          let progress = currentDistance / totalDistance;
+
+          // 0〜1にクランプ
+          progress = Math.max(0, Math.min(1, progress));
+
+          // バーの幅を更新 (0〜100%)
+          bar.style.width = (progress * 100) + "%";
         }
       });
+      ticking = false;
     }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateProgress);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
   }
 
   // ========================================
-  // スムーススクロール
+  // スムーススクロール（擬似）
   // ========================================
   function initSmoothScroll() {
-    var links = document.querySelectorAll('a[href^="#"]');
+    const links = document.querySelectorAll('a[href^="#"]');
 
     links.forEach(function (link) {
       link.addEventListener("click", function (e) {
-        var href = this.getAttribute("href");
+        const href = this.getAttribute("href");
 
         if (href === "#" || href === "#!") {
           e.preventDefault();
           return;
         }
 
-        var target = document.querySelector(href);
+        const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          var headerEl = document.querySelector(".header");
-          var headerHeight = headerEl ? headerEl.offsetHeight : 0;
-          var targetPosition = target.offsetTop - headerHeight;
+          const headerEl = document.querySelector(".header");
+          const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+          const targetPosition = target.offsetTop - headerHeight;
 
           window.scrollTo({
             top: targetPosition,
-            behavior: "smooth",
+            behavior: prefersReduced ? "auto" : "smooth",
           });
         }
       });
-    });
-  }
-
-  // ========================================
-  // 外部リンククリック計測
-  // ========================================
-  function initOutboundTracking() {
-    var outboundLinks = document.querySelectorAll("a[data-outbound]");
-
-    outboundLinks.forEach(function (link) {
-      link.addEventListener("click", function () {
-        var label = this.getAttribute("data-outbound");
-
-        if (typeof gtag !== "undefined") {
-          gtag("event", "outbound_click", {
-            event_category: "business",
-            event_label: label,
-          });
-        }
-      });
-    });
-  }
-
-  // ========================================
-  // 現在のページをナビゲーションでハイライト
-  // ========================================
-  function highlightCurrentPage() {
-    var currentPath = window.location.pathname;
-    var navLinks = document.querySelectorAll(".header-nav a");
-
-    navLinks.forEach(function (link) {
-      var linkPath = new URL(link.href).pathname;
-      if (currentPath === linkPath) {
-        link.setAttribute("aria-current", "page");
-      }
     });
   }
 
@@ -217,10 +215,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     initMobileMenu();
     initReveal();
+    initStickyProgress();
     initHeaderScroll();
-    initContactForm();
     initSmoothScroll();
-    initOutboundTracking();
-    highlightCurrentPage();
   });
 })();
