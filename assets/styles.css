@@ -202,6 +202,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 80px;
   padding: var(--sp-sm) var(--sp-md);
   max-width: 1200px;
   margin: 0 auto;
