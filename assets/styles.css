@@ -1055,11 +1055,11 @@ a:hover {
   }
 
   .section {
-    padding: var(--sp-xl) 0;
+    padding: 80px 0;
   }
 
   .cta-section {
-    padding: var(--sp-xl) 0;
+    padding: 80px 0;
   }
 }
 
