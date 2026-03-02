@@ -1011,12 +1011,14 @@ a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     flex-direction: column;
     padding: var(--sp-md);
     border-bottom: 1px solid var(--line);
+    z-index: 999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   }
 
   .header-nav.active {
