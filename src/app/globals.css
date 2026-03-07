@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-primary: #2f8c9c;
+    --brand-secondary: #e6f3f5;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --bg-light: #fafafa;
+    --border-color: #e2e8f0;
+  }
+}
+
+/* 既存の styles.css にあった詳細なスタイルはTailwindのユーティリティで置き換えていきます */
