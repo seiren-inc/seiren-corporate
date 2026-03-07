@@ -79,7 +79,9 @@ export default function RootLayout({
           本文へスキップ
         </a>
         <Header />
-        {children}
+        <main className="pt-20 md:pt-24">
+          {children}
+        </main>
         <Footer />
         <Script src="/assets/main.js" strategy="lazyOnload" />
       </body>

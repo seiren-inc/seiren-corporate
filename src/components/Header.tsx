@@ -16,9 +16,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-sm py-4 transition-all duration-300 ${isScrolled ? 'md:py-2' : 'md:py-4'}`}
     >
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
         <div className="flex-shrink-0">
@@ -33,9 +31,7 @@ export default function Header() {
               decoding="async"
             />
             <span
-              className={`font-bold tracking-widest text-lg transition-colors duration-300 ${
-                isScrolled ? 'text-gray-900' : 'text-gray-800'
-              }`}
+              className={`font-bold tracking-widest text-lg text-gray-900 transition-colors duration-300`}
             >
               株式会社 清蓮
             </span>
@@ -54,9 +50,7 @@ export default function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className={`text-sm font-medium tracking-wide transition-colors duration-200 hover:text-brand-primary ${
-                isScrolled ? 'text-gray-700' : 'text-gray-800'
-              }`}
+              className="text-sm font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-brand-primary"
             >
               {item.label}
             </Link>
