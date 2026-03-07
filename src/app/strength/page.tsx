@@ -25,7 +25,7 @@ export default function Strength() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
          <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-wider">清蓮の強み</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">清蓮の強み</h1>
             <p className="text-lg text-brand-secondary font-medium tracking-wide">STRENGTH</p>
          </div>
       </section>
@@ -54,7 +54,7 @@ export default function Strength() {
                  </div>
               </div>
               <div className="relative z-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{item.title}</h2>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{item.title}</h2>
                 <div className="w-12 h-1 bg-brand-primary mb-6"></div>
                 <p className="text-gray-600 leading-relaxed text-lg">
                   {item.desc}
@@ -68,7 +68,7 @@ export default function Strength() {
       {/* CTA Layer */}
       <section className="container mx-auto px-6 lg:px-12 mt-24 max-w-4xl">
          <div className="bg-gray-900 rounded-3xl p-12 text-center shadow-2xl relative overflow-hidden">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 relative z-10">些細なことでも、まずはご相談ください</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 relative z-10">些細なことでも、まずはご相談ください</h2>
             <p className="text-gray-300 mb-8 relative z-10 text-lg">
                「まだ具体的に決まっていない」「何からはじめていいかわからない」という段階から、よき相談相手として伴走いたします。
             </p>

@@ -7,7 +7,7 @@ export default function Contact() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#206774] to-[#2F8C9C] z-0"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-wider">お問い合わせ</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">お問い合わせ</h1>
           <p className="text-lg text-brand-secondary font-medium tracking-wide">CONTACT</p>
         </div>
       </section>
@@ -18,8 +18,8 @@ export default function Contact() {
            {/* Phone Contact */}
            <div className="bg-gray-900 text-white p-10 md:p-12 text-center">
               <p className="text-brand-secondary font-bold text-sm tracking-widest uppercase mb-2">お急ぎの方・お電話でのご相談</p>
-              <h2 className="text-2xl font-bold mb-6">お電話でのお問い合わせ</h2>
-              <a href="tel:045-881-9952" className="inline-flex items-center gap-4 text-4xl md:text-5xl font-bold text-white hover:text-brand-primary transition-colors duration-300 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">お電話でのお問い合わせ</h2>
+              <a href="tel:045-881-9952" className="inline-flex items-center gap-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white hover:text-brand-primary transition-colors duration-300 mb-4">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 045-881-9952
               </a>
@@ -28,7 +28,7 @@ export default function Contact() {
 
            {/* Web Form */}
            <div className="p-10 md:p-14">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-brand-primary pl-4">Webからのお問い合わせ</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 border-l-4 border-brand-primary pl-4">Webからのお問い合わせ</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 来店相談のご予約、サービスに関するご質問、事業者様からのご提案など、以下のフォームよりお気軽にお送りください。<br/>
                 通常、2〜3営業日以内に担当者よりご返信いたします。

@@ -38,7 +38,7 @@ export default function Business() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-wider">事業紹介</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">事業紹介</h1>
           <p className="text-lg text-brand-secondary font-medium tracking-wide">BUSINESS</p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function Business() {
               </div>
               <div className="w-full lg:w-1/2 space-y-6">
                 <p className="text-brand-primary font-bold text-sm tracking-widest uppercase">{`Service 0${idx + 1}`}</p>
-                <h2 className="text-3xl font-bold text-gray-900">{biz.title}</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">{biz.title}</h2>
                 <h3 className="text-xl text-gray-600 font-medium">{biz.subtitle}</h3>
                 <div className="w-12 h-1 bg-brand-primary"></div>
                 <p className="text-gray-600 leading-relaxed text-lg">
@@ -87,7 +87,7 @@ export default function Business() {
       <section className="container mx-auto px-6 lg:px-12 mt-32">
         <div className="bg-white rounded-3xl p-12 text-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden">
            <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-secondary rounded-full opacity-50 blur-3xl"></div>
-           <h2 className="text-2xl font-bold text-gray-900 mb-6 relative z-10">どのサービスが合うか迷われている方へ</h2>
+           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 relative z-10">どのサービスが合うか迷われている方へ</h2>
            <p className="text-gray-600 mb-8 max-w-xl mx-auto relative z-10">
              清蓮の無料カウンセリングでは、状況をお伺いし、最適な選択肢をご提案いたします。無理な勧誘は一切ございません。
            </p>

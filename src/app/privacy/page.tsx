@@ -5,7 +5,7 @@ export default function Privacy() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#206774] to-[#2F8C9C] z-0"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-wider">プライバシーポリシー</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">プライバシーポリシー</h1>
           <p className="text-lg text-brand-secondary font-medium tracking-wide">PRIVACY POLICY</p>
         </div>
       </section>
@@ -19,7 +19,7 @@ export default function Privacy() {
 
            <div className="space-y-10">
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">1</span>
                    個人情報の取得について
                  </h2>
@@ -29,7 +29,7 @@ export default function Privacy() {
               </div>
 
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">2</span>
                    利用目的
                  </h2>
@@ -44,7 +44,7 @@ export default function Privacy() {
               </div>
 
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">3</span>
                    管理体制
                  </h2>
@@ -54,7 +54,7 @@ export default function Privacy() {
               </div>
 
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">4</span>
                    第三者提供について
                  </h2>
@@ -67,7 +67,7 @@ export default function Privacy() {
               </div>
 
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 ml-11">
-                 <h2 className="text-lg font-bold text-gray-900 mb-4">5. お問い合わせ窓口</h2>
+                 <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">5. お問い合わせ窓口</h2>
                  <p className="text-gray-600 leading-relaxed mb-4">本ポリシーに関するお問い合わせは、下記までご連絡ください。</p>
                  <p className="text-gray-800 font-bold leading-relaxed">
                     株式会社 清蓮<br/>

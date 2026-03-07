@@ -88,7 +88,7 @@ export default function Home() {
              <div className="lg:w-1/2 space-y-8">
                <div>
                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">About</p>
-                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">清蓮について</h2>
+                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">清蓮について</h2>
                  <div className="w-12 h-1 bg-brand-primary mt-6"></div>
                </div>
                <div className="prose prose-lg text-gray-600 leading-relaxed font-medium">
@@ -126,7 +126,7 @@ export default function Home() {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
              <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">Business</p>
-             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">事業領域</h2>
+             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">事業領域</h2>
              <p className="text-lg text-gray-600 max-w-2xl mx-auto">終活・供養に関わる複数の専門事業を、国内外のネットワークで支えます。</p>
           </div>
           
@@ -169,7 +169,7 @@ export default function Home() {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-16">
              <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">Strength</p>
-             <h2 className="text-3xl md:text-4xl font-bold mb-6">清蓮が選ばれる理由</h2>
+             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">清蓮が選ばれる理由</h2>
              <p className="text-lg text-gray-300 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
           </div>
           
@@ -195,7 +195,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
             <div className="lg:w-1/3">
                <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">Partners</p>
-               <h2 className="text-3xl font-bold text-gray-900 mb-6">提携・取引先</h2>
+               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">提携・取引先</h2>
                <p className="text-gray-600 mb-8 leading-relaxed">国内外の専門事業者と連携し、お客様に最適なサービスをご提供する体制を構築しています。</p>
                <Link href="/partner" className="inline-flex items-center text-brand-primary font-bold hover:text-gray-900 transition-colors">
                  提携事業者一覧へ
@@ -222,7 +222,7 @@ export default function Home() {
                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
                
                <div className="text-center mb-10">
-                 <h2 className="text-2xl font-bold text-gray-900">会社情報</h2>
+                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">会社情報</h2>
                  <p className="text-gray-500 mt-2">神奈川県横浜市戸塚区にて、完全予約制の来店相談を承っております。</p>
                </div>
                
@@ -258,7 +258,7 @@ export default function Home() {
         
         <div className="container relative z-10 mx-auto px-6 max-w-3xl">
           <p className="text-brand-secondary font-bold tracking-widest text-sm uppercase mb-3">Get in Touch</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">お問い合わせ</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">お問い合わせ</h2>
           <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed">
             会社について、提携・業務相談など、<br className="hidden md:block"/>
             まずはお気軽にお問い合わせください。

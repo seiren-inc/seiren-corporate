@@ -5,7 +5,7 @@ export default function Terms() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-wider">利用規約</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">利用規約</h1>
           <p className="text-lg text-brand-secondary font-medium tracking-wide">TERMS OF SERVICE</p>
         </div>
       </section>
@@ -19,7 +19,7 @@ export default function Terms() {
 
            <div className="space-y-10">
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">1</span>
                    適用範囲
                  </h2>
@@ -29,7 +29,7 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">2</span>
                    禁止事項
                  </h2>
@@ -44,7 +44,7 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">3</span>
                    免責事項
                  </h2>
@@ -57,7 +57,7 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">4</span>
                    知的財産権
                  </h2>
@@ -67,7 +67,7 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
                    <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">5</span>
                    規約の変更
                  </h2>
