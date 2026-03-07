@@ -2,9 +2,37 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
+const navItems = [
+  {
+    label: '事業紹介',
+    en: 'BUSINESS',
+    href: '/business',
+    children: [
+      { label: '海洋散骨', href: '/business' },
+      { label: '遺骨サービス', href: '/business' },
+      { label: 'お墓じまい・改葬', href: '/business' },
+      { label: '終活コンシェルジュ', href: '/business' },
+      { label: '墓地・納骨先検索', href: '/business' },
+      { label: '手元供養品', href: '/business' },
+    ]
+  },
+  { label: '清蓮の強み', en: 'STRENGTH', href: '/strength' },
+  { label: '提携・取引先', en: 'PARTNERS', href: '/partner' },
+  {
+    label: '会社情報',
+    en: 'COMPANY',
+    href: '/company',
+    children: [
+      { label: '会社概要', href: '/company' },
+      { label: 'アクセス・来店', href: '/company' },
+    ]
+  },
+];
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +42,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleAccordion = (label: string) => {
+    setOpenAccordion(openAccordion === label ? null : label);
+  };
+
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-sm py-4 transition-all duration-300 ${isScrolled ? 'md:py-2' : 'md:py-4'}`}
-    >
+    <header className={`fixed top-0 left-0 w-full z-50 bg-white shadow-sm py-4 transition-all duration-300 ${isScrolled ? 'md:py-2' : 'md:py-4'}`}>
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+        {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center gap-3 group">
             <img
@@ -30,9 +61,7 @@ export default function Header() {
               loading="eager"
               decoding="async"
             />
-            <span
-              className={`font-bold tracking-widest text-lg text-gray-900 transition-colors duration-300`}
-            >
+            <span className="font-bold tracking-widest text-lg text-gray-900 transition-colors duration-300">
               株式会社 清蓮
             </span>
           </Link>
@@ -40,26 +69,41 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          {[
-            { label: 'TOP', href: '/' },
-            { label: '事業紹介', href: '/business' },
-            { label: '強み', href: '/strength' },
-            { label: '提携', href: '/partner' },
-            { label: '会社情報', href: '/company' },
-          ].map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-sm font-medium tracking-wide text-gray-800 transition-colors duration-200 hover:text-brand-primary"
-            >
-              {item.label}
-            </Link>
+          {navItems.map((item) => (
+            <div key={item.label} className="relative group/nav py-2">
+              <Link href={item.href} className="flex flex-col items-center justify-center transition-colors duration-200">
+                <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase mb-0.5 group-hover/nav:text-brand-primary transition-colors">{item.en}</span>
+                <span className="text-sm font-bold text-gray-800 group-hover/nav:text-brand-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-primary after:scale-x-0 after:origin-right after:transition-transform after:duration-300 group-hover/nav:after:scale-x-100 group-hover/nav:after:origin-left pb-1">
+                  {item.label}
+                </span>
+              </Link>
+              
+              {/* Dropdown for Desktop */}
+              {item.children && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 translate-y-2 group-hover/nav:translate-y-0 z-50">
+                  <div className="bg-white border border-gray-100 shadow-xl rounded-xl py-3 w-56 flex flex-col relative before:absolute before:-top-3 before:left-1/2 before:-translate-x-1/2 before:border-[10px] before:border-transparent before:border-b-white">
+                    {item.children.map((child) => (
+                      <Link 
+                        key={child.label} 
+                        href={child.href} 
+                        className="px-6 py-3 text-sm font-medium text-gray-700 hover:text-brand-primary hover:bg-brand-primary/5 transition-colors border-b last:border-0 border-gray-50"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
+
+          {/* Contact Button */}
           <Link
             href="/contact"
-            className="ml-4 bg-brand-primary text-white px-6 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#257582] hover:shadow-lg hover:-translate-y-0.5"
+            className="ml-4 bg-brand-primary text-white px-6 py-2 rounded-full text-sm font-bold tracking-wide transition-all duration-300 hover:bg-[#257582] hover:shadow-lg hover:-translate-y-0.5 flex flex-col items-center justify-center"
           >
-            お問い合わせ
+            <span className="text-[10px] font-bold tracking-widest uppercase opacity-80 mb-0.5">CONTACT</span>
+            <span>お問い合わせ</span>
           </Link>
         </nav>
 
@@ -82,31 +126,61 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
-          <nav className="flex flex-col px-6 py-4 space-y-4">
-            {[
-              { label: 'TOP', href: '/' },
-              { label: '事業紹介', href: '/business' },
-              { label: '強み', href: '/strength' },
-              { label: '提携', href: '/partner' },
-              { label: '会社情報', href: '/company' },
-            ].map((item) => (
-               <Link
-                 key={item.label}
-                 href={item.href}
-                 className="text-base font-medium text-gray-800 py-2 border-b border-gray-50"
-                 onClick={() => setIsMenuOpen(false)}
-               >
-                 {item.label}
-               </Link>
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 max-h-[85vh] overflow-y-auto">
+          <nav className="flex flex-col px-6 py-6 pb-12 space-y-2">
+            {navItems.map((item) => (
+              <div key={item.label} className="border-b border-gray-50 flex flex-col">
+                <div className="flex justify-between items-center py-3">
+                  <Link 
+                    href={item.href} 
+                    className="flex-1 flex flex-col group/mob"
+                    onClick={() => !item.children && setIsMenuOpen(false)}
+                  >
+                    <span className="text-[10px] font-bold text-brand-primary tracking-widest uppercase mb-1">{item.en}</span>
+                    <span className="text-base font-bold text-gray-900 group-hover/mob:text-brand-primary">{item.label}</span>
+                  </Link>
+                  {item.children && (
+                    <button 
+                      onClick={() => toggleAccordion(item.label)} 
+                      className="p-3 -mr-3 text-gray-400 hover:text-brand-primary"
+                    >
+                      <svg className={`w-5 h-5 transition-transform duration-300 ${openAccordion === item.label ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                
+                {/* Mobile Accordion */}
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ${openAccordion === item.label ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}
+                >
+                  <div className="flex flex-col pl-4 py-2 space-y-1 bg-gray-50 rounded-lg border-l-2 border-brand-primary/20">
+                    {item.children?.map((child) => (
+                      <Link 
+                        key={child.label} 
+                        href={child.href} 
+                        className="px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-brand-primary hover:bg-white rounded-md transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
             ))}
-            <Link
-              href="/contact"
-              className="mt-4 bg-brand-primary text-white text-center px-6 py-4 rounded-lg font-bold shadow-md"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              お問い合わせ
-            </Link>
+            
+            <div className="pt-8">
+              <Link
+                href="/contact"
+                className="flex flex-col items-center justify-center w-full bg-brand-primary text-white text-center px-6 py-4 rounded-xl font-bold shadow-md hover:bg-[#206774] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <span className="text-[10px] font-bold tracking-widest uppercase opacity-80 mb-1">CONTACT</span>
+                <span>お問い合わせ</span>
+              </Link>
+            </div>
           </nav>
         </div>
       )}
