@@ -215,40 +215,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Company Minimal */}
-      <section className="py-24 bg-white border-t border-gray-100">
-         <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto rounded-3xl bg-gray-50 p-8 md:p-12 border border-gray-100 shadow-sm relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-               
-               <div className="text-center mb-10">
-                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">会社情報</h2>
-                 <p className="text-gray-500 mt-2">神奈川県横浜市戸塚区にて、完全予約制の来店相談を承っております。</p>
-               </div>
-               
-               <dl className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                 <div className="border-b border-gray-200 pb-4">
-                   <dt className="text-sm text-gray-500 mb-1">商号</dt>
-                   <dd className="font-bold text-gray-900">株式会社 清蓮</dd>
-                 </div>
-                 <div className="border-b border-gray-200 pb-4">
-                   <dt className="text-sm text-gray-500 mb-1">代表取締役</dt>
-                   <dd className="font-bold text-gray-900">眞如 りえ</dd>
-                 </div>
-                 <div className="border-b border-gray-200 pb-4 md:col-span-2">
-                   <dt className="text-sm text-gray-500 mb-1">所在地</dt>
-                   <dd className="font-bold text-gray-900">〒244-0003 神奈川県横浜市戸塚区戸塚町4170 高橋ビル1F</dd>
-                 </div>
-               </dl>
-               
-               <div className="mt-10 text-center">
-                 <Link href="/company" className="inline-block px-8 py-3 bg-white border-2 border-brand-primary text-brand-primary font-bold rounded-full hover:bg-brand-primary hover:text-white transition-colors duration-300">
-                   会社概要を詳しく見る
-                 </Link>
-               </div>
-            </div>
-         </div>
-      </section>
 
       {/* 8. Final CTA */}
       <section className="py-24 bg-brand-primary relative overflow-hidden text-center text-white">
