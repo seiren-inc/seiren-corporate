@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-900">
+      <section className="hero-grain relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-900">
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/img/hero-sea.jpg"
@@ -18,58 +17,58 @@ export default function Home() {
         </div>
         
         <div className="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col items-center text-center mt-16">
-          <p className="text-white/80 font-medium tracking-[0.2em] mb-4 text-sm md:text-md uppercase reveal-animate">
-            <span className="inline-block w-2 h-2 rounded-full bg-brand-primary mr-3 animate-pulse"></span>
+          <p className="reveal text-white/80 font-medium tracking-[0.2em] mb-4 text-sm md:text-md uppercase">
+            <span className="inline-block w-2 h-2 rounded-full bg-brand-primary mr-3"></span>
             株式会社 清蓮
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white leading-tight mb-8 reveal-animate tracking-widest drop-shadow-md" style={{ animationDelay: '0.1s' }}>
+          <h1 className="reveal text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white leading-tight mb-8 tracking-widest drop-shadow-md" style={{ transitionDelay: '0.08s' }}>
             <span className="block mb-2">人生の節目に、</span>
             <span className="block">確かな判断と実務を。</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium reveal-animate" style={{ animationDelay: '0.2s' }}>
+          <p className="reveal text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium" style={{ transitionDelay: '0.16s' }}>
             海洋散骨・遺骨サービス・終活支援など、<br className="hidden md:block" />
             人生の大切な節目を支えるハブ企業です。
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md reveal-animate" style={{ animationDelay: '0.3s' }}>
-             <Link href="/business" className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-none font-bold text-lg hover:bg-brand-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1">
+          <div className="reveal flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md" style={{ transitionDelay: '0.24s' }}>
+             <Link href="/business" className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-none font-bold text-lg hover:bg-brand-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
               事業紹介を見る
             </Link>
-            <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-none font-bold text-lg hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1">
+            <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-none font-bold text-lg hover:bg-gray-50 transition-all duration-300 hover:-translate-y-0.5">
               お問い合わせ
             </Link>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce text-white/70">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/60" aria-hidden="true">
           <span className="text-xs tracking-widest uppercase mb-2">Scroll</span>
-          <div className="w-[1px] h-12 bg-white/30 relative overflow-hidden">
-            <div className="w-full h-1/2 bg-white absolute top-0 animate-scroll-down"></div>
+          <div className="w-[1px] h-10 bg-white/20 overflow-hidden relative">
+            <div className="w-full bg-white/80 absolute top-0 h-1/2" style={{ animation: 'scrollLine 1.6s ease-in-out infinite' }}></div>
           </div>
         </div>
       </section>
 
       {/* 2. Trust Base */}
-      <section className="bg-white py-12 border-t border-b border-gray-100 relative z-20">
+      <section className="bg-white py-10 border-t border-b border-gray-100 relative z-20">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100 text-center">
             <div className="flex flex-col items-center justify-center p-4">
-              <span className="bg-brand-secondary text-brand-primary px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-3">完全予約制</span>
-              <p className="text-gray-600 font-medium">心を込めて個別に対応いたします。</p>
+              <span className="border border-gray-900 text-gray-900 px-4 py-1.5 text-sm font-bold tracking-wider mb-3">完全予約制</span>
+              <p className="text-gray-600 font-medium text-sm">心を込めて個別に対応いたします。</p>
             </div>
             <div className="flex flex-col items-center justify-center p-4">
-              <span className="text-gray-500 text-sm font-semibold tracking-wider mb-2">お電話でのご相談</span>
+              <span className="text-gray-500 text-xs font-semibold tracking-widest mb-2 uppercase">お電話でのご相談</span>
               <a href="tel:045-881-9952" className="text-3xl font-bold text-gray-900 hover:text-brand-primary transition-colors duration-200">
                 045-881-9952
               </a>
               <span className="text-gray-400 text-xs mt-1">受付時間 毎日 9:00〜18:00</span>
             </div>
             <div className="flex flex-col items-center justify-center p-4">
-               <span className="text-gray-500 text-sm font-semibold tracking-wider mb-2">来店相談アクセス</span>
+               <span className="text-gray-500 text-xs font-semibold tracking-widest mb-2 uppercase">来店相談アクセス</span>
                <a 
                  href="https://maps.google.com/?q=神奈川県横浜市戸塚区戸塚町4170+高橋ビル1F" 
                  target="_blank" rel="noopener noreferrer" 
-                 className="inline-flex items-center gap-2 group text-brand-primary font-bold hover:text-gray-900 transition-colors"
+                 className="inline-flex items-center gap-2 group text-brand-primary font-bold hover:text-gray-900 transition-colors text-sm"
                >
                  <span>Google Mapを見る</span>
                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -86,12 +85,12 @@ export default function Home() {
         <div className="container mx-auto px-6 lg:px-12">
            <div className="flex flex-col lg:flex-row gap-16 items-center">
              <div className="lg:w-1/2 space-y-8">
-               <div>
-                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">About</p>
+               <div className="reveal">
+                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">About</p>
                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 leading-tight tracking-wider">清蓮について</h2>
-                 <div className="w-12 h-1 bg-gray-900 mt-6"></div>
+                 <div className="w-10 h-[1px] bg-gray-900 mt-6"></div>
                </div>
-               <div className="prose prose-lg text-gray-600 leading-relaxed font-medium">
+               <div className="reveal prose prose-lg text-gray-600 leading-relaxed" style={{ transitionDelay: '0.08s' }}>
                  <p>
                    株式会社 清蓮は、人生の節目における意思決定と実務をサポートする会社です。
                    海洋散骨、遺骨ケア、お墓じまい、終活コンシェルジュなど、複数の事業を運営・企画し、国内外の専門事業者と連携しながら、お客様一人ひとりの状況に合わせた選択肢をご提案します。
@@ -100,21 +99,20 @@ export default function Home() {
                    私たちは「正解の押し付け」をしません。<br/>
                    ご本人・ご家族の想いや事情を丁寧にお聞きし、判断に必要な情報をお伝えし、実務まで責任を持って対応します。
                  </p>
-                 <p className="mt-4 font-bold text-gray-800 text-xl border-l-4 border-brand-primary pl-4">
+                 <p className="mt-4 font-bold text-gray-900 border-l-2 border-brand-accent pl-4">
                    相談で終わらせず、実行まで伴走する。<br/>それが清蓮の役割です。
                  </p>
                </div>
              </div>
              <div className="lg:w-1/2 w-full">
-               <div className="relative overflow-hidden group border border-gray-200 p-2 bg-white">
-                 <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10"></div>
+               <div className="reveal clip-reveal relative overflow-hidden group border border-gray-200 p-2 bg-white" style={{ transitionDelay: '0.1s' }}>
+                 <div className="absolute inset-0 bg-gray-900/8 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10"></div>
                  <img 
                    src="/assets/img/about-office.jpg" 
                    alt="清蓮の相談スペースの写真" 
                    className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
                    loading="lazy"
                  />
-                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-dots-pattern opacity-50 z-0"></div>
                </div>
              </div>
            </div>
@@ -124,13 +122,13 @@ export default function Home() {
       {/* 4. Business Section */}
       <section className="py-24 bg-white relative">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-             <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">Business</p>
+          <div className="reveal text-center mb-16">
+             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">Business</p>
              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 mb-6 tracking-wider">事業領域</h2>
-             <p className="text-lg text-gray-600 max-w-2xl mx-auto">終活・供養に関わる複数の専門事業を、国内外のネットワークで支えます。</p>
+             <p className="text-base text-gray-500 max-w-2xl mx-auto">終活・供養に関わる複数の専門事業を、国内外のネットワークで支えます。</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "海洋散骨", desc: "国内・海外を含め、安心して海洋散骨を行うための専門サービスを提供しています。" },
               { title: "遺骨サービス", desc: "洗骨・粉骨など、遺骨の状態やご事情に合わせた専門的なケア・加工を行います。" },
@@ -139,24 +137,22 @@ export default function Home() {
               { title: "墓地・納骨先検索", desc: "墓地・納骨先を探すための検索プラットフォームを開発・運営しています。" },
               { title: "手元供養品", desc: "日々の暮らしの中で手元に祈れる供養品を企画・販売しています。" }
             ].map((biz, idx) => (
-               <div key={idx} className="group relative bg-white border border-gray-200 p-8 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                 <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150"></div>
-                 <div className="relative z-10">
-                   <h3 className="text-xl font-serif font-bold text-gray-900 mb-4 tracking-wide">{biz.title}</h3>
-                   <p className="text-gray-600 leading-relaxed mb-6">{biz.desc}</p>
-                   <Link href="/business" className="inline-flex items-center text-brand-primary font-bold group-hover:text-[#206774] transition-colors">
-                     詳しく見る
-                     <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                     </svg>
-                   </Link>
-                 </div>
+               <div key={idx} data-stagger="business" className="reveal group relative bg-white border border-gray-200 p-8 hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                 <div className="absolute top-0 left-0 w-0 h-[2px] bg-brand-primary group-hover:w-full transition-all duration-500 ease-out"></div>
+                 <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 tracking-wide">{biz.title}</h3>
+                 <p className="text-gray-500 leading-relaxed mb-6 text-sm">{biz.desc}</p>
+                 <Link href="/business" className="inline-flex items-center text-sm text-brand-primary font-bold group-hover:text-gray-900 transition-colors">
+                   詳しく見る
+                   <svg className="w-4 h-4 ml-1.5 transform group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                   </svg>
+                 </Link>
                </div>
             ))}
           </div>
           
-          <div className="mt-16 text-center">
-            <Link href="/business" className="inline-block px-10 py-4 border border-gray-900 text-gray-900 rounded-none font-bold tracking-widest hover:bg-gray-900 hover:text-white transition-colors duration-300">
+          <div className="reveal mt-14 text-center" style={{ transitionDelay: '0.1s' }}>
+            <Link href="/business" className="inline-block px-10 py-4 border border-gray-900 text-gray-900 rounded-none font-bold tracking-widest hover:bg-gray-900 hover:text-white transition-colors duration-300 text-sm">
               すべての事業を見る
             </Link>
           </div>
@@ -167,22 +163,22 @@ export default function Home() {
       <section className="py-24 bg-surface-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-5"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
-          <div className="text-center mb-16">
-             <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">Strength</p>
+          <div className="reveal text-center mb-16">
+             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">Strength</p>
              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 tracking-wider">清蓮が選ばれる理由</h2>
-             <p className="text-lg text-gray-400 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
+             <p className="text-sm text-gray-400 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { id: "01", title: "実務対応力", desc: "相談で終わらせず、手続き・段取り・実務まで一貫して対応。判断と実務を分けない姿勢が、負担を最小化します。" },
               { id: "02", title: "提携ネットワーク", desc: "国内寺院・石材店・船舶事業者など、国内外の専門事業者と強固な連携体制を構築しています。" },
               { id: "03", title: "来店型相談", desc: "完全予約制の来店相談により、個別事情を丁寧にお聞きします。最適な選択肢を一緒に考えます。" }
-            ].map(item => (
-              <div key={item.id} className="relative p-8 border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-left flex flex-col items-start">
-                <span className="text-4xl font-serif font-bold text-white/20 mb-4 tracking-widest">{item.id}</span>
-                <h3 className="text-xl font-bold mb-4 text-white tracking-wide border-b border-brand-accent pb-2 inline-block">{item.title}</h3>
-                <p className="text-gray-300 leading-relaxed text-sm md:text-base mt-2">{item.desc}</p>
+            ].map((item, idx) => (
+              <div key={item.id} data-stagger="strength" className="reveal relative p-8 border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 text-left flex flex-col items-start" style={{ transitionDelay: `${idx * 0.08}s` }}>
+                <span className="text-5xl font-serif font-bold text-white/15 mb-5 block tracking-widest">{item.id}</span>
+                <h3 className="text-lg font-bold mb-3 text-white tracking-wide border-b border-brand-accent pb-2 self-start">{item.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-sm mt-2">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -193,20 +189,20 @@ export default function Home() {
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
-            <div className="lg:w-1/3">
-               <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">Partners</p>
-               <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-gray-900 mb-6 tracking-wider">提携・取引先</h2>
-               <p className="text-gray-600 mb-8 leading-relaxed">国内外の専門事業者と連携し、お客様に最適なサービスをご提供する体制を構築しています。</p>
-               <Link href="/partner" className="inline-flex items-center text-brand-primary font-bold hover:text-gray-900 transition-colors">
+            <div className="lg:w-1/3 reveal">
+               <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">Partners</p>
+               <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-gray-900 mb-5 tracking-wider">提携・取引先</h2>
+               <p className="text-gray-500 mb-8 leading-relaxed text-sm">国内外の専門事業者と連携し、お客様に最適なサービスをご提供する体制を構築しています。</p>
+               <Link href="/partner" className="inline-flex items-center text-brand-primary font-bold hover:text-gray-900 transition-colors text-sm">
                  提携事業者一覧へ
-                 <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <svg className="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                  </svg>
                </Link>
             </div>
-            <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-3">
                {["寺院 / 納骨堂", "石材店", "船舶事業者", "遺骨関連専門"].map((p, i) => (
-                 <div key={i} className="bg-white border text-center border-gray-200 p-6 shadow-sm flex items-center justify-center font-bold text-gray-700 hover:bg-gray-50 transition-colors">
+                 <div key={i} data-stagger="partners" className="reveal bg-white border text-center border-gray-200 p-5 flex items-center justify-center font-bold text-gray-700 hover:border-gray-400 hover:-translate-y-0.5 transition-all duration-200 text-sm">
                    {p}
                  </div>
                ))}
@@ -215,23 +211,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 7. Company Info Minimal */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 lg:px-12 max-w-3xl">
+          <div className="reveal mb-10">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">Company</p>
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 tracking-wider">会社情報</h2>
+          </div>
+          <dl className="reveal divide-y divide-gray-100" style={{ transitionDelay: '0.08s' }}>
+            {[
+              { label: "商号",     value: "株式会社 清蓮" },
+              { label: "代表取締役", value: "眞如 りえ" },
+              { label: "所在地",   value: "〒244-0003 神奈川県横浜市戸塚区戸塚町4170 高橋ビル1F" },
+              { label: "電話番号", value: "045-881-9952" },
+              { label: "設立",     value: "2026年（令和8年）" },
+            ].map(({ label, value }) => (
+              <div key={label} className="flex flex-col sm:flex-row py-4 gap-2 sm:gap-0">
+                <dt className="w-full sm:w-1/4 text-xs text-gray-400 font-bold tracking-widest uppercase flex-shrink-0 pt-0.5">{label}</dt>
+                <dd className="text-gray-800 font-medium text-sm sm:text-base">{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="reveal mt-8" style={{ transitionDelay: '0.12s' }}>
+            <Link href="/company" className="text-sm text-brand-primary font-bold hover:text-gray-900 transition-colors inline-flex items-center gap-1.5">
+              詳細な会社情報を見る
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* 8. Final CTA */}
       <section className="py-24 bg-surface-dark relative overflow-hidden text-center text-white border-t border-gray-800">
-        
         <div className="container relative z-10 mx-auto px-6 max-w-3xl">
-          <p className="text-brand-accent font-bold tracking-widest text-sm uppercase mb-3">Get in Touch</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-wider">お問い合わせ</h2>
-          <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed">
+          <p className="reveal text-xs text-brand-accent font-bold tracking-[0.25em] uppercase mb-3">Get in Touch</p>
+          <h2 className="reveal text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-wider" style={{ transitionDelay: '0.08s' }}>ご相談をご希望の方へ</h2>
+          <p className="reveal text-base text-gray-400 mb-12 leading-relaxed" style={{ transitionDelay: '0.12s' }}>
             会社について、提携・業務相談など、<br className="hidden md:block"/>
             まずはお気軽にお問い合わせください。
           </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <Link href="/contact" className="w-full sm:w-auto px-10 py-5 bg-white text-gray-900 font-bold text-lg hover:bg-gray-200 hover:-translate-y-1 transition-all duration-300">
+          <div className="reveal flex flex-col sm:flex-row justify-center items-center gap-4" style={{ transitionDelay: '0.16s' }}>
+            <Link href="/contact" className="w-full sm:w-auto px-10 py-4 bg-white text-gray-900 font-bold text-base hover:bg-gray-200 hover:-translate-y-0.5 transition-all duration-300">
               Webから問い合わせる
             </Link>
-            <a href="tel:045-881-9952" className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white text-white font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="tel:045-881-9952" className="w-full sm:w-auto px-10 py-4 bg-transparent border border-white/40 text-white font-bold text-base hover:bg-white/10 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               045-881-9952

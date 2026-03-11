@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import RevealObserver from "@/components/RevealObserver";
 
 // グローバルCSSの読み込み
 import "./globals.css";
@@ -79,6 +80,7 @@ export default function RootLayout({
           本文へスキップ
         </a>
         <Header />
+        <RevealObserver />
         <main className="pt-20 md:pt-24">
           {children}
         </main>
