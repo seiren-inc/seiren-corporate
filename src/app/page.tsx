@@ -22,19 +22,19 @@ export default function Home() {
             <span className="inline-block w-2 h-2 rounded-full bg-brand-primary mr-3 animate-pulse"></span>
             株式会社 清蓮
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 reveal-animate" style={{ animationDelay: '0.1s' }}>
-            <span className="block mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">人生の節目に、</span>
-            <span className="block text-white drop-shadow-lg">確かな判断と実務を。</span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white leading-tight mb-8 reveal-animate tracking-widest drop-shadow-md" style={{ animationDelay: '0.1s' }}>
+            <span className="block mb-2">人生の節目に、</span>
+            <span className="block">確かな判断と実務を。</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium reveal-animate" style={{ animationDelay: '0.2s' }}>
             海洋散骨・遺骨サービス・終活支援など、<br className="hidden md:block" />
             人生の大切な節目を支えるハブ企業です。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md reveal-animate" style={{ animationDelay: '0.3s' }}>
-             <Link href="/business" className="w-full sm:w-auto px-8 py-4 bg-brand-primary text-white rounded-full font-bold text-lg hover:bg-[#206774] transition-all duration-300 shadow-[0_0_20px_rgba(47,140,156,0.4)] hover:shadow-[0_0_30px_rgba(47,140,156,0.6)] hover:-translate-y-1">
+             <Link href="/business" className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-none font-bold text-lg hover:bg-brand-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1">
               事業紹介を見る
             </Link>
-            <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-full font-bold text-lg hover:bg-white/20 transition-all duration-300 hover:-translate-y-1">
+            <Link href="/contact" className="w-full sm:w-auto px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-none font-bold text-lg hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1">
               お問い合わせ
             </Link>
           </div>
@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* 2. Trust Base */}
-      <section className="bg-white py-12 border-b border-gray-100 relative -mt-8 z-20 rounded-t-[3rem] shadow-sm">
+      <section className="bg-white py-12 border-t border-b border-gray-100 relative z-20">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100 text-center">
             <div className="flex flex-col items-center justify-center p-4">
@@ -87,9 +87,9 @@ export default function Home() {
            <div className="flex flex-col lg:flex-row gap-16 items-center">
              <div className="lg:w-1/2 space-y-8">
                <div>
-                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">About</p>
-                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">清蓮について</h2>
-                 <div className="w-12 h-1 bg-brand-primary mt-6"></div>
+                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">About</p>
+                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 leading-tight tracking-wider">清蓮について</h2>
+                 <div className="w-12 h-1 bg-gray-900 mt-6"></div>
                </div>
                <div className="prose prose-lg text-gray-600 leading-relaxed font-medium">
                  <p>
@@ -106,8 +106,8 @@ export default function Home() {
                </div>
              </div>
              <div className="lg:w-1/2 w-full">
-               <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-                 <div className="absolute inset-0 bg-brand-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10"></div>
+               <div className="relative overflow-hidden group border border-gray-200 p-2 bg-white">
+                 <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10"></div>
                  <img 
                    src="/assets/img/about-office.jpg" 
                    alt="清蓮の相談スペースの写真" 
@@ -125,8 +125,8 @@ export default function Home() {
       <section className="py-24 bg-white relative">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-             <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">Business</p>
-             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">事業領域</h2>
+             <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">Business</p>
+             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 mb-6 tracking-wider">事業領域</h2>
              <p className="text-lg text-gray-600 max-w-2xl mx-auto">終活・供養に関わる複数の専門事業を、国内外のネットワークで支えます。</p>
           </div>
           
@@ -139,10 +139,10 @@ export default function Home() {
               { title: "墓地・納骨先検索", desc: "墓地・納骨先を探すための検索プラットフォームを開発・運営しています。" },
               { title: "手元供養品", desc: "日々の暮らしの中で手元に祈れる供養品を企画・販売しています。" }
             ].map((biz, idx) => (
-               <div key={idx} className="group relative bg-gray-50 border border-gray-100 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-secondary rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150"></div>
+               <div key={idx} className="group relative bg-white border border-gray-200 p-8 hover:bg-gray-50 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                 <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-150"></div>
                  <div className="relative z-10">
-                   <h3 className="text-xl font-bold text-gray-900 mb-4">{biz.title}</h3>
+                   <h3 className="text-xl font-serif font-bold text-gray-900 mb-4 tracking-wide">{biz.title}</h3>
                    <p className="text-gray-600 leading-relaxed mb-6">{biz.desc}</p>
                    <Link href="/business" className="inline-flex items-center text-brand-primary font-bold group-hover:text-[#206774] transition-colors">
                      詳しく見る
@@ -156,7 +156,7 @@ export default function Home() {
           </div>
           
           <div className="mt-16 text-center">
-            <Link href="/business" className="inline-block px-8 py-4 bg-gray-900 text-white rounded-full font-bold hover:bg-brand-primary transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1">
+            <Link href="/business" className="inline-block px-10 py-4 border border-gray-900 text-gray-900 rounded-none font-bold tracking-widest hover:bg-gray-900 hover:text-white transition-colors duration-300">
               すべての事業を見る
             </Link>
           </div>
@@ -164,13 +164,13 @@ export default function Home() {
       </section>
 
       {/* 5. Strength Section */}
-      <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
+      <section className="py-24 bg-surface-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-5"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center mb-16">
-             <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">Strength</p>
-             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">清蓮が選ばれる理由</h2>
-             <p className="text-lg text-gray-300 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
+             <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">Strength</p>
+             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 tracking-wider">清蓮が選ばれる理由</h2>
+             <p className="text-lg text-gray-400 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
@@ -179,10 +179,10 @@ export default function Home() {
               { id: "02", title: "提携ネットワーク", desc: "国内寺院・石材店・船舶事業者など、国内外の専門事業者と強固な連携体制を構築しています。" },
               { id: "03", title: "来店型相談", desc: "完全予約制の来店相談により、個別事情を丁寧にお聞きします。最適な選択肢を一緒に考えます。" }
             ].map(item => (
-              <div key={item.id} className="relative p-8 rounded-2xl border border-gray-800 bg-gray-800/50 backdrop-blur-sm hover:bg-gray-800 hover:border-brand-primary/50 transition-all duration-300">
-                <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-5xl font-bold text-gray-700/50">{item.id}</span>
-                <h3 className="text-xl font-bold mt-4 mb-4 text-brand-secondary">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm md:text-base">{item.desc}</p>
+              <div key={item.id} className="relative p-8 border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 text-left flex flex-col items-start">
+                <span className="text-4xl font-serif font-bold text-white/20 mb-4 tracking-widest">{item.id}</span>
+                <h3 className="text-xl font-bold mb-4 text-white tracking-wide border-b border-brand-accent pb-2 inline-block">{item.title}</h3>
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base mt-2">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -194,8 +194,8 @@ export default function Home() {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
             <div className="lg:w-1/3">
-               <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-primary mb-2">Partners</p>
-               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">提携・取引先</h2>
+               <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-accent mb-2">Partners</p>
+               <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-gray-900 mb-6 tracking-wider">提携・取引先</h2>
                <p className="text-gray-600 mb-8 leading-relaxed">国内外の専門事業者と連携し、お客様に最適なサービスをご提供する体制を構築しています。</p>
                <Link href="/partner" className="inline-flex items-center text-brand-primary font-bold hover:text-gray-900 transition-colors">
                  提携事業者一覧へ
@@ -206,7 +206,7 @@ export default function Home() {
             </div>
             <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4">
                {["寺院 / 納骨堂", "石材店", "船舶事業者", "遺骨関連専門"].map((p, i) => (
-                 <div key={i} className="bg-white border text-center border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center font-bold text-gray-700">
+                 <div key={i} className="bg-white border text-center border-gray-200 p-6 shadow-sm flex items-center justify-center font-bold text-gray-700 hover:bg-gray-50 transition-colors">
                    {p}
                  </div>
                ))}
@@ -217,23 +217,20 @@ export default function Home() {
 
 
       {/* 8. Final CTA */}
-      <section className="py-24 bg-brand-primary relative overflow-hidden text-center text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#206774] to-[#2F8C9C] z-0"></div>
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 mix-blend-overlay"></div>
-        <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-white opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 mix-blend-overlay"></div>
+      <section className="py-24 bg-surface-dark relative overflow-hidden text-center text-white border-t border-gray-800">
         
         <div className="container relative z-10 mx-auto px-6 max-w-3xl">
-          <p className="text-brand-secondary font-bold tracking-widest text-sm uppercase mb-3">Get in Touch</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">お問い合わせ</h2>
-          <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed">
+          <p className="text-brand-accent font-bold tracking-widest text-sm uppercase mb-3">Get in Touch</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-wider">お問い合わせ</h2>
+          <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed">
             会社について、提携・業務相談など、<br className="hidden md:block"/>
             まずはお気軽にお問い合わせください。
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <Link href="/contact" className="w-full sm:w-auto px-10 py-5 bg-white text-brand-primary rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-xl">
+            <Link href="/contact" className="w-full sm:w-auto px-10 py-5 bg-white text-gray-900 font-bold text-lg hover:bg-gray-200 hover:-translate-y-1 transition-all duration-300">
               Webから問い合わせる
             </Link>
-            <a href="tel:045-881-9952" className="w-full sm:w-auto px-10 py-5 bg-transparent border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+            <a href="tel:045-881-9952" className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white text-white font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>

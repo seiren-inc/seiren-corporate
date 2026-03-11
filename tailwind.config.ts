@@ -12,10 +12,16 @@ const config: Config = {
         brand: {
           primary: "var(--brand-primary)",
           secondary: "var(--brand-secondary)",
+          accent: "#8B1B1B", // 深い赤（クリムゾンレッド系のアクセント）
         },
         surface: {
           light: "var(--bg-light)",
+          dark: "#1A1A1D", // 高級感のある重厚な黒/ダークグレー
         },
+      },
+      fontFamily: {
+        sans: ['"Noto Sans JP"', 'sans-serif'],
+        serif: ['"Noto Serif JP"', 'serif'],
       },
     },
   },
