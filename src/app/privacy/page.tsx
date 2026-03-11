@@ -5,22 +5,22 @@ export default function Privacy() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#206774] to-[#2F8C9C] z-0"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">プライバシーポリシー</h1>
-          <p className="text-lg text-brand-secondary font-medium tracking-wide">PRIVACY POLICY</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 tracking-widest drop-shadow-md">プライバシーポリシー</h1>
+          <p className="text-lg text-brand-secondary font-medium tracking-[0.3em]">PRIVACY POLICY</p>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="container mx-auto px-6 lg:px-12 mt-16 max-w-4xl">
-        <div className="bg-white rounded-3xl p-8 md:p-14 shadow-sm border border-gray-100">
+        <div className="bg-white border border-gray-200 p-8 md:p-14 shadow-sm">
            <p className="text-gray-700 leading-relaxed mb-10 text-lg">
              株式会社 清蓮（以下「当社」）は、お客様の個人情報の適切な取り扱いと保護を重要な責務と考え、以下のとおりプライバシーポリシーを定め、これを遵守します。
            </p>
 
            <div className="space-y-10">
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">1</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">1</span>
                    個人情報の取得について
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11">
@@ -29,8 +29,8 @@ export default function Privacy() {
               </div>
 
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">2</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">2</span>
                    利用目的
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11 mb-2">当社は、取得した個人情報を以下の目的で利用します。</p>
@@ -44,8 +44,8 @@ export default function Privacy() {
               </div>
 
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">3</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">3</span>
                    管理体制
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11">
@@ -54,8 +54,8 @@ export default function Privacy() {
               </div>
 
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">4</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">4</span>
                    第三者提供について
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11 mb-2">当社は、以下の場合を除き、お客様の個人情報を第三者に提供することはありません。</p>
@@ -66,8 +66,8 @@ export default function Privacy() {
                  </ul>
               </div>
 
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 ml-11">
-                 <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-4">5. お問い合わせ窓口</h2>
+              <div className="bg-gray-50 border border-gray-200 p-8 ml-11">
+                 <h2 className="text-lg md:text-xl font-serif font-bold text-gray-900 mb-4 tracking-wide">5. お問い合わせ窓口</h2>
                  <p className="text-gray-600 leading-relaxed mb-4">本ポリシーに関するお問い合わせは、下記までご連絡ください。</p>
                  <p className="text-gray-800 font-bold leading-relaxed">
                     株式会社 清蓮<br/>

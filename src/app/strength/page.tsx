@@ -25,8 +25,8 @@ export default function Strength() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
          <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">清蓮の強み</h1>
-            <p className="text-lg text-brand-secondary font-medium tracking-wide">STRENGTH</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 tracking-widest drop-shadow-md">清蓮の強み</h1>
+            <p className="text-lg text-brand-secondary font-medium tracking-[0.3em]">STRENGTH</p>
          </div>
       </section>
 
@@ -44,18 +44,18 @@ export default function Strength() {
       <section className="container mx-auto px-6 lg:px-12 mt-12 max-w-5xl">
         <div className="space-y-12">
           {strengths.map((item, idx) => (
-            <div key={item.id} className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-              <div className="absolute -top-6 -right-6 text-9xl font-black text-gray-50 group-hover:text-brand-secondary/50 transition-colors duration-500 select-none z-0">
+            <div key={item.id} className="bg-white p-8 md:p-12 shadow-sm border border-gray-200 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
+              <div className="absolute -top-6 -right-6 text-9xl font-black text-gray-50 group-hover:text-gray-100 transition-colors duration-500 select-none z-0">
                 {item.id}
               </div>
               <div className="relative z-10 w-full md:w-auto flex-shrink-0">
-                 <div className="w-16 h-16 bg-brand-primary text-white rounded-2xl flex items-center justify-center text-3xl font-bold shadow-md">
+                 <div className="w-16 h-16 border border-brand-accent text-brand-accent bg-transparent flex items-center justify-center text-3xl font-serif font-bold">
                    {item.id}
                  </div>
               </div>
               <div className="relative z-10">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{item.title}</h2>
-                <div className="w-12 h-1 bg-brand-primary mb-6"></div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-gray-900 mb-4 tracking-wide">{item.title}</h2>
+                <div className="w-12 h-1 bg-gray-900 mb-6"></div>
                 <p className="text-gray-600 leading-relaxed text-lg">
                   {item.desc}
                 </p>
@@ -67,16 +67,16 @@ export default function Strength() {
 
       {/* CTA Layer */}
       <section className="container mx-auto px-6 lg:px-12 mt-24 max-w-4xl">
-         <div className="bg-gray-900 rounded-3xl p-12 text-center shadow-2xl relative overflow-hidden">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 relative z-10">些細なことでも、まずはご相談ください</h2>
+         <div className="bg-surface-dark border border-gray-800 p-12 text-center shadow-sm relative overflow-hidden">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white mb-6 relative z-10 tracking-wide">些細なことでも、まずはご相談ください</h2>
             <p className="text-gray-300 mb-8 relative z-10 text-lg">
                「まだ具体的に決まっていない」「何からはじめていいかわからない」という段階から、よき相談相手として伴走いたします。
             </p>
             <div className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center">
-               <Link href="/contact" className="px-8 py-4 bg-brand-primary text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-[#206774] transition-all hover:-translate-y-1">
+               <Link href="/contact" className="px-8 py-4 bg-brand-accent text-white font-bold rounded-none shadow-md hover:shadow-lg hover:bg-brand-primary transition-all">
                  Webから相談する
                </Link>
-               <a href="tel:045-881-9952" className="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-full hover:bg-white/20 transition-all">
+               <a href="tel:045-881-9952" className="px-8 py-4 bg-transparent border border-white/50 text-white font-bold rounded-none hover:bg-white/10 transition-all">
                  お電話：045-881-9952
                </a>
             </div>

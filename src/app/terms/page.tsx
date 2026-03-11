@@ -5,22 +5,22 @@ export default function Terms() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">利用規約</h1>
-          <p className="text-lg text-brand-secondary font-medium tracking-wide">TERMS OF SERVICE</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 tracking-widest drop-shadow-md">利用規約</h1>
+          <p className="text-lg text-brand-secondary font-medium tracking-[0.3em]">TERMS OF SERVICE</p>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="container mx-auto px-6 lg:px-12 mt-16 max-w-4xl">
-        <div className="bg-white rounded-3xl p-8 md:p-14 shadow-sm border border-gray-100">
+        <div className="bg-white border border-gray-200 p-8 md:p-14 shadow-sm">
            <p className="text-gray-700 leading-relaxed mb-10 text-lg">
              株式会社 清蓮（以下「当社」）は、当社が運営するウェブサイト（以下「本サイト」）の利用条件を以下の通り定めます。本サイトをご利用いただく際は、本規約に同意の上ご利用ください。
            </p>
 
            <div className="space-y-10">
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">1</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">1</span>
                    適用範囲
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11">
@@ -29,8 +29,8 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">2</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">2</span>
                    禁止事項
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11 mb-2">本サイトの利用にあたり、以下の行為を禁止します。</p>
@@ -44,8 +44,8 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">3</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">3</span>
                    免責事項
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11 mb-4">
@@ -57,8 +57,8 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">4</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">4</span>
                    知的財産権
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11">
@@ -67,8 +67,8 @@ export default function Terms() {
               </div>
 
               <div>
-                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                   <span className="w-8 h-8 rounded-full bg-brand-secondary tracking-widest text-brand-primary flex items-center justify-center text-sm">5</span>
+                 <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 flex items-center gap-3">
+                   <span className="w-8 h-8 border border-brand-accent text-brand-accent flex items-center justify-center text-sm font-serif">5</span>
                    規約の変更
                  </h2>
                  <p className="text-gray-600 leading-relaxed pl-11">

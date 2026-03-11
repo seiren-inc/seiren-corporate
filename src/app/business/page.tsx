@@ -38,8 +38,8 @@ export default function Business() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">事業紹介</h1>
-          <p className="text-lg text-brand-secondary font-medium tracking-wide">BUSINESS</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 tracking-widest drop-shadow-md">事業紹介</h1>
+          <p className="text-lg text-brand-secondary font-medium tracking-[0.3em]">BUSINESS</p>
         </div>
       </section>
 
@@ -56,8 +56,8 @@ export default function Business() {
         <div className="space-y-16 lg:space-y-24">
           {businesses.map((biz, idx) => (
             <div key={biz.id} className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''} group`}>
-              <div className="w-full lg:w-1/2 overflow-hidden rounded-2xl shadow-lg relative">
-                <div className="absolute inset-0 bg-brand-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+              <div className="w-full lg:w-1/2 overflow-hidden border border-gray-200 relative p-2 bg-white shadow-sm">
+                <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply z-10 group-hover:opacity-0 transition-opacity duration-700"></div>
                 <img 
                   src={biz.img} 
                   alt={biz.title} 
@@ -65,15 +65,15 @@ export default function Business() {
                 />
               </div>
               <div className="w-full lg:w-1/2 space-y-6">
-                <p className="text-brand-primary font-bold text-sm tracking-widest uppercase">{`Service 0${idx + 1}`}</p>
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">{biz.title}</h2>
-                <h3 className="text-xl text-gray-600 font-medium">{biz.subtitle}</h3>
+                <p className="text-brand-accent font-bold text-sm tracking-widest uppercase">{`Service 0${idx + 1}`}</p>
+                <h2 className="text-3xl lg:text-4xl font-serif font-bold text-gray-900 tracking-wide">{biz.title}</h2>
+                <h3 className="text-xl text-gray-600 border-l-2 border-brand-accent pl-4">{biz.subtitle}</h3>
                 <div className="w-12 h-1 bg-brand-primary"></div>
                 <p className="text-gray-600 leading-relaxed text-lg">
                   {biz.desc}
                 </p>
                 <div className="pt-4">
-                  <Link href="/contact" className="inline-flex px-8 py-3 border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-bold rounded-full transition-colors duration-300">
+                  <Link href="/contact" className="inline-flex px-8 py-3 bg-white border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-bold rounded-none transition-colors duration-300">
                     この事業について相談する
                   </Link>
                 </div>
@@ -85,13 +85,13 @@ export default function Business() {
 
       {/* CTA Layer */}
       <section className="container mx-auto px-6 lg:px-12 mt-32">
-        <div className="bg-white rounded-3xl p-12 text-center shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden">
-           <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-secondary rounded-full opacity-50 blur-3xl"></div>
-           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 relative z-10">どのサービスが合うか迷われている方へ</h2>
+        <div className="bg-white border border-gray-200 p-12 text-center shadow-sm relative overflow-hidden">
+           <div className="absolute -top-24 -right-24 w-64 h-64 bg-gray-100 rounded-full opacity-50 blur-3xl"></div>
+           <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-6 relative z-10 tracking-wide">どのサービスが合うか迷われている方へ</h2>
            <p className="text-gray-600 mb-8 max-w-xl mx-auto relative z-10">
              清蓮の無料カウンセリングでは、状況をお伺いし、最適な選択肢をご提案いたします。無理な勧誘は一切ございません。
            </p>
-           <Link href="/contact" className="relative z-10 inline-block px-10 py-4 bg-gray-900 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-gray-800 transition-all hover:-translate-y-1">
+           <Link href="/contact" className="relative z-10 inline-block px-10 py-4 bg-brand-accent text-white font-bold rounded-none shadow-md hover:shadow-lg hover:bg-red-900 transition-all hover:-translate-y-1">
              無料相談を予約する
            </Link>
         </div>

@@ -7,15 +7,15 @@ export default function Company() {
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#206774] to-[#2F8C9C] z-0"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-wider">会社情報</h1>
-          <p className="text-lg text-brand-secondary font-medium tracking-wide">COMPANY</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 tracking-widest drop-shadow-md">会社情報</h1>
+          <p className="text-lg text-brand-secondary font-medium tracking-[0.3em]">COMPANY</p>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="container mx-auto px-6 lg:px-12 mt-16 max-w-4xl">
-        <div className="bg-white rounded-3xl p-8 md:p-16 shadow-sm border border-gray-100">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 border-b-2 border-brand-primary inline-block pb-2">会社概要</h2>
+        <div className="bg-white p-8 md:p-16 border border-gray-200">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-8 border-b border-gray-900 inline-block pb-2 tracking-wide">会社概要</h2>
           
           <dl className="divide-y divide-gray-100">
             <div className="py-6 flex flex-col sm:flex-row">
@@ -68,20 +68,20 @@ export default function Company() {
       {/* Access */}
       <section className="container mx-auto px-6 lg:px-12 mt-24 max-w-4xl">
          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">アクセス・来店について</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 tracking-wide">アクセス・来店について</h2>
          </div>
          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-               <img src="/assets/img/about-office.jpg" alt="清潔感のある来店スペース" className="rounded-2xl shadow-md w-full" />
+            <div className="border border-gray-200 p-2 bg-white">
+               <img src="/assets/img/about-office.jpg" alt="清潔感のある来店スペース" className="w-full object-cover grayscale-[20%]" />
             </div>
             <div>
-               <h3 className="text-2xl font-bold text-brand-primary mb-4">完全予約制</h3>
+               <h3 className="text-2xl font-serif font-bold text-brand-accent mb-4">完全予約制</h3>
                <p className="text-gray-600 leading-relaxed mb-6">
                  お客様のご事情をゆっくりお伺いするため、ご来店は「完全予約制」とさせていただいております。<br/>
                  お電話、またはお問い合わせフォームよりご希望の日時をお伝えください。
                </p>
-               <div className="bg-brand-secondary p-6 rounded-xl border border-brand-primary/20">
-                 <p className="font-bold text-brand-primary mb-2">営業時間</p>
+               <div className="bg-gray-50 p-6 border border-gray-200">
+                 <p className="font-bold text-gray-900 mb-2">営業時間</p>
                  <p className="text-gray-800 text-lg">9:00 〜 18:00（土日祝も対応可）</p>
                  <p className="text-sm text-gray-500 mt-2">※年末年始を除く</p>
                </div>
