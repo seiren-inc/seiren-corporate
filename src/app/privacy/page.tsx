@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'プライバシーポリシー｜株式会社 清蓮',
@@ -7,7 +9,8 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-24">
+    <main className="min-h-screen bg-gray-50 pt-20 md:pt-24 pb-24">
+      <Breadcrumbs paths={[{ label: 'プライバシーポリシー', href: '/privacy' }]} />
       {/* Page Header */}
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#206774] to-[#2F8C9C] z-0"></div>

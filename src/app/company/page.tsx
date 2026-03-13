@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: '会社情報｜株式会社 清蓮',
@@ -8,7 +10,8 @@ export const metadata: Metadata = {
 
 export default function Company() {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-24">
+    <main className="min-h-screen bg-gray-50 pt-20 md:pt-24 pb-24">
+      <Breadcrumbs paths={[{ label: '会社情報', href: '/company' }]} />
       {/* Page Header */}
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#206774] to-[#2F8C9C] z-0"></div>
@@ -77,8 +80,14 @@ export default function Company() {
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 tracking-wide">アクセス・来店について</h2>
          </div>
          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="border border-gray-200 p-2 bg-white">
-               <img src="/assets/img/about-office.jpg" alt="清潔感のある来店スペース" className="w-full object-cover grayscale-[20%]" />
+            <div className="border border-gray-200 p-2 bg-white relative h-[300px] md:h-full min-h-[300px]">
+               <Image 
+                 src="/assets/img/about-office.jpg" 
+                 alt="清潔感のある来店スペース" 
+                 fill
+                 className="object-cover grayscale-[20%]" 
+                 sizes="(max-width: 768px) 100vw, 50vw"
+               />
             </div>
             <div>
                <h3 className="text-2xl font-serif font-bold text-brand-accent mb-4">完全予約制</h3>

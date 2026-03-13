@@ -1,17 +1,19 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col">
       {/* 1. Hero Section */}
       <section className="hero-grain relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-900">
-        <div className="absolute inset-0 z-0">
-          <img
+        <div className="absolute inset-0 z-0 bg-gray-900">
+          <Image
             src="/assets/img/hero-sea.jpg"
             alt="穏やかな海の水平線の写真"
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-            loading="eager"
-            fetchPriority="high"
+            fill
+            className="object-cover opacity-60 mix-blend-overlay"
+            priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/20 to-gray-900/90" />
         </div>
@@ -105,13 +107,14 @@ export default function Home() {
                </div>
              </div>
              <div className="lg:w-1/2 w-full">
-               <div className="reveal clip-reveal relative overflow-hidden group border border-gray-200 p-2 bg-white" style={{ transitionDelay: '0.1s' }}>
-                 <div className="absolute inset-0 bg-gray-900/8 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10"></div>
-                 <img 
+               <div className="reveal clip-reveal relative overflow-hidden group border border-gray-200 p-2 bg-white h-[400px]" style={{ transitionDelay: '0.1s' }}>
+                 <div className="absolute inset-0 bg-gray-900/8 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
+                 <Image 
                    src="/assets/img/about-office.jpg" 
                    alt="清蓮の相談スペースの写真" 
-                   className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
-                   loading="lazy"
+                   fill
+                   className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                   sizes="(max-width: 1024px) 100vw, 50vw"
                  />
                </div>
              </div>

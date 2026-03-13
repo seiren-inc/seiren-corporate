@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: '清蓮が選ばれる理由｜株式会社 清蓮',
@@ -26,7 +27,8 @@ export default function Strength() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-24">
+    <main className="min-h-screen bg-gray-50 pt-20 md:pt-24 pb-24">
+      <Breadcrumbs paths={[{ label: '清蓮が選ばれる理由', href: '/strength' }]} />
       {/* Page Header */}
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>

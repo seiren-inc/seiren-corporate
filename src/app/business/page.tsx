@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: '事業紹介｜株式会社 清蓮',
@@ -39,7 +41,8 @@ export default function Business() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-24">
+    <main className="min-h-screen bg-gray-50 pt-20 md:pt-24 pb-24">
+      <Breadcrumbs paths={[{ label: '事業紹介', href: '/business' }]} />
       {/* Page Header */}
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
@@ -62,12 +65,15 @@ export default function Business() {
         <div className="space-y-16 lg:space-y-24">
           {businesses.map((biz, idx) => (
             <div key={biz.id} className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''} group`}>
-              <div className="w-full lg:w-1/2 overflow-hidden border border-gray-200 relative p-2 bg-white shadow-sm">
-                <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply z-10 group-hover:opacity-0 transition-opacity duration-700"></div>
-                <img 
+              <div className="w-full lg:w-1/2 overflow-hidden border border-gray-200 relative p-2 bg-white shadow-sm h-[400px]">
+                <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply z-10 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
+                <Image 
                   src={biz.img} 
-                  alt={biz.title} 
-                  className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  alt={biz.title}
+                  fill
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority={idx === 0}
                 />
               </div>
               <div className="w-full lg:w-1/2 space-y-6">

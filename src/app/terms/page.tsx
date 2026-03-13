@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: '利用規約｜株式会社 清蓮',
@@ -7,7 +9,8 @@ export const metadata: Metadata = {
 
 export default function Terms() {
   return (
-    <main className="min-h-screen bg-gray-50 pt-24 pb-24">
+    <main className="min-h-screen bg-gray-50 pt-20 md:pt-24 pb-24">
+      <Breadcrumbs paths={[{ label: '利用規約', href: '/terms' }]} />
       {/* Page Header */}
       <section className="bg-brand-primary text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-10"></div>
