@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: '事業紹介｜株式会社 清蓮',
+  description: '株式会社 清蓮は、海洋散骨、遺骨サービス、お墓じまい、終活コンシェルジュなど、人生の節目を支える専門的な事業を幅広く展開しています。',
+};
 
 export default function Business() {
   const businesses = [

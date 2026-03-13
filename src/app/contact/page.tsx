@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'お問い合わせ｜株式会社 清蓮',
+  description: '株式会社 清蓮への各種ご相談・お問い合わせはこちらから。海洋散骨、遺骨サービス、お墓じまいなど、お気軽にご連絡ください。',
+};
 
 export default function Contact() {
   return (

@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: '会社情報｜株式会社 清蓮',
+  description: '株式会社 清蓮の会社概要、代表挨拶、アクセス情報などをご案内します。横浜市戸塚区を拠点に全国の終活・供養をサポートしています。',
+};
 
 export default function Company() {
   return (

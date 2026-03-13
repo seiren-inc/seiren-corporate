@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '利用規約｜株式会社 清蓮',
+  description: '株式会社 清蓮のコーポレートサイトの利用規約をご案内します。本サイトをご利用の際は、ご一読いただきますようお願いいたします。',
+};
+
 export default function Terms() {
   return (
     <main className="min-h-screen bg-gray-50 pt-24 pb-24">

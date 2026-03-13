@@ -70,6 +70,27 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "株式会社 清蓮",
+              "url": "https://seiren-inc.co.jp/",
+              "logo": "https://seiren-inc.co.jp/icon.png",
+              "telephone": "+81-45-881-9952",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "戸塚町4170 高橋ビル1F",
+                "addressLocality": "横浜市戸塚区",
+                "addressRegion": "神奈川県",
+                "postalCode": "244-0003",
+                "addressCountry": "JP"
+              }
+            })
+          }}
+        />
         {/*
           ファビコンは /src/app に配置済みの favicon.ico, icon.png 等や
           public 以下の manifest.json からNext.jsによって自動解決されます

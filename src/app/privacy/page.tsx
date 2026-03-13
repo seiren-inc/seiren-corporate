@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'プライバシーポリシー｜株式会社 清蓮',
+  description: '株式会社 清蓮のプライバシーポリシー（個人情報保護方針）についてのご案内です。お客様の大切な個人情報を安全に管理いたします。',
+};
+
 export default function Privacy() {
   return (
     <main className="min-h-screen bg-gray-50 pt-24 pb-24">
