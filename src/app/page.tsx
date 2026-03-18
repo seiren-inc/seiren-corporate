@@ -37,20 +37,19 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col">
       {/* 1. Hero Section */}
-      <section className="hero-grain relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-900">
-        <div className="absolute inset-0 z-0 bg-gray-900">
-          {/* Three.js WebGL: 波のパーティクル謝び */}
-          <WaveCanvas />
-          {/* 海の写真（WebGLの後」に轻く重ねる） */}
+      <section className="hero-grain relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-500">
+        <div className="absolute inset-0 z-0">
+          {/* 海の写真：十分な明るさで表示 */}
           <Image
             src="/assets/img/hero-sea.jpg"
             alt="穏やかな海の水平線の写真"
             fill
-            className="object-cover opacity-25 gsap-parallax"
+            className="object-cover opacity-90"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/40 to-gray-900/95" />
+          {/* テキストの読みやすさだけの薄いオーバーレイ */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-transparent to-gray-900/60" />
         </div>
         
         <div className="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col items-center text-center mt-16">
@@ -250,26 +249,25 @@ export default function Home() {
       </section>
 
 
-      {/* 5. Strength Section */}
-      <section className="py-32 md:py-40 bg-surface-dark text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-5"></div>
+      {/* 5. Strength Section — 明るい背景に変更 */}
+      <section className="py-32 md:py-40 bg-slate-50 relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="reveal text-center mb-16">
-             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">Strength</p>
-             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 tracking-wider">清蓮が選ばれる理由</h2>
-             <p className="text-sm text-gray-400 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
+             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-primary mb-3">Strength</p>
+             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 tracking-wider text-gray-900">清蓮が選ばれる理由</h2>
+             <p className="text-sm text-gray-500 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-12 pb-16 lg:pb-32">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 pb-16 lg:pb-24">
             {[
               { id: "01", title: "実務対応力", desc: "相談で終わらせず、手続き・段取り・実務まで一貫して対応。判断と実務を分けない姿勢が、負担を最小化します。" },
               { id: "02", title: "提携ネットワーク", desc: "国内寺院・石材店・船舶事業者など、国内外の専門事業者と強固な連携体制を構築しています。" },
               { id: "03", title: "来店型相談", desc: "完全予約制の来店相談により、個別事情を丁寧にお聞きします。最適な選択肢を一緒に考えます。" }
             ].map((item, idx) => (
-              <div key={item.id} data-stagger="strength" className={`reveal relative p-10 border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 ease-tier1 text-left flex flex-col items-start ${idx === 1 ? 'md:mt-16' : ''} ${idx === 2 ? 'md:mt-32' : ''}`} style={{ transitionDelay: `${idx * 0.08}s` }}>
-                <span className="text-5xl font-serif font-bold text-white/15 mb-6 block tracking-widest">{item.id}</span>
-                <h3 className="text-xl font-bold mb-4 text-white tracking-wide border-b border-brand-accent pb-3 self-start">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm mt-3">{item.desc}</p>
+              <div key={item.id} data-stagger="strength" className={`reveal relative p-10 bg-white border border-gray-200 hover:border-brand-primary hover:shadow-md transition-all duration-500 text-left flex flex-col items-start ${idx === 1 ? 'md:mt-12' : ''} ${idx === 2 ? 'md:mt-24' : ''}`} style={{ transitionDelay: `${idx * 0.08}s` }}>
+                <span className="text-5xl font-serif font-bold text-gray-200 mb-6 block tracking-widest">{item.id}</span>
+                <h3 className="text-xl font-bold mb-4 text-gray-900 tracking-wide border-b-2 border-brand-primary pb-3 self-start">{item.title}</h3>
+                <p className="text-gray-500 leading-relaxed text-sm mt-3">{item.desc}</p>
               </div>
             ))}
           </div>
