@@ -3,6 +3,7 @@ import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
+import BackToTop from "@/components/BackToTop";
 
 // グローバルCSSの読み込み
 import "./globals.css";
@@ -102,7 +103,8 @@ export default function RootLayout({
         </a>
         <Header />
         <RevealObserver />
-        <main className="pt-20 md:pt-24">
+        <BackToTop />
+        <main className="pt-[104px] lg:pt-[108px]">
           {children}
         </main>
         <Footer />

@@ -1,7 +1,45 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
+
+const newsData = {
+  news: [
+    { date: '2026.03.01', category: '事業', title: '海洋散骨サービスの新プランを提供開始しました。' },
+    { date: '2026.02.15', category: 'コーポレート', title: '株式会社清蓮として事業を開始しました。' },
+    { date: '2026.01.20', category: '提携', title: '関東エリアの寺院・石材店との提携ネットワークを構築しました。' },
+  ],
+  column: [
+    { date: '2026.03.05', category: 'コラム', title: '「海洋散骨」とは？費用・手続き・流れを徹底解説' },
+    { date: '2026.02.20', category: 'コラム', title: 'お墓じまいを考えるタイミングとよくある質問' },
+    { date: '2026.02.01', category: 'コラム', title: '終活を始めるための5つのステップ' },
+  ],
+  info: [
+    { date: '2026.03.10', category: 'お知らせ', title: '年末年始の営業時間についてのご案内' },
+    { date: '2026.02.28', category: 'お知らせ', title: '電話受付時間を変更しました（毎日9:00〜18:00）' },
+  ],
+};
+
+const tabConfig = [
+  { key: 'news', label: 'ニュース', en: 'News' },
+  { key: 'column', label: 'コラム', en: 'Column' },
+  { key: 'info', label: 'お知らせ', en: 'Information' },
+] as const;
+
+type TabKey = keyof typeof newsData;
+
+const categoryColor: Record<string, string> = {
+  '事業': 'bg-brand-primary text-white',
+  'コーポレート': 'bg-gray-700 text-white',
+  '提携': 'bg-teal-700 text-white',
+  'コラム': 'bg-brand-accent text-white',
+  'お知らせ': 'bg-gray-500 text-white',
+};
+
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<TabKey>('news');
+
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col">
       {/* 1. Hero Section */}
@@ -232,7 +270,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Company Info Minimal */}
+      {/* 7. News / Topics タブ（住友不動産スタイル） */}
+      <section className="py-20 bg-gray-50 border-t border-gray-100">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="reveal mb-10 flex items-end justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">Topics</p>
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 tracking-wider">ニュース・お知らせ</h2>
+            </div>
+            <Link href="/contact" className="hidden md:inline-flex items-center gap-1.5 text-sm font-bold text-brand-primary hover:text-gray-900 transition-colors">
+              一覧を見る
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* タブナビゲーション */}
+          <div className="flex border-b border-gray-200 mb-0">
+            {tabConfig.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`relative px-6 py-3 text-sm font-bold tracking-wide transition-colors duration-200 focus:outline-none ${
+                  activeTab === tab.key
+                    ? 'text-gray-900 border-b-2 border-gray-900 -mb-px'
+                    : 'text-gray-400 hover:text-gray-700'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* タブコンテンツ */}
+          <div className="bg-white border border-t-0 border-gray-200 divide-y divide-gray-100">
+            {newsData[activeTab].map((item, idx) => (
+              <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 px-6 py-4 hover:bg-gray-50 transition-colors cursor-pointer group">
+                <span className="text-xs text-gray-400 font-medium tracking-widest flex-shrink-0">{item.date}</span>
+                <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-sm flex-shrink-0 w-fit ${categoryColor[item.category] ?? 'bg-gray-200 text-gray-600'}`}>
+                  {item.category}
+                </span>
+                <span className="text-sm text-gray-800 group-hover:text-brand-primary transition-colors">{item.title}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 text-right md:hidden">
+            <Link href="/contact" className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-primary hover:text-gray-900 transition-colors">
+              一覧を見る
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Company Info Minimal */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-12 max-w-3xl">
           <div className="reveal mb-10">
