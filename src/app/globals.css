@@ -86,4 +86,29 @@
   z-index: 1;
   mix-blend-mode: overlay;
 }
+/* ============================================
+   Text Size Accessibility (住友不動産参考)
+   html.text-large 付与時に本文フォントを拡大
+   ============================================ */
+
+html.text-large body {
+  font-size: 112.5%; /* 16px → 18px */
+}
+
+html.text-large p,
+html.text-large li,
+html.text-large span,
+html.text-large dd,
+html.text-large dt,
+html.text-large td,
+html.text-large label,
+html.text-large input,
+html.text-large textarea {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.9;
+}
+
+html.text-large h1 { font-size: 2.5rem; }
+html.text-large h2 { font-size: 1.875rem; }
+html.text-large h3 { font-size: 1.375rem; }
 

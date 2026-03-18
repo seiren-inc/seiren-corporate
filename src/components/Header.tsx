@@ -33,6 +33,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [isLargeText, setIsLargeText] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +42,27 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // ページ初回ロード時: ローカルストレージからフォントサイズ設定を復元
+  useEffect(() => {
+    const saved = localStorage.getItem('seiren-text-large');
+    if (saved === 'true') {
+      setIsLargeText(true);
+      document.documentElement.classList.add('text-large');
+    }
+  }, []);
+
+  const toggleTextSize = () => {
+    const next = !isLargeText;
+    setIsLargeText(next);
+    if (next) {
+      document.documentElement.classList.add('text-large');
+      localStorage.setItem('seiren-text-large', 'true');
+    } else {
+      document.documentElement.classList.remove('text-large');
+      localStorage.setItem('seiren-text-large', 'false');
+    }
+  };
 
   const toggleAccordion = (label: string) => {
     setOpenAccordion(openAccordion === label ? null : label);
@@ -96,6 +118,33 @@ export default function Header() {
               )}
             </div>
           ))}
+
+          {/* Text Size Controls (住友不動産参考) */}
+          <div className="hidden lg:flex items-center gap-1 mr-2 border-r border-gray-200 pr-4">
+            <span className="text-xs text-gray-400 font-medium mr-1.5">文字サイズ</span>
+            <button
+              onClick={toggleTextSize}
+              aria-pressed={!isLargeText}
+              className={`px-3 py-1 text-xs font-bold border transition-colors duration-200 ${
+                !isLargeText
+                  ? 'bg-gray-800 text-white border-gray-800'
+                  : 'bg-white text-gray-600 border-gray-300 hover:border-gray-500'
+              }`}
+            >
+              標準
+            </button>
+            <button
+              onClick={toggleTextSize}
+              aria-pressed={isLargeText}
+              className={`px-3 py-1 text-sm font-bold border transition-colors duration-200 ${
+                isLargeText
+                  ? 'bg-gray-800 text-white border-gray-800'
+                  : 'bg-white text-gray-600 border-gray-300 hover:border-gray-500'
+              }`}
+            >
+              大
+            </button>
+          </div>
 
           {/* Contact Button */}
           <Link
