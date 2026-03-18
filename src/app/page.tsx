@@ -147,36 +147,42 @@ export default function Home() {
       {/* 3. About Section */}
       <section className="py-32 md:py-40 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-12">
-           <div className="flex flex-col lg:flex-row gap-16 md:gap-24 items-center">
-             <div className="lg:w-1/2 space-y-12">
-               <div className="reveal">
-                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-4">About</p>
-                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight tracking-[0.1em]">清蓮について</h2>
-                 <div className="w-12 h-[1px] bg-gray-900 mt-8"></div>
-               </div>
-               <div className="reveal prose prose-lg text-gray-600 leading-[2.2]" style={{ transitionDelay: '0.08s' }}>
-                  <p>
-                    株式会社 清蓮は、人生の節目における意思決定と実務をサポートする専門企業です。
-                    海洋散骨、遺骨ケア、お墓じまい、終活相談など、複数の事業を運営し、国内外の専門事業者と連携しながら、お客様一人ひとりの状況に合わせた最適な選択肢をご提案します。
-                  </p>
-                  <p className="mt-6">
-                    私たちは「正解の押し付け」をしません。<br/>
-                    ご本人・ご家族の想いや事情を丁寧にお聞きし、判断に必要な客観的情報をお伝えし、実務まで責任を持って対応します。
-                  </p>
-                  <p className="mt-8 font-serif font-bold text-gray-900 text-xl border-l-2 border-brand-accent pl-6 tracking-wide">
-                    相談で終わらせず、実行まで伴走する。<br/>それが清蓮の役割です。
-                  </p>
+           <div className="relative flex flex-col lg:flex-row lg:items-center">
+             
+             {/* Text Block - Left side, overlapping image */}
+             <div className="lg:w-5/12 z-10 relative mt-8 lg:mt-0 order-2 lg:order-1">
+               <div className="lg:bg-white/95 lg:backdrop-blur-sm lg:p-14 lg:shadow-xl lg:-mr-40 relative z-20">
+                 <div className="reveal">
+                   <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-4">About</p>
+                   <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight tracking-[0.1em]">清蓮について</h2>
+                   <div className="w-12 h-[1px] bg-gray-900 mt-8 mb-12"></div>
+                 </div>
+                 <div className="reveal prose prose-lg text-gray-600 leading-[2.2]" style={{ transitionDelay: '0.08s' }}>
+                    <p>
+                      株式会社 清蓮は、人生の節目における意思決定と実務をサポートする専門企業です。
+                      海洋散骨、遺骨ケア、お墓じまい、終活相談など、複数の事業を運営し、国内外の専門事業者と連携しながら、お客様一人ひとりの状況に合わせた最適な選択肢をご提案します。
+                    </p>
+                    <p className="mt-6">
+                      私たちは「正解の押し付け」をしません。<br/>
+                      ご本人・ご家族の想いや事情を丁寧にお聞きし、判断に必要な客観的情報をお伝えし、実務まで責任を持って対応します。
+                    </p>
+                    <p className="mt-8 font-serif font-bold text-gray-900 text-xl border-l-2 border-brand-accent pl-6 tracking-wide">
+                      相談で終わらせず、実行まで伴走する。<br/>それが清蓮の役割です。
+                    </p>
+                 </div>
                </div>
              </div>
-             <div className="lg:w-1/2 w-full">
-               <div className="reveal clip-reveal relative overflow-hidden group border border-gray-200 p-2 bg-white h-[400px]" style={{ transitionDelay: '0.1s' }}>
-                 <div className="absolute inset-0 bg-gray-900/8 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
+
+             {/* Image Block - Right side, offset */}
+             <div className="lg:w-7/12 w-full lg:ml-auto order-1 lg:order-2">
+               <div className="reveal clip-reveal relative overflow-hidden group border border-gray-100 bg-white h-[400px] lg:h-[700px] shadow-sm" style={{ transitionDelay: '0.1s' }}>
+                 <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 z-10 pointer-events-none"></div>
                  <Image 
                    src="/assets/img/about-office.jpg" 
                    alt="清蓮の相談スペースの写真" 
                    fill
-                   className="object-cover transform group-hover:scale-105 transition-transform duration-700"
-                   sizes="(max-width: 1024px) 100vw, 50vw"
+                   className="object-cover transform group-hover:scale-105 transition-transform duration-[1.2s] ease-tier1"
+                   sizes="(max-width: 1024px) 100vw, 60vw"
                  />
                </div>
              </div>
@@ -248,16 +254,16 @@ export default function Home() {
              <p className="text-sm text-gray-400 max-w-2xl mx-auto">実務対応・提携体制・来店型相談。清蓮の強みは、相談から実行までの一貫した伴走にあります。</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-12 pb-16 lg:pb-32">
             {[
               { id: "01", title: "実務対応力", desc: "相談で終わらせず、手続き・段取り・実務まで一貫して対応。判断と実務を分けない姿勢が、負担を最小化します。" },
               { id: "02", title: "提携ネットワーク", desc: "国内寺院・石材店・船舶事業者など、国内外の専門事業者と強固な連携体制を構築しています。" },
               { id: "03", title: "来店型相談", desc: "完全予約制の来店相談により、個別事情を丁寧にお聞きします。最適な選択肢を一緒に考えます。" }
             ].map((item, idx) => (
-              <div key={item.id} data-stagger="strength" className="reveal relative p-8 border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 text-left flex flex-col items-start" style={{ transitionDelay: `${idx * 0.08}s` }}>
-                <span className="text-5xl font-serif font-bold text-white/15 mb-5 block tracking-widest">{item.id}</span>
-                <h3 className="text-lg font-bold mb-3 text-white tracking-wide border-b border-brand-accent pb-2 self-start">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm mt-2">{item.desc}</p>
+              <div key={item.id} data-stagger="strength" className={`reveal relative p-10 border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 ease-tier1 text-left flex flex-col items-start ${idx === 1 ? 'md:mt-16' : ''} ${idx === 2 ? 'md:mt-32' : ''}`} style={{ transitionDelay: `${idx * 0.08}s` }}>
+                <span className="text-5xl font-serif font-bold text-white/15 mb-6 block tracking-widest">{item.id}</span>
+                <h3 className="text-xl font-bold mb-4 text-white tracking-wide border-b border-brand-accent pb-3 self-start">{item.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-sm mt-3">{item.desc}</p>
               </div>
             ))}
           </div>
