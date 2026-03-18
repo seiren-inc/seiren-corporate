@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import BackToTop from "@/components/BackToTop";
+import LenisProvider from "@/components/LenisProvider";
+import GSAPScrollAnimator from "@/components/GSAPScrollAnimator";
 
 // グローバルCSSの読み込み
 import "./globals.css";
@@ -103,6 +105,8 @@ export default function RootLayout({
         </a>
         <Header />
         <RevealObserver />
+        <LenisProvider />
+        <GSAPScrollAnimator />
         <BackToTop />
         <main className="pt-[104px] lg:pt-[108px]">
           {children}

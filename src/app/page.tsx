@@ -2,6 +2,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const WaveCanvas = dynamic(() => import('@/components/WaveCanvas'), { ssr: false });
 
 const newsData = {
   news: [
@@ -36,31 +39,34 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section className="hero-grain relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-900">
         <div className="absolute inset-0 z-0 bg-gray-900">
+          {/* Three.js WebGL: 波のパーティクル謝び */}
+          <WaveCanvas />
+          {/* 海の写真（WebGLの後」に轻く重ねる） */}
           <Image
             src="/assets/img/hero-sea.jpg"
             alt="穏やかな海の水平線の写真"
             fill
-            className="object-cover opacity-50"
+            className="object-cover opacity-25 gsap-parallax"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-gray-900/30 to-gray-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 via-gray-900/40 to-gray-900/95" />
         </div>
         
         <div className="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col items-center text-center mt-16">
-          <p className="reveal text-white/80 font-medium tracking-[0.2em] mb-4 text-sm md:text-md uppercase">
+          <p className="gsap-fade-up text-white/80 font-medium tracking-[0.2em] mb-4 text-sm md:text-md uppercase">
             <span className="inline-block w-2 h-2 rounded-full bg-brand-primary mr-3"></span>
             株式会社 清蓮
           </p>
-          <h1 className="reveal text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white leading-tight mb-8 tracking-widest drop-shadow-md" style={{ transitionDelay: '0.08s' }}>
+          <h1 className="gsap-fade-up text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white leading-tight mb-8 tracking-widest drop-shadow-md" data-stagger-delay="0.15">
             <span className="block mb-2">人生の節目に、</span>
             <span className="block">確かな判断と実務を。</span>
           </h1>
-          <p className="reveal text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium" style={{ transitionDelay: '0.16s' }}>
+          <p className="gsap-fade-up text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium" data-stagger-delay="0.3">
             海洋散骨・遺骨サービス・終活支援など、<br className="hidden md:block" />
             人生の大切な節目を専門知識と誠実さで支えます。
           </p>
-          <div className="reveal flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md" style={{ transitionDelay: '0.24s' }}>
+          <div className="gsap-fade-up flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md" data-stagger-delay="0.45">
              <Link href="/business" className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-none font-bold text-lg hover:bg-brand-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
               事業紹介を見る
             </Link>
