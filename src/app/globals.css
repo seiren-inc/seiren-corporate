@@ -4,13 +4,27 @@
 
 @layer base {
   :root {
-    --brand-primary: #2f8c9c;
-    --brand-secondary: #e6f3f5;
-    --text-main: #333333;
-    --text-muted: #666666;
-    --bg-light: #fafafa;
-    --border-color: #e2e8f0;
+    /* ===== Brand Colors（清蓮ロゴ配色） ===== */
+    --brand-primary:   #2f8c9c;  /* Seiren Teal    ロゴ文字色・主役 */
+    --brand-hover:     #246b77;  /* Teal Dark      ホバー・アクティブ */
+    --brand-accent:    #c9789b;  /* Lotus Pink     蓮の花・極小装飾のみ */
+    --brand-support:   #8fbf74;  /* Soft Sage      若草・補助区切りのみ */
+    --brand-secondary: #e6f3f5;  /* Teal Light     薄い背景色 */
+
+    /* ===== Neutral Colors（Apple思想） ===== */
+    --bg:      #ffffff;          /* メイン背景 */
+    --surface: #f5f7f8;          /* セクション背景 */
+    --text:    #0f1720;          /* 本文テキスト */
+    --muted:   #5f6b75;          /* サブテキスト */
+    --line:    rgba(15,23,32,.10); /* 区切り線 */
+
+    /* ===== Legacy aliases ===== */
+    --text-main:    #0f1720;
+    --text-muted:   #5f6b75;
+    --bg-light:     #f5f7f8;
+    --border-color: rgba(15,23,32,.10);
   }
+
 
   /* 日本語タイポグラフィの美学：palt（自動詰め組み）と文字間隔の最適化 */
   body {

@@ -10,17 +10,26 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "var(--brand-primary)",
-          secondary: "var(--brand-secondary)",
-          accent: "#8B1B1B", // 深い赤（クリムゾンレッド系のアクセント）
+          primary:   "#2f8c9c",  // Seiren Teal（ロゴ主役・最多使用）
+          hover:     "#246b77",  // brand-primary のホバー/アクティブ
+          accent:    "#c9789b",  // Lotus Pink（蓮ピンク・極小アクセント）
+          support:   "#8fbf74",  // Soft Sage（若草・補助区切り線のみ）
+          secondary: "#e6f3f5",  // Teal の薄い背景色
+        },
+        neutral: {
+          bg:      "#ffffff",  // メイン背景
+          surface: "#f5f7f8",  // セクション背景（Apple的ライトグレー）
+          text:    "#0f1720",  // 本文テキスト（深い黒）
+          muted:   "#5f6b75",  // サブテキスト
+          line:    "rgba(15, 23, 32, 0.10)", // 区切り線
         },
         surface: {
-          light: "var(--bg-light)",
-          dark: "#1A1A1D", // 高級感のある重厚な黒/ダークグレー
+          light: "#f5f7f8",
+          dark:  "#0f1720",  // ヘッダー・フッター用の深い色（ブランドコンセプト準拠）
         },
       },
       fontFamily: {
-        sans: ['"Noto Sans JP"', 'sans-serif'],
+        sans:  ['"Noto Sans JP"', 'sans-serif'],
         serif: ['"Noto Serif JP"', 'serif'],
       },
     },
