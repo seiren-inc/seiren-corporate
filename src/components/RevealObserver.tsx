@@ -13,13 +13,6 @@ export default function RevealObserver() {
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const elements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
-
-    if (prefersReduced) {
-      elements.forEach((el) => el.classList.add('is-visible'));
-      return;
-    }
-
     // staggerグループに対して delay を計算
     const staggerTracker: Record<string, number> = {};
 
@@ -46,9 +39,32 @@ export default function RevealObserver() {
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
 
-    elements.forEach((el) => observer.observe(el));
+    const observeElements = () => {
+      const elements = Array.from(document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible):not(.is-observing)'));
+      elements.forEach((el) => {
+        el.classList.add('is-observing');
+        if (prefersReduced) {
+          el.classList.add('is-visible');
+        } else {
+          observer.observe(el);
+        }
+      });
+    };
 
-    return () => observer.disconnect();
+    // 初回実行
+    observeElements();
+
+    // DOMの変更を監視し、後から追加された要素も捕捉
+    const mutationObserver = new MutationObserver(() => {
+      observeElements();
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   return null;

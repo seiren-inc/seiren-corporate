@@ -5,19 +5,10 @@ import { useState } from 'react';
 
 const newsData = {
   news: [
-    { date: '2026.03.01', category: '事業', title: '海洋散骨サービスの新プランを提供開始しました。' },
-    { date: '2026.02.15', category: 'コーポレート', title: '株式会社清蓮として事業を開始しました。' },
-    { date: '2026.01.20', category: '提携', title: '関東エリアの寺院・石材店との提携ネットワークを構築しました。' },
+    { date: '2026.04.01', category: 'コーポレート', title: 'コーポレートサイトをリニューアルいたしました。' },
   ],
-  column: [
-    { date: '2026.03.05', category: 'コラム', title: '「海洋散骨」とは？費用・手続き・流れを徹底解説' },
-    { date: '2026.02.20', category: 'コラム', title: 'お墓じまいを考えるタイミングとよくある質問' },
-    { date: '2026.02.01', category: 'コラム', title: '終活を始めるための5つのステップ' },
-  ],
-  info: [
-    { date: '2026.03.10', category: 'お知らせ', title: '年末年始の営業時間についてのご案内' },
-    { date: '2026.02.28', category: 'お知らせ', title: '電話受付時間を変更しました（毎日9:00〜18:00）' },
-  ],
+  column: [],
+  info: [],
 };
 
 const tabConfig = [
@@ -49,11 +40,11 @@ export default function Home() {
             src="/assets/img/hero-sea.jpg"
             alt="穏やかな海の水平線の写真"
             fill
-            className="object-cover opacity-60 mix-blend-overlay"
+            className="object-cover opacity-50"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/20 to-gray-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-gray-900/30 to-gray-900/90" />
         </div>
         
         <div className="relative z-10 container mx-auto px-6 lg:px-12 flex flex-col items-center text-center mt-16">
@@ -67,7 +58,7 @@ export default function Home() {
           </h1>
           <p className="reveal text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium" style={{ transitionDelay: '0.16s' }}>
             海洋散骨・遺骨サービス・終活支援など、<br className="hidden md:block" />
-            人生の大切な節目を支えるハブ企業です。
+            人生の大切な節目を専門知識と誠実さで支えます。
           </p>
           <div className="reveal flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md" style={{ transitionDelay: '0.24s' }}>
              <Link href="/business" className="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white rounded-none font-bold text-lg hover:bg-brand-primary transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
@@ -169,15 +160,15 @@ export default function Home() {
              <p className="text-base text-gray-500 max-w-2xl mx-auto">終活・供養に関わる複数の専門事業を、国内外のネットワークで支えます。</p>
           </div>
           
-          {/* 住友不動産スタイル：ソリッドグリッドカード */}
+          {/* 住友不動産スタイル：ソリッドグリッドカード（アイコン＋ベタ塗りへ変更） */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-gray-200">
             {[
-              { title: "海洋散骨", en: "Sea Burial", img: "/assets/img/hero-sea.jpg", desc: "国内・海外を含め、安心して海洋散骨を行うための専門サービスを提供しています。" },
-              { title: "遺骨サービス", en: "Remains Care", img: "/assets/img/hero-sea.jpg", desc: "洗骨・粉骨など、遺骨の状態やご事情に合わせた専門的なケア・加工を行います。" },
-              { title: "お墓じまい・改葬", en: "Grave Reform", img: "/assets/img/hero-sea.jpg", desc: "お墓の整理や改葬に関する意思決定と段取りを、わかりやすくご案内します。" },
-              { title: "終活コンシェルジュ", en: "Life Ending Support", img: "/assets/img/about-office.jpg", desc: "終活についての不安や検討事項を丁寧にお聞きし、ご本人の負担を軽くする伴走サービスです。" },
-              { title: "墓地・納骨先検索", en: "Grave Search", img: "/assets/img/hero-sea.jpg", desc: "墓地・納骨先を探すための検索プラットフォームを開発・運営しています。" },
-              { title: "手元供養品", en: "Memorial Items", img: "/assets/img/about-office.jpg", desc: "日々の暮らしの中で手元に祈れる供養品を企画・販売しています。" }
+              { title: "海洋散骨", en: "Sea Burial", icon: "M14.1 3.2L16.2 5.3C18 7.1 19.3 9.4 19.8 11.9C20.3 14.4 19.9 17 18.6 19.2M2.5 14C3.8 11.8 5.7 10 8 9M3.9 16.8L6 18.9" },
+              { title: "遺骨サービス", en: "Remains Care", icon: "M12 21.5V13m0 0l-4-4m4 4l4-4m-4-8a4 4 0 100 8 4 4 0 000-8z" },
+              { title: "お墓じまい・改葬", en: "Grave Reform", icon: "M8 7v14m8-14v14M3 11h18M4 7h16" },
+              { title: "終活相談", en: "Life Ending Support", icon: "M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" },
+              { title: "墓地・納骨先検索", en: "Grave Search", icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" },
+              { title: "手元供養品", en: "Memorial Items", icon: "M20 12H4m16 0A8 8 0 114 12a8 8 0 0116 0z" }
             ].map((biz, idx) => (
                <Link
                  key={idx}
@@ -185,15 +176,11 @@ export default function Home() {
                  data-stagger="business"
                  className="reveal group relative block overflow-hidden border-b border-r border-gray-200"
                >
-                 {/* 画像エリア */}
-                 <div className="relative h-52 overflow-hidden bg-gray-800">
-                   <Image
-                     src={biz.img}
-                     alt={biz.title}
-                     fill
-                     className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                   />
+                 {/* アイコン＆カラーベタ塗りエリア */}
+                 <div className="relative h-48 bg-gray-100 flex items-center justify-center transition-colors duration-500 group-hover:bg-gray-200">
+                   <svg className="w-16 h-16 text-gray-400 group-hover:text-brand-primary group-hover:scale-110 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d={biz.icon} />
+                   </svg>
                  </div>
                  {/* テキストエリア：住友式ダークグレーべた帯 */}
                  <div className="relative bg-surface-dark group-hover:bg-gray-700 transition-colors duration-300 px-6 py-5 flex items-center justify-between">
@@ -304,16 +291,24 @@ export default function Home() {
           </div>
 
           {/* タブコンテンツ */}
-          <div className="bg-white border border-t-0 border-gray-200 divide-y divide-gray-100">
-            {newsData[activeTab].map((item, idx) => (
-              <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 px-6 py-4 hover:bg-gray-50 transition-colors cursor-pointer group">
-                <span className="text-xs text-gray-400 font-medium tracking-widest flex-shrink-0">{item.date}</span>
-                <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-sm flex-shrink-0 w-fit ${categoryColor[item.category] ?? 'bg-gray-200 text-gray-600'}`}>
-                  {item.category}
-                </span>
-                <span className="text-sm text-gray-800 group-hover:text-brand-primary transition-colors">{item.title}</span>
+          <div className="bg-white border border-t-0 border-gray-200 min-h-[120px]">
+            {newsData[activeTab]?.length > 0 ? (
+              <div className="divide-y divide-gray-100">
+                {newsData[activeTab].map((item, idx) => (
+                  <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 px-6 py-4 hover:bg-gray-50 transition-colors cursor-pointer group">
+                    <span className="text-xs text-gray-400 font-medium tracking-widest flex-shrink-0">{item.date}</span>
+                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-sm flex-shrink-0 w-fit ${categoryColor[item.category] ?? 'bg-gray-200 text-gray-600'}`}>
+                      {item.category}
+                    </span>
+                    <span className="text-sm text-gray-800 group-hover:text-brand-primary transition-colors">{item.title}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : (
+              <div className="px-6 py-12 flex items-center justify-center text-gray-400 text-sm">
+                現在、該当するお知らせはありません。
+              </div>
+            )}
           </div>
 
           <div className="mt-6 text-right md:hidden">
