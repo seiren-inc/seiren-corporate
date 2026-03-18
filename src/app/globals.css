@@ -11,6 +11,41 @@
     --bg-light: #fafafa;
     --border-color: #e2e8f0;
   }
+
+  /* 日本語タイポグラフィの美学：palt（自動詰め組み）と文字間隔の最適化 */
+  body {
+    font-feature-settings: "palt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.06em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: "palt" 1;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* ============================================
+   Tier 1 Typography & Utilities
+   ============================================ */
+
+/* 縦書きの重厚なステートメント用 */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.vertical-rl-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.2em;
+  line-height: 2.2;
+}
+
+/* 一流サイト特有の極上のイージング */
+.ease-tier1 {
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* ============================================
@@ -19,12 +54,12 @@
 
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  filter: blur(6px);
+  transform: translateY(24px); /* より深い位置から */
+  filter: blur(8px);
   transition:
-    opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-    filter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 1.2s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: opacity, transform, filter;
 }
 

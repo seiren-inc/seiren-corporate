@@ -79,6 +79,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Corporate Statement (一流企業に必須の「縦書き」パーパスエリア) */}
+      <section className="bg-white pt-40 pb-32 relative z-20">
+        <div className="container mx-auto px-6 lg:px-12 flex justify-center">
+          <div className="reveal vertical-rl flex items-center justify-center gap-16 md:gap-24 h-[600px] md:h-[700px]">
+             {/* 創業の精神・メッセージ */}
+             <div className="vertical-rl-text text-xl md:text-2xl text-gray-800 font-serif leading-loose tracking-[0.25em]" style={{ transitionDelay: '0.1s' }}>
+                <p>
+                  私たちは、正解の押し付けを良しとしません。
+                </p>
+                <br/>
+                <p>
+                  ご本人とご家族の想いを丁寧にお聞きし、
+                </p>
+                <p>
+                  客観的な情報と選択肢をご提示する。
+                </p>
+                <br/>
+                <p>
+                  そして、専門家としての確かな実務を通して、
+                </p>
+                <p>
+                  その決断を最後まで支え抜きます。
+                </p>
+             </div>
+             {/* メインキャッチコピー */}
+             <h2 className="vertical-rl-text text-4xl md:text-5xl lg:text-6xl text-gray-900 font-serif font-bold tracking-[0.3em] leading-relaxed drop-shadow-sm">
+               <span className="block">人生の節目に、</span>
+               <span className="block mt-12">確かな判断と実務を。</span>
+             </h2>
+          </div>
+        </div>
+      </section>
+
       {/* 2. Trust Base */}
       <section className="bg-white py-10 border-t border-b border-gray-100 relative z-20">
         <div className="container mx-auto px-6 lg:px-12">
@@ -112,27 +145,27 @@ export default function Home() {
       </section>
 
       {/* 3. About Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-32 md:py-40 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-12">
-           <div className="flex flex-col lg:flex-row gap-16 items-center">
-             <div className="lg:w-1/2 space-y-8">
+           <div className="flex flex-col lg:flex-row gap-16 md:gap-24 items-center">
+             <div className="lg:w-1/2 space-y-12">
                <div className="reveal">
-                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">About</p>
-                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-gray-900 leading-tight tracking-wider">清蓮について</h2>
-                 <div className="w-10 h-[1px] bg-gray-900 mt-6"></div>
+                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-4">About</p>
+                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight tracking-[0.1em]">清蓮について</h2>
+                 <div className="w-12 h-[1px] bg-gray-900 mt-8"></div>
                </div>
-               <div className="reveal prose prose-lg text-gray-600 leading-relaxed" style={{ transitionDelay: '0.08s' }}>
-                 <p>
-                   株式会社 清蓮は、人生の節目における意思決定と実務をサポートする会社です。
-                   海洋散骨、遺骨ケア、お墓じまい、終活コンシェルジュなど、複数の事業を運営・企画し、国内外の専門事業者と連携しながら、お客様一人ひとりの状況に合わせた選択肢をご提案します。
-                 </p>
-                 <p className="mt-4">
-                   私たちは「正解の押し付け」をしません。<br/>
-                   ご本人・ご家族の想いや事情を丁寧にお聞きし、判断に必要な情報をお伝えし、実務まで責任を持って対応します。
-                 </p>
-                 <p className="mt-4 font-bold text-gray-900 border-l-2 border-brand-accent pl-4">
-                   相談で終わらせず、実行まで伴走する。<br/>それが清蓮の役割です。
-                 </p>
+               <div className="reveal prose prose-lg text-gray-600 leading-[2.2]" style={{ transitionDelay: '0.08s' }}>
+                  <p>
+                    株式会社 清蓮は、人生の節目における意思決定と実務をサポートする専門企業です。
+                    海洋散骨、遺骨ケア、お墓じまい、終活相談など、複数の事業を運営し、国内外の専門事業者と連携しながら、お客様一人ひとりの状況に合わせた最適な選択肢をご提案します。
+                  </p>
+                  <p className="mt-6">
+                    私たちは「正解の押し付け」をしません。<br/>
+                    ご本人・ご家族の想いや事情を丁寧にお聞きし、判断に必要な客観的情報をお伝えし、実務まで責任を持って対応します。
+                  </p>
+                  <p className="mt-8 font-serif font-bold text-gray-900 text-xl border-l-2 border-brand-accent pl-6 tracking-wide">
+                    相談で終わらせず、実行まで伴走する。<br/>それが清蓮の役割です。
+                  </p>
                </div>
              </div>
              <div className="lg:w-1/2 w-full">
@@ -152,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* 4. Business Section */}
-      <section className="py-24 bg-white relative">
+      <section className="py-32 md:py-40 bg-white relative">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="reveal text-center mb-16">
              <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-accent mb-3">Business</p>
@@ -206,7 +239,7 @@ export default function Home() {
 
 
       {/* 5. Strength Section */}
-      <section className="py-24 bg-surface-dark text-white relative overflow-hidden">
+      <section className="py-32 md:py-40 bg-surface-dark text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/img/pattern.svg')] opacity-5"></div>
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="reveal text-center mb-16">
@@ -232,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* 6. Partner Minimal Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-32 md:py-40 bg-gray-50">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
             <div className="lg:w-1/3 reveal">
@@ -258,7 +291,7 @@ export default function Home() {
       </section>
 
       {/* 7. News / Topics タブ（住友不動産スタイル） */}
-      <section className="py-20 bg-gray-50 border-t border-gray-100">
+      <section className="py-32 md:py-40 bg-gray-50 border-t border-gray-100">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="reveal mb-10 flex items-end justify-between">
             <div>
