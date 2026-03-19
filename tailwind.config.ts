@@ -32,6 +32,35 @@ const config: Config = {
         sans:  ['"Noto Sans JP"', 'sans-serif'],
         serif: ['"Noto Serif JP"', 'serif'],
       },
+      keyframes: {
+        // 2026: Shimmer — スケルトンローディング・プレミアム感演出
+        shimmer: {
+          "0%":   { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        // 2026: Floating — 要素の浮遊感（清蓮向け・ゆっくり）
+        floating: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%":      { transform: "translateY(-12px)" },
+        },
+        // 2026: FloatingSlow — 背景・装飾要素向けの超緩やか浮遊
+        "floating-slow": {
+          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+          "33%":      { transform: "translateY(-6px) rotate(0.5deg)" },
+          "66%":      { transform: "translateY(-3px) rotate(-0.3deg)" },
+        },
+        // 2026: PulseGlow — Tealカラーの水の輝き演出（清蓮ブランド専用）
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.5", filter: "blur(14px)" },
+          "50%":      { opacity: "1",   filter: "blur(8px)" },
+        },
+      },
+      animation: {
+        shimmer:         "shimmer 2.0s linear infinite",
+        floating:        "floating 5.0s ease-in-out infinite",
+        "floating-slow": "floating-slow 10.0s ease-in-out infinite",
+        "pulse-glow":    "pulse-glow 4.0s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
