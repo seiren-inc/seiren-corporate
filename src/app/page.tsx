@@ -143,7 +143,7 @@ export default function Home() {
           className="absolute bottom-8 right-8 md:right-12 flex flex-col items-center gap-2 text-gray-400"
           aria-hidden="true"
         >
-          <span className="text-[10px] tracking-[0.3em] uppercase font-light" style={{ writingMode: 'vertical-rl' }}>
+          <span className="text-xs tracking-[0.3em] uppercase font-light" style={{ writingMode: 'vertical-rl' }}>
             Scroll
           </span>
           <div className="w-[1px] h-16 overflow-hidden relative bg-gray-200">
@@ -168,7 +168,7 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <p className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-0.5">Appointment</p>
+                <p className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-0.5">Appointment</p>
                 <p className="text-sm font-bold text-gray-900">完全予約制</p>
               </div>
             </div>
@@ -179,11 +179,11 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <p className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-0.5">Phone</p>
+                <p className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-0.5">Phone</p>
                 <a href="tel:045-881-9952" className="text-sm font-bold text-gray-900 hover:text-brand-primary transition-colors">
                   045-881-9952
                 </a>
-                <p className="text-[10px] text-gray-400 mt-0.5">毎日 9:00〜18:00</p>
+                <p className="text-xs text-gray-400 mt-0.5">毎日 9:00〜18:00</p>
               </div>
             </div>
             <div className="flex items-center gap-4 py-6 px-4 md:px-8">
@@ -194,12 +194,12 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <p className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-0.5">Location</p>
+                <p className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-0.5">Location</p>
                 <p className="text-sm font-bold text-gray-900">横浜市戸塚区</p>
                 <a
                   href="https://maps.google.com/?q=神奈川県横浜市戸塚区戸塚町4170+高橋ビル1F"
                   target="_blank" rel="noopener noreferrer"
-                  className="text-[10px] text-brand-primary hover:text-brand-hover transition-colors font-medium"
+                  className="text-xs text-brand-primary hover:text-brand-hover transition-colors font-medium"
                 >
                   Google Mapを見る →
                 </a>
@@ -245,7 +245,7 @@ export default function Home() {
             <div className="lg:w-5/12 z-10 relative mt-8 lg:mt-0 order-2 lg:order-1">
               <div className="lg:bg-white/90 lg:backdrop-blur-md lg:p-14 lg:shadow-2xl lg:-mr-40 relative z-20">
                 <div className="reveal">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-accent mb-5">About</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent mb-5">About</p>
                   <h2
                     id="about-heading"
                     className="text-4xl md:text-5xl font-serif font-bold text-gray-900 leading-tight tracking-[0.05em]"
@@ -292,7 +292,7 @@ export default function Home() {
       <section className="py-40 bg-white" aria-labelledby="business-heading">
         <div className="container mx-auto px-6 lg:px-16">
           <div className="reveal mb-14">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Business</p>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Business</p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <h2 id="business-heading" className="text-4xl md:text-5xl font-serif font-bold text-gray-900 tracking-[0.05em]">
                 事業領域
@@ -324,7 +324,7 @@ export default function Home() {
       <section className="py-40 bg-slate-50" aria-labelledby="strength-heading">
         <div className="container mx-auto px-6 lg:px-16">
           <div className="reveal text-center mb-20">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Strength</p>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Strength</p>
             <h2 id="strength-heading" className="text-4xl md:text-5xl font-serif font-bold text-gray-900 tracking-[0.05em] mb-4">
               清蓮が選ばれる理由
             </h2>
@@ -362,7 +362,7 @@ export default function Home() {
         <div className="container mx-auto px-6 lg:px-16">
           <div className="flex flex-col lg:flex-row gap-16 items-start justify-between">
             <div className="lg:w-1/3 reveal">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Partners</p>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Partners</p>
               <h2 id="partner-heading" className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6 tracking-[0.05em]">
                 提携・取引先
               </h2>
@@ -394,7 +394,7 @@ export default function Home() {
         <div className="container mx-auto px-6 lg:px-16">
           <div className="reveal mb-10 flex items-end justify-between">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Topics</p>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Topics</p>
               <h2 id="news-heading" className="text-3xl md:text-4xl font-serif font-bold text-gray-900 tracking-[0.05em]">
                 ニュース・お知らせ
               </h2>
@@ -427,7 +427,7 @@ export default function Home() {
                 {newsData[activeTab].map((item, idx) => (
                   <div key={idx} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-6 py-4 hover:bg-gray-50 transition-colors cursor-pointer group">
                     <span className="text-xs text-gray-400 font-medium tracking-widest flex-shrink-0">{item.date}</span>
-                    <span className={`text-[10px] font-bold px-2.5 py-0.5 flex-shrink-0 w-fit ${categoryColor[item.category] ?? 'bg-gray-200 text-gray-600'}`}>
+                    <span className={`text-xs font-bold px-2.5 py-0.5 flex-shrink-0 w-fit ${categoryColor[item.category] ?? 'bg-gray-200 text-gray-600'}`}>
                       {item.category}
                     </span>
                     <span className="text-sm text-gray-800 group-hover:text-brand-primary transition-colors">{item.title}</span>
@@ -449,7 +449,7 @@ export default function Home() {
       <section className="py-20 bg-white" aria-labelledby="company-heading">
         <div className="container mx-auto px-6 lg:px-16 max-w-3xl">
           <div className="reveal mb-12">
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Company</p>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-primary mb-4">Company</p>
             <h2 id="company-heading" className="text-3xl md:text-4xl font-serif font-bold text-gray-900 tracking-[0.05em]">
               会社情報
             </h2>
@@ -463,7 +463,7 @@ export default function Home() {
               { label: '設立',      value: '2026年（令和8年）' },
             ].map(({ label, value }) => (
               <div key={label} className="flex flex-col sm:flex-row py-4 gap-2 sm:gap-0">
-                <dt className="w-full sm:w-1/4 text-[10px] text-gray-400 font-bold tracking-[0.2em] uppercase flex-shrink-0 pt-0.5">{label}</dt>
+                <dt className="w-full sm:w-1/4 text-xs text-gray-400 font-bold tracking-[0.2em] uppercase flex-shrink-0 pt-0.5">{label}</dt>
                 <dd className="text-gray-800 font-medium text-sm sm:text-base">{value}</dd>
               </div>
             ))}
@@ -485,7 +485,7 @@ export default function Home() {
       <section className="py-32 bg-surface-dark relative overflow-hidden text-center text-white" aria-label="お問い合わせ">
         <div className="absolute top-0 left-0 w-1 h-full bg-brand-primary opacity-60" aria-hidden="true" />
         <div className="container relative z-10 mx-auto px-6 max-w-3xl">
-          <p className="reveal text-[10px] text-brand-primary font-bold tracking-[0.3em] uppercase mb-5">Get in Touch</p>
+          <p className="reveal text-xs text-brand-primary font-bold tracking-[0.3em] uppercase mb-5">Get in Touch</p>
           <h2 className="reveal text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-[0.05em] leading-tight" style={{ transitionDelay: '0.08s' }}>
             ご相談をご希望の方へ
           </h2>

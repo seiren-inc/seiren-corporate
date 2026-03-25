@@ -138,7 +138,7 @@ export default function Header() {
             {navItems.map((item) => (
               <div key={item.label} className="relative group/nav py-2">
                 <Link href={item.href} className="flex flex-col items-center justify-center transition-colors duration-200">
-                  <span className="text-[9px] font-bold text-gray-400 tracking-widest uppercase mb-0.5 group-hover/nav:text-brand-primary transition-colors">{item.en}</span>
+                  <span className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-0.5 group-hover/nav:text-brand-primary transition-colors">{item.en}</span>
                   <span className="text-sm font-bold text-gray-800 group-hover/nav:text-brand-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-accent after:scale-x-0 after:origin-right after:transition-transform after:duration-300 group-hover/nav:after:scale-x-100 group-hover/nav:after:origin-left pb-1">
                     {item.label}
                   </span>
@@ -168,7 +168,7 @@ export default function Header() {
               href="/contact"
               className="ml-2 bg-brand-primary text-white px-5 py-2 rounded-full text-sm font-bold tracking-wide transition-all duration-300 hover:bg-[#257582] hover:shadow-lg hover:-translate-y-0.5 flex flex-col items-center justify-center"
             >
-              <span className="text-[9px] font-bold tracking-widest uppercase opacity-80 mb-0.5">CONTACT</span>
+              <span className="text-xs font-bold tracking-widest uppercase opacity-80 mb-0.5">CONTACT</span>
               <span>お問い合わせ</span>
             </Link>
           </nav>
@@ -203,7 +203,7 @@ export default function Header() {
                     className="flex-1 flex flex-col group/mob"
                     onClick={() => !item.children && setIsMenuOpen(false)}
                   >
-                    <span className="text-[10px] font-bold text-brand-primary tracking-widest uppercase mb-1">{item.en}</span>
+                    <span className="text-xs font-bold text-brand-primary tracking-widest uppercase mb-1">{item.en}</span>
                     <span className="text-base font-bold text-gray-900 group-hover/mob:text-brand-primary">{item.label}</span>
                   </Link>
                   {item.children && (
@@ -259,7 +259,7 @@ export default function Header() {
                 className="flex flex-col items-center justify-center w-full bg-brand-primary text-white text-center px-6 py-4 rounded-xl font-bold shadow-md hover:bg-[#206774] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span className="text-[10px] font-bold tracking-widest uppercase opacity-80 mb-1">CONTACT</span>
+                <span className="text-xs font-bold tracking-widest uppercase opacity-80 mb-1">CONTACT</span>
                 <span>お問い合わせ</span>
               </Link>
             </div>

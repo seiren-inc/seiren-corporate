@@ -108,7 +108,7 @@ export default function RootLayout({
         <LenisProvider />
         <GSAPScrollAnimator />
         <BackToTop />
-        <main className="pt-[104px] lg:pt-[108px]">
+        <main className="pt-[104px] lg:pt-[108px] pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-6">
           {children}
         </main>
         <Footer />

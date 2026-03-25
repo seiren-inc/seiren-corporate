@@ -97,7 +97,7 @@ export default function BusinessCarousel() {
                   <div className="text-gray-300 group-hover:text-brand-primary transition-colors duration-500 relative z-10">
                     {biz.icon}
                   </div>
-                  <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-gray-300 group-hover:text-brand-primary transition-colors duration-500 relative z-10">
+                  <p className="text-xs font-bold tracking-[0.25em] uppercase text-gray-300 group-hover:text-brand-primary transition-colors duration-500 relative z-10">
                     {biz.en}
                   </p>
                 </div>
