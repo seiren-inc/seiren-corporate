@@ -12,16 +12,18 @@ type BreadcrumbsProps = {
 export default function Breadcrumbs({ paths }: BreadcrumbsProps) {
   // ホーム画面のパスは常に先頭に追加する
   const allPaths = [{ label: 'ホーム', href: '/' }, ...paths];
+  const baseUrl = 'https://seiren-inc.co.jp';
 
   // 構造化データ（JSON-LD）の生成
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${baseUrl}${allPaths[allPaths.length - 1]?.href ?? '/' }#breadcrumb`,
     "itemListElement": allPaths.map((path, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: path.label,
-      item: `https://seiren-inc.co.jp${path.href}`,
+      item: `${baseUrl}${path.href}`,
     })),
   };
 

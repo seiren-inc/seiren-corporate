@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
             <div className="lg:col-span-2 space-y-6">
-              <h3 className="text-white text-2xl font-serif font-bold tracking-widest drop-shadow-sm">株式会社 清蓮</h3>
+              <h3 className="text-white text-2xl font-serif font-bold tracking-widest drop-shadow-sm">株式会社清蓮</h3>
               <p className="leading-relaxed text-gray-400">
                 〒244-0003<br />
                 神奈川県横浜市戸塚区戸塚町4170<br />
@@ -24,7 +24,7 @@ export default function Footer() {
                   </svg>
                   045-881-9952
                 </a>
-                <p className="text-sm text-gray-500 mt-2">受付時間：毎日 9:00〜18:00</p>
+                <p className="text-sm text-gray-500 mt-2">受付時間：月曜〜日曜 9:00〜17:00</p>
               </div>
             </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
 
           <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500 font-serif tracking-widest">
-              &copy; 2026 株式会社 清蓮 All Rights Reserved.
+              &copy; 2026 株式会社清蓮 All Rights Reserved.
             </p>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function Footer() {
             <Link href="/contact" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">お問い合わせ</Link>
             <Link href="/sitemap.xml" className="text-xs text-gray-500 hover:text-gray-300 transition-colors" target="_blank">サイトマップ</Link>
           </nav>
-          <p className="text-xs text-gray-600">© 2026 株式会社 清蓮</p>
+          <p className="text-xs text-gray-600">© 2026 株式会社清蓮</p>
         </div>
       </div>
     </footer>

@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'プライバシーポリシー｜株式会社 清蓮',
-  description: '株式会社 清蓮のプライバシーポリシー（個人情報保護方針）についてのご案内です。お客様の大切な個人情報を安全に管理いたします。',
+  title: 'プライバシーポリシー｜株式会社清蓮',
+  description: '株式会社清蓮のプライバシーポリシー（個人情報保護方針）についてのご案内です。お客様の大切な個人情報を安全に管理いたします。',
 };
 
 export default function Privacy() {
@@ -24,7 +24,7 @@ export default function Privacy() {
       <section className="container mx-auto px-6 lg:px-12 mt-16 max-w-4xl">
         <div className="bg-white border border-gray-200 p-8 md:p-14 shadow-sm">
            <p className="text-gray-700 leading-relaxed mb-10 text-lg">
-             株式会社 清蓮（以下「当社」）は、お客様の個人情報の適切な取り扱いと保護を重要な責務と考え、以下のとおりプライバシーポリシーを定め、これを遵守します。
+             株式会社清蓮（以下「当社」）は、お客様の個人情報の適切な取り扱いと保護を重要な責務と考え、以下のとおりプライバシーポリシーを定め、これを遵守します。
            </p>
 
            <div className="space-y-10">
@@ -80,7 +80,7 @@ export default function Privacy() {
                  <h2 className="text-lg md:text-xl font-serif font-bold text-gray-900 mb-4 tracking-wide">5. お問い合わせ窓口</h2>
                  <p className="text-gray-600 leading-relaxed mb-4">本ポリシーに関するお問い合わせは、下記までご連絡ください。</p>
                  <p className="text-gray-800 font-bold leading-relaxed">
-                    株式会社 清蓮<br/>
+                    株式会社清蓮<br/>
                     〒244-0003 神奈川県横浜市戸塚区戸塚町4170 高橋ビル1F<br/>
                     TEL: 045-881-9952（代表）
                  </p>

@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'お問い合わせ｜株式会社 清蓮',
-  description: '株式会社 清蓮への各種ご相談・お問い合わせはこちらから。海洋散骨、遺骨サービス、お墓じまいなど、お気軽にご連絡ください。',
+  title: 'お問い合わせ｜株式会社清蓮',
+  description: '株式会社清蓮への各種ご相談・お問い合わせはこちらから。海洋散骨、遺骨サービス、お墓じまいなど、お気軽にご連絡ください。',
 };
 
 export default function Contact() {
@@ -31,7 +31,7 @@ export default function Contact() {
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 045-881-9952
               </a>
-              <p className="text-gray-400 text-sm">受付時間：毎日 9:00 〜 18:00（年末年始を除く）</p>
+              <p className="text-gray-400 text-sm">受付時間：月曜〜日曜 9:00〜17:00（年末年始を除く）</p>
            </div>
 
            {/* Web Form */}

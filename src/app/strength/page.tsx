@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: '清蓮が選ばれる理由｜株式会社 清蓮',
-  description: '株式会社 清蓮の3つの強み（実務対応力、提携ネットワーク、来店型相談）をご紹介します。相談から実行まで一貫して伴走いたします。',
+  title: '清蓮が選ばれる理由｜株式会社清蓮',
+  description: '株式会社清蓮の3つの強み（実務対応力、提携ネットワーク、来店型相談）をご紹介します。相談から実行まで一貫して伴走いたします。',
 };
 
 export default function Strength() {

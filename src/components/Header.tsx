@@ -1,6 +1,8 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import LogoBlooming from './LogoBlooming';
 
 const navItems = [
   {
@@ -32,16 +34,19 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-  const [isLargeText, setIsLargeText] = useState(false);
+  const [isLargeText, setIsLargeText] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem('seiren-text-large') === 'true';
+  });
 
-  // ページ初回ロード時: ローカルストレージからフォントサイズ設定を復元
+  // 初期状態に応じて html 要素へクラスを同期
   useEffect(() => {
-    const saved = localStorage.getItem('seiren-text-large');
-    if (saved === 'true') {
-      setIsLargeText(true);
+    if (isLargeText) {
       document.documentElement.classList.add('text-large');
+      return;
     }
-  }, []);
+    document.documentElement.classList.remove('text-large');
+  }, [isLargeText]);
 
   const toggleTextSize = () => {
     const next = !isLargeText;
@@ -99,7 +104,7 @@ export default function Header() {
             <a href="tel:045-881-9952" className="text-xs font-medium text-gray-700 hover:text-brand-primary transition-colors">
               045-881-9952
             </a>
-            <span className="text-xs text-gray-400">（毎日 9:00〜18:00）</span>
+            <span className="text-xs text-gray-400">（月曜〜日曜 9:00〜17:00）</span>
           </div>
 
           {/* お問い合わせボタン */}
@@ -118,17 +123,9 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-3 group">
-              <img
-                src="/assets/img/logo.webp"
-                alt="株式会社清蓮ロゴ"
-                width="44"
-                height="44"
-                className="w-11 h-11 transition-transform duration-300 group-hover:scale-105"
-                loading="eager"
-                decoding="async"
-              />
-              <span className="font-bold tracking-widest text-base text-gray-900 transition-colors duration-300">
-                株式会社 清蓮
+              <LogoBlooming size="sm" interactive={false} className="transition-transform duration-300 group-hover:scale-110" />
+              <span className="font-bold tracking-widest text-base text-gray-900 transition-colors duration-300 group-hover:text-brand-primary">
+                株式会社清蓮
               </span>
             </Link>
           </div>

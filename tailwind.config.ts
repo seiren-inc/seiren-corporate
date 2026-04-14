@@ -10,22 +10,32 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary:   "#2f8c9c",  // Seiren Teal（ロゴ主役・最多使用）
-          hover:     "#246b77",  // brand-primary のホバー/アクティブ
-          accent:    "#c9789b",  // Lotus Pink（蓮ピンク・極小アクセント）
-          support:   "#8fbf74",  // Soft Sage（若草・補助区切り線のみ）
-          secondary: "#e6f3f5",  // Teal の薄い背景色
+          primary:   "#2f8c9c",  // Seiren Teal (信頼・誠実)
+          secondary: "#8fbf74",  // Lotus Lime (自然・再生)
+          accent:    "#c9789b",  // Lotus Pink (愛・華やかさ)
+          gold:      "#c4a96a",  // Champagne Gold (品質・格式)
+          hover:     "#246b77",
+          "teal-light": "#e6f3f5",
+          "lime-light": "#f1f8ed",
+          "pink-light": "#fdf6f9",
         },
         neutral: {
-          bg:      "#ffffff",  // メイン背景
-          surface: "#f5f7f8",  // セクション背景（Apple的ライトグレー）
-          text:    "#0f1720",  // 本文テキスト（深い黒）
-          muted:   "#5f6b75",  // サブテキスト
-          line:    "rgba(15, 23, 32, 0.10)", // 区切り線
+          bg:      "#ffffff",  // メイン背景（純白）
+          surface: "#f8f9fa",  // セクション背景（明るいグレー）
+          text:    "#1a1e21",  // 本文（柔らかい黒）
+          muted:   "#6c757d",  // サブテキスト
+          line:    "rgba(0, 0, 0, 0.05)",
         },
         surface: {
-          light: "#f5f7f8",
-          dark:  "#0f1720",  // ヘッダー・フッター用の深い色（ブランドコンセプト準拠）
+          light: "#fafafa",
+          dark:  "#002f34",    // 深いティール（フッター等で引き締め用）
+        },
+        aftercare: {
+          warm:       "#faf8f5",
+          gold:       "#c4a96a",
+          "gold-light": "#e8dcc8",
+          navy:       "#1e2a3a",
+          "navy-hover": "#2a3a4e",
         },
       },
       fontFamily: {
@@ -53,6 +63,22 @@ const config: Config = {
         "pulse-glow": {
           "0%, 100%": { opacity: "0.5", filter: "blur(14px)" },
           "50%":      { opacity: "1",   filter: "blur(8px)" },
+        },
+        // Aftercare: フェードイン
+        fadeIn: {
+          "0%":   { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        // Aftercare: 下からスライド + フェードイン
+        fadeSlideIn: {
+          "0%":   { opacity: "0", transform: "translateY(5px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        // Aftercare: ボタン周囲の控えめパルス（1回のみ）
+        gentlePulse: {
+          "0%":   { boxShadow: "0 0 0 0 rgba(47, 140, 156, 0.4)" },
+          "70%":  { boxShadow: "0 0 0 12px rgba(47, 140, 156, 0)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(47, 140, 156, 0)" },
         },
       },
       animation: {

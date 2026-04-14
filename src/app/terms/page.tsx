@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: '利用規約｜株式会社 清蓮',
-  description: '株式会社 清蓮のコーポレートサイトの利用規約をご案内します。本サイトをご利用の際は、ご一読いただきますようお願いいたします。',
+  title: '利用規約｜株式会社清蓮',
+  description: '株式会社清蓮のコーポレートサイトの利用規約をご案内します。本サイトをご利用の際は、ご一読いただきますようお願いいたします。',
 };
 
 export default function Terms() {
@@ -24,7 +24,7 @@ export default function Terms() {
       <section className="container mx-auto px-6 lg:px-12 mt-16 max-w-4xl">
         <div className="bg-white border border-gray-200 p-8 md:p-14 shadow-sm">
            <p className="text-gray-700 leading-relaxed mb-10 text-lg">
-             株式会社 清蓮（以下「当社」）は、当社が運営するウェブサイト（以下「本サイト」）の利用条件を以下の通り定めます。本サイトをご利用いただく際は、本規約に同意の上ご利用ください。
+             株式会社清蓮（以下「当社」）は、当社が運営するウェブサイト（以下「本サイト」）の利用条件を以下の通り定めます。本サイトをご利用いただく際は、本規約に同意の上ご利用ください。
            </p>
 
            <div className="space-y-10">

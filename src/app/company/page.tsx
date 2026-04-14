@@ -4,8 +4,8 @@ import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: '会社情報｜株式会社 清蓮',
-  description: '株式会社 清蓮の会社概要、代表挨拶、アクセス情報などをご案内します。横浜市戸塚区を拠点に全国の終活・供養をサポートしています。',
+  title: '会社情報｜株式会社清蓮',
+  description: '株式会社清蓮の会社概要、代表挨拶、アクセス情報などをご案内します。横浜市戸塚区を拠点に全国の終活・供養をサポートしています。',
 };
 
 export default function Company() {
@@ -29,7 +29,7 @@ export default function Company() {
           <dl className="divide-y divide-gray-100">
             <div className="py-6 flex flex-col sm:flex-row">
               <dt className="w-full sm:w-1/3 text-gray-500 font-medium mb-2 sm:mb-0">商号</dt>
-              <dd className="w-full sm:w-2/3 text-gray-900 font-bold">株式会社 清蓮</dd>
+              <dd className="w-full sm:w-2/3 text-gray-900 font-bold">株式会社清蓮</dd>
             </div>
             <div className="py-6 flex flex-col sm:flex-row">
               <dt className="w-full sm:w-1/3 text-gray-500 font-medium mb-2 sm:mb-0">設立</dt>
@@ -97,7 +97,7 @@ export default function Company() {
                </p>
                <div className="bg-gray-50 p-6 border border-gray-200">
                  <p className="font-bold text-gray-900 mb-2">営業時間</p>
-                 <p className="text-gray-800 text-lg">9:00 〜 18:00（土日祝も対応可）</p>
+                 <p className="text-gray-800 text-lg">9:00〜17:00（月曜〜日曜対応）</p>
                  <p className="text-sm text-gray-500 mt-2">※年末年始を除く</p>
                </div>
             </div>

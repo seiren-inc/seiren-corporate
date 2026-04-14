@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: '提携・取引先｜株式会社 清蓮',
-  description: '株式会社 清蓮が提携する、国内外の寺院・納骨堂、石材店、船舶事業者などの専門事業者ネットワークをご紹介します。',
+  title: '提携・取引先｜株式会社清蓮',
+  description: '株式会社清蓮が提携する、国内外の寺院・納骨堂、石材店、船舶事業者などの専門事業者ネットワークをご紹介します。',
 };
 
 export default function Partner() {

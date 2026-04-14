@@ -6,6 +6,7 @@ import RevealObserver from "@/components/RevealObserver";
 import BackToTop from "@/components/BackToTop";
 import LenisProvider from "@/components/LenisProvider";
 import GSAPScrollAnimator from "@/components/GSAPScrollAnimator";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 // グローバルCSSの読み込み
 import "./globals.css";
@@ -18,15 +19,15 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "株式会社 清蓮｜人生の節目に、確かな判断と実務を。",
+  title: "株式会社清蓮｜人生の節目に、確かな判断と実務を。",
   description:
-    "株式会社 清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
+    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
   openGraph: {
-    title: "株式会社 清蓮｜人生の節目に、確かな判断と実務を。",
+    title: "株式会社清蓮｜人生の節目に、確かな判断と実務を。",
     description:
-      "株式会社 清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
+      "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
     url: "https://seiren-inc.co.jp/",
-    siteName: "株式会社 清蓮",
+    siteName: "株式会社清蓮",
     images: [
       {
         url: "https://seiren-inc.co.jp/ogp.png",
@@ -38,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "株式会社 清蓮｜人生の節目に、確かな判断と実務を。",
+    title: "株式会社清蓮｜人生の節目に、確かな判断と実務を。",
     description:
-      "株式会社 清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
+      "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
     images: ["https://seiren-inc.co.jp/ogp.png"],
   },
   verification: {
@@ -52,6 +53,66 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://seiren-inc.co.jp/#organization",
+  url: "https://seiren-inc.co.jp/",
+  name: "株式会社清蓮",
+  description:
+    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
+  inLanguage: "ja",
+  logo: "https://seiren-inc.co.jp/icon.png",
+  telephone: "045-881-9952",
+  address: {
+    "@type": "PostalAddress",
+    postalCode: "244-0003",
+    streetAddress: "戸塚町4170 高橋ビル1F",
+    addressLocality: "横浜市戸塚区",
+    addressRegion: "神奈川県",
+    addressCountry: "JP",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://seiren-inc.co.jp/#website",
+  url: "https://seiren-inc.co.jp/",
+  name: "株式会社清蓮",
+  description:
+    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
+  inLanguage: "ja",
+  publisher: {
+    "@id": "https://seiren-inc.co.jp/#organization",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://seiren-inc.co.jp/#localbusiness",
+  url: "https://seiren-inc.co.jp/",
+  name: "株式会社清蓮",
+  description:
+    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
+  inLanguage: "ja",
+  logo: "https://seiren-inc.co.jp/icon.png",
+  telephone: "045-881-9952",
+  openingHours: "Mo-Su 09:00-17:00",
+  address: {
+    "@type": "PostalAddress",
+    postalCode: "244-0003",
+    streetAddress: "戸塚町4170 高橋ビル1F",
+    addressLocality: "横浜市戸塚区",
+    addressRegion: "神奈川県",
+    addressCountry: "JP",
+  },
+  parentOrganization: {
+    "@id": "https://seiren-inc.co.jp/#organization",
   },
 };
 
@@ -76,22 +137,11 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "株式会社 清蓮",
-              "url": "https://seiren-inc.co.jp/",
-              "logo": "https://seiren-inc.co.jp/icon.png",
-              "telephone": "+81-45-881-9952",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "戸塚町4170 高橋ビル1F",
-                "addressLocality": "横浜市戸塚区",
-                "addressRegion": "神奈川県",
-                "postalCode": "244-0003",
-                "addressCountry": "JP"
-              }
-            })
+            __html: JSON.stringify([
+              organizationJsonLd,
+              websiteJsonLd,
+              localBusinessJsonLd,
+            ])
           }}
         />
         {/*
@@ -103,15 +153,20 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">
           本文へスキップ
         </a>
-        <Header />
-        <RevealObserver />
-        <LenisProvider />
-        <GSAPScrollAnimator />
-        <BackToTop />
-        <main className="pt-[104px] lg:pt-[108px] pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-6">
+        <LayoutWrapper
+          header={<Header />}
+          footer={<Footer />}
+          extras={
+            <>
+              <RevealObserver />
+              <LenisProvider />
+              <GSAPScrollAnimator />
+              <BackToTop />
+            </>
+          }
+        >
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
         <Script src="/assets/main.js" strategy="lazyOnload" />
       </body>
     </html>

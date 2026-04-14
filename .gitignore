@@ -3,5 +3,54 @@ node_modules
 .DS_Store
 .env
 .env.local
+.env.*.local
 dist
 coverage
+
+# build outputs
+build/
+out/
+
+# caches & build tools
+.turbo/
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.swc
+
+# OS junk
+Thumbs.db
+
+# editor
+.idea/
+.vscode/workspace-settings.json
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.pnpm-debug.log*
+
+# temp / swap
+*.tmp
+*.swp
+*.swo
+*~
+*.iml
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+*.pem
+
+# python (monorepo safety)
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+
+# aftercare 本番データ（顧客情報を含む）
+data/aftercare/cases.json
+data/aftercare/submissions.json

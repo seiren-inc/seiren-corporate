@@ -4,27 +4,43 @@
 
 @layer base {
   :root {
-    /* ===== Brand Colors（清蓮ロゴ配色） ===== */
-    --brand-primary:   #2f8c9c;  /* Seiren Teal    ロゴ文字色・主役 */
-    --brand-hover:     #246b77;  /* Teal Dark      ホバー・アクティブ */
-    --brand-accent:    #c9789b;  /* Lotus Pink     蓮の花・極小装飾のみ */
-    --brand-support:   #8fbf74;  /* Soft Sage      若草・補助区切りのみ */
-    --brand-secondary: #e6f3f5;  /* Teal Light     薄い背景色 */
+    /* ===== Brand Colors（清蓮ロゴ配色 - ブライト調整） ===== */
+    --brand-primary:   #2f8c9c;  /* Seiren Teal */
+    --brand-hover:     #246b77;
+    --brand-secondary: #8fbf74;  /* Lotus Lime */
+    --brand-accent:    #c9789b;  /* Lotus Pink */
+    --brand-gold:      #c4a96a;  /* Champagne Gold */
+    
+    /* Light variants */
+    --brand-teal-light: #e6f3f5;
+    --brand-lime-light: #f1f8ed;
+    --brand-pink-light: #fdf6f9;
 
-    /* ===== Neutral Colors（Apple思想） ===== */
+    /* ===== Neutral Colors（明るく透明感のある構成） ===== */
     --bg:      #ffffff;
-    --surface: #f5f7f8;
-    --text:    #0f1720;
-    --muted:   #5f6b75;
-    --line:    rgba(15,23,32,.10);
+    --surface: #f8f9fa;
+    --text:    #1a1e21;
+    --muted:   #6c757d;
+    --line:    rgba(0, 0, 0, 0.05);
 
-    /* ===== Legacy aliases ===== */
-    --text-main:    #0f1720;
-    --text-muted:   #5f6b75;
-    --bg-light:     #f5f7f8;
-    --border-color: rgba(15,23,32,.10);
+    /* UI Logic */
+    --header-height: 80px;
     --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
-    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  }
+
+  /* Fluid Typography - モダンな基準サイズ設定 */
+  html {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 480px) {
+    html {
+      font-size: calc(16px + 2 * ((100vw - 480px) / 800));
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    html {
+      font-size: 18px;
+    }
   }
 
   /* 日本語タイポグラフィ：自動詰め組み・アンチエイリアス */
@@ -32,51 +48,54 @@
     font-feature-settings: "palt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0.06em;
     color: var(--text);
     background: var(--bg);
+    line-height: 1.8;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-feature-settings: "palt" 1;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
   }
 }
 
 /* ============================================================
-   KEYFRAME ANIMATIONS
+   PREMIUM ANIMATIONS (Keyframes)
    ============================================================ */
 
-/* Hero背景のゆっくりとした深度ズーム */
-@keyframes heroZoom {
-  from { transform: scale(1); }
-  to   { transform: scale(1.05); }
+/* 2026: Shimmer — スケルトンローディング・プレミアム感演出 */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-/* スクロールインジケーター：点滅ではなく流れる */
-@keyframes scrollFlow {
-  0%   { transform: translateY(-100%); opacity: 0; }
-  30%  { opacity: 1; }
-  70%  { opacity: 1; }
-  100% { transform: translateY(200%); opacity: 0; }
+/* 2026: Floating — 要素の浮遊感（清蓮向け・ゆっくり） */
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
 }
 
-/* Heroテキスト初期フェード */
-@keyframes fadeUpIn {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+/* 2026: Wave — 背景・装飾要素向けの「ゆらぎ」 */
+@keyframes wave {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33%      { transform: translate(2px, -4px) rotate(0.5deg); }
+  66%      { transform: translate(-2px, -2px) rotate(-0.3deg); }
+}
+
+/* 2026: PulseGlow — ティールカラーの水の輝き演出 */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; filter: blur(16px); transform: scale(1); }
+  50%      { opacity: 0.8; filter: blur(10px); transform: scale(1.05); }
+}
+
+/* 2026: Hero Text Reveal (Blur to Sharp) */
+@keyframes text-reveal {
+  0% { opacity: 0; filter: blur(15px); transform: translateY(20px); }
+  100% { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
 
 /* ============================================================
-   Tier 1: Typography & Layout Utilities
+   LAYOUT & UTILITIES
    ============================================================ */
 
 /* 縦書き（コーポレートステートメント用） */
@@ -84,172 +103,89 @@
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }
-.vertical-rl-text {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  letter-spacing: 0.2em;
-  line-height: 2.2;
+
+.ease-premium {
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* 極上のイージング */
-.ease-tier1 {
-  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* ============================================================
-   Hero Animations
-   ============================================================ */
-
-/* Hero背景ズームクラス */
-.hero-zoom {
-  animation: heroZoom 20s linear forwards;
-  transform-origin: center center;
-}
-
-/* Hero Grain — CSS SVGノイズ（高級感の核） */
-.hero-grain::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 3;
-  mix-blend-mode: overlay;
+/* Glassmorphism Refined */
+.glass-bright {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* ============================================================
-   Reveal Animation System（スクロールリビール）
+   Reveal Animation System (Modified for Bright Theme)
    ============================================================ */
 
 .reveal {
   opacity: 0;
-  transform: translateY(16px) scale(0.98);
-  filter: blur(12px);
-  transition:
-    opacity  0.8s cubic-bezier(0.25, 1, 0.5, 1),
-    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-    filter   0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: translateY(24px);
+  filter: blur(8px);
+  transition: 
+    opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1.2s cubic-bezier(0.23, 1, 0.32, 1),
+    filter 1.2s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: opacity, transform, filter;
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   filter: blur(0);
 }
 
-/* prefers-reduced-motion: アニメ即時表示 */
+/* ============================================================
+   UI Interactions
+   ============================================================ */
+
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(47, 140, 156, 0.08);
+}
+
+/* Diamond Shine Effect */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shine-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.1) 55%,
+    transparent 100%
+  );
+  transform: rotate(-45deg);
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(-45deg); }
+  20%, 100% { transform: translateX(100%) rotate(-45deg); }
+}
+
+/* ============================================================
+   Accessibility
+   ============================================================ */
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-    filter: none;
-    transition: none;
-  }
-  .hero-zoom {
-    animation: none;
-    transform: scale(1.03); /* 展開済み状態で固定 */
-  }
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* ============================================================
-   Clip-path Image Reveal
-   ============================================================ */
-
-.clip-reveal {
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.clip-reveal.is-visible {
-  clip-path: inset(0 0% 0 0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .clip-reveal { clip-path: none; transition: none; }
-}
-
-/* ============================================================
-   Hover Card（Strength cards / interactive cards）
-   ============================================================ */
-
-.hover-card {
-  transition:
-    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-    box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-    border-color 0.3s ease;
-}
-.hover-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-/* ============================================================
-   Embla Carousel Reset
-   ============================================================ */
-
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-  gap: 0;
-  touch-action: pan-y;
-}
-.embla__slide {
-  flex: 0 0 calc(100% / 2.2);
-  min-width: 0;
-}
-@media (min-width: 640px) {
-  .embla__slide { flex: 0 0 calc(100% / 2.4); }
-}
-@media (min-width: 1024px) {
-  .embla__slide { flex: 0 0 calc(100% / 3.2); }
-}
-
-/* ============================================================
-   Text Size Accessibility
-   html.text-large 付与時に本文フォントを拡大
-   ============================================================ */
-
-html.text-large body { font-size: 112.5%; }
-html.text-large p,
-html.text-large li,
-html.text-large span,
-html.text-large dd,
-html.text-large dt,
-html.text-large td,
-html.text-large label,
-html.text-large input,
-html.text-large textarea {
-  font-size: 1.125rem;
-  line-height: 1.9;
-}
-html.text-large h1 { font-size: 2.5rem; }
-html.text-large h2 { font-size: 1.875rem; }
-html.text-large h3 { font-size: 1.375rem; }
-
-/* UIUX-Guard: mobile tiny text normalization */
-@media (max-width: 767px) {
-  .text-\[9px\],
-  .text-\[10px\],
-  .text-\[11px\] {
-    font-size: 12px !important;
-    line-height: 1.45 !important;
-  }
-
-  [style*="font-size: 12px"],
-  [style*="font-size: 12px"],
-  [style*="font-size: 12px"],
-  [style*="font-size: 12px"],
-  [style*="font-size: 12px"],
-  [style*="font-size: 12px"] {
-    font-size: 12px !important;
-    line-height: 1.45 !important;
+    scroll-behavior: auto !important;
   }
 }
