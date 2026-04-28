@@ -54,3 +54,4 @@ __pycache__/
 # aftercare 本番データ（顧客情報を含む）
 data/aftercare/cases.json
 data/aftercare/submissions.json
+.vercel
