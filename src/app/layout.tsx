@@ -1,16 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import RevealObserver from "@/components/RevealObserver";
-import BackToTop from "@/components/BackToTop";
-import LenisProvider from "@/components/LenisProvider";
-import GSAPScrollAnimator from "@/components/GSAPScrollAnimator";
-import LayoutWrapper from "@/components/LayoutWrapper";
-
-// グローバルCSSの読み込み
+import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { SEO_BASE_URL, SEO_SITE_NAME, isProductionEnvironment } from "@/lib/seo";
 import "./globals.css";
-import "../../public/assets/styles.css"; // プレーンHTML時代のスタイルも移行完了まで一時的に読み込み
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-sans-jp",
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-noto-serif-jp",
+});
+
+const IS_PRODUCTION = isProductionEnvironment();
 
 export const viewport: Viewport = {
   themeColor: "#2F8C9C",
@@ -19,101 +25,135 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "株式会社清蓮｜人生の節目に、確かな判断と実務を。",
+  metadataBase: new URL(SEO_BASE_URL),
+  title: {
+    default: `${SEO_SITE_NAME}｜お墓・供養のトータルサポート`,
+    template: `%s | ${SEO_SITE_NAME}`,
+  },
   description:
-    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
+    "株式会社清蓮は、お墓探し・永代供養・樹木葬・墓じまい・改葬を一貫してサポートするコーポレートサービスです。専門家が中立な立場でご相談に応じます。",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "株式会社清蓮｜人生の節目に、確かな判断と実務を。",
+    type: "website",
+    locale: "ja_JP",
+    url: SEO_BASE_URL,
+    siteName: SEO_SITE_NAME,
+    title: `${SEO_SITE_NAME}｜お墓・供養のトータルサポート`,
     description:
-      "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
-    url: "https://seiren-inc.co.jp/",
-    siteName: "株式会社清蓮",
+      "お墓探し・永代供養・樹木葬・墓じまい・改葬を一貫してサポート。専門家が中立な立場でご相談に応じます。",
     images: [
       {
-        url: "https://seiren-inc.co.jp/ogp.png",
+        url: `${SEO_BASE_URL}/ogp.png`,
         width: 1200,
         height: 630,
+        alt: `${SEO_SITE_NAME}｜お墓・供養のトータルサポート`,
       },
     ],
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "株式会社清蓮｜人生の節目に、確かな判断と実務を。",
+    title: `${SEO_SITE_NAME}｜お墓・供養のトータルサポート`,
     description:
-      "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
-    images: ["https://seiren-inc.co.jp/ogp.png"],
-  },
-  verification: {
-    google: "ZgZMiTSHj1VIbM8rg4BqmAn4bxXSDU_6Ntv7Nv78npU",
-  },
-  alternates: {
-    canonical: "https://seiren-inc.co.jp/",
+      "お墓探し・永代供養・樹木葬・墓じまい・改葬を一貫してサポート。専門家が中立な立場でご相談に応じます。",
+    images: [`${SEO_BASE_URL}/ogp.png`],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: IS_PRODUCTION,
+    follow: IS_PRODUCTION,
+    googleBot: { index: IS_PRODUCTION, follow: IS_PRODUCTION },
   },
 };
 
-const organizationJsonLd = {
+const organizationLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://seiren-inc.co.jp/#organization",
-  url: "https://seiren-inc.co.jp/",
-  name: "株式会社清蓮",
-  description:
-    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
-  inLanguage: "ja",
-  logo: "https://seiren-inc.co.jp/icon.png",
-  telephone: "045-881-9952",
-  address: {
-    "@type": "PostalAddress",
-    postalCode: "244-0003",
-    streetAddress: "戸塚町4170 高橋ビル1F",
-    addressLocality: "横浜市戸塚区",
-    addressRegion: "神奈川県",
-    addressCountry: "JP",
+  "@id": `${SEO_BASE_URL}/#organization`,
+  name: SEO_SITE_NAME,
+  url: SEO_BASE_URL,
+  "logo": {
+    "@type": "ImageObject",
+    url: `${SEO_BASE_URL}/ogp.png`,
+    width: "1200",
+    height: "630",
   },
+  image: `${SEO_BASE_URL}/ogp.png`,
+  inLanguage: "ja-JP",
+  description:
+    "お墓探し・永代供養・樹木葬・墓じまい・改葬を一貫してサポートするコーポレートサービス。",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+81-45-881-9952",
+      contactType: "customer service",
+      areaServed: "JP",
+      availableLanguage: ["ja"],
+      email: "contact@seiren.ne.jp",
+    },
+  ],
 };
 
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://seiren-inc.co.jp/#website",
-  url: "https://seiren-inc.co.jp/",
-  name: "株式会社清蓮",
-  description:
-    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
-  inLanguage: "ja",
-  publisher: {
-    "@id": "https://seiren-inc.co.jp/#organization",
-  },
-};
-
-const localBusinessJsonLd = {
+const localBusinessLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://seiren-inc.co.jp/#localbusiness",
-  url: "https://seiren-inc.co.jp/",
-  name: "株式会社清蓮",
+  "@id": `${SEO_BASE_URL}/#localbusiness`,
+  name: SEO_SITE_NAME,
+  url: SEO_BASE_URL,
+  image: `${SEO_BASE_URL}/ogp.png`,
   description:
-    "株式会社清蓮は、海洋散骨、遺骨サービス、終活支援など、人生の節目に関わる複数事業を運営・企画・連携するハブ企業です。",
-  inLanguage: "ja",
-  logo: "https://seiren-inc.co.jp/icon.png",
-  telephone: "045-881-9952",
-  openingHours: "Mo-Su 09:00-17:00",
+    "お墓・供養のトータルサポート。墓地探し・墓じまい・改葬の専門相談。",
+  inLanguage: "ja-JP",
+  telephone: "+81-45-881-9952",
+  email: "contact@seiren.ne.jp",
   address: {
     "@type": "PostalAddress",
-    postalCode: "244-0003",
     streetAddress: "戸塚町4170 高橋ビル1F",
     addressLocality: "横浜市戸塚区",
     addressRegion: "神奈川県",
+    postalCode: "244-0003",
     addressCountry: "JP",
   },
-  parentOrganization: {
-    "@id": "https://seiren-inc.co.jp/#organization",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
+  areaServed: [{ "@type": "Country", name: "Japan" }],
+  serviceType: [
+    "海洋散骨", "粉骨", "洗骨", "手元供養", "お墓じまい", "改葬", "終活相談", "海外散骨", "遺骨ダイヤモンド紹介"
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "サービス一覧",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓探し" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "永代供養" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "樹木葬" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓じまい" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "改葬" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "海洋散骨" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "粉骨" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "洗骨" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "手元供養" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "終活相談" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "海外散骨" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "遺骨ダイヤモンド紹介" } },
+    ],
   },
+  priceRange: "無料相談",
+  parentOrganization: { "@type": "Organization", "@id": `${SEO_BASE_URL}/#organization` },
 };
 
 export default function RootLayout({
@@ -122,52 +162,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
+    <html lang="ja" className={`${notoSansJP.variable} ${notoSerifJP.variable}`}>
+      <body className="antialiased bg-white text-gray-900">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              organizationJsonLd,
-              websiteJsonLd,
-              localBusinessJsonLd,
-            ])
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
         />
-        {/*
-          ファビコンは /src/app に配置済みの favicon.ico, icon.png 等や
-          public 以下の manifest.json からNext.jsによって自動解決されます
-        */}
-      </head>
-      <body>
-        <a className="skip-link" href="#main-content">
-          本文へスキップ
-        </a>
-        <LayoutWrapper
-          header={<Header />}
-          footer={<Footer />}
-          extras={
-            <>
-              <RevealObserver />
-              <LenisProvider />
-              <GSAPScrollAnimator />
-              <BackToTop />
-            </>
-          }
-        >
-          {children}
-        </LayoutWrapper>
-        <Script src="/assets/main.js" strategy="lazyOnload" />
+        {children}
       </body>
     </html>
   );

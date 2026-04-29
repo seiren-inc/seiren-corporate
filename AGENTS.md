@@ -1,94 +1,56 @@
 # AGENTS.md — seiren-corporate
 
-> Applies to: Claude Code, Codex, Antigravity
-> Compact pointer contract. Full policy lives in `.claude/rules/` and `docs/ai/`.
+## Execution Flow
+Analysis → Plan → Explicit Approval → Execution → Verification
+Execution requires explicit approval.
 
----
+## Core Objective
+- Maintain Seiren as a high-trust, authoritative brand site
+- Serve as the central hub for all service sites
+- Preserve SEO, GEO, and brand integrity across all pages
+- Optimize for Context Management and Token Save
 
-## Core rules
-- Plan-first
-- Minimal diff
-- No unrelated refactor
+## Non-Negotiables
+- Do not break brand consistency or positioning
+- Do not modify routing, metadata, canonical, sitemap, or structured data without approval
+- No DB / auth / environment changes without approval
+- No unsafe API exposure
+- Type safety required (no `any`)
 
-## UI protection
-- DO NOT change layout, spacing, typography
-- DO NOT modify design or animations
+## Brand Protection
+- Do not alter tone, messaging, or positioning without explicit request
+- Maintain consistency across all service links and descriptions
+- Do not introduce misleading or unverified claims
 
-## SEO protection
-- DO NOT change meta tags (title, description)
-- DO NOT modify canonical URLs
-- DO NOT alter structured data (JSON-LD)
-- DO NOT change sitemap or robots configuration
-- DO NOT modify URL structure or routing
+## Site Integrity
+- Preserve relationships between corporate site and service sites
+- Do not break internal linking structure
+- Maintain correct navigation and hierarchy across pages
 
-## Agent boundaries
-- implementation → coding only
-- audit → analysis only
-- explorer → investigation only
+## Search Quality Protection
+- Preserve structured data and indexable content quality
+- Maintain entity clarity and brand authority
+- Do not weaken SEO, GEO, or MEO signals
+- Ensure consistency between corporate content and service site content
 
-## Context isolation
-- repo-only scope
-- no cross-project references
+## Data / Security
+- Never expose secrets or internal endpoints
+- Validate all external data before use
+- No PII in logs or external APIs
 
-## Stop conditions
-- UI conflict occurs
-- SEO structure change required
-- routing/URL change required
-- multiple modules impacted
-- requirements unclear
-→ STOP and ask before proceeding
+## UI Protection
+- Do not change layout, spacing, typography, or visual hierarchy without explicit request
+- Preserve visual quality and brand presentation
 
-## Read Order
+## Validation
+- Build must pass
+- No SEO / GEO / MEO regression
+- No brand inconsistency across pages
+- All service links must remain valid
 
-1. `CLAUDE.md` — commands, npm, Tailwind v3 brand colors, Next.js 15 stack
-2. `docs/ai/` — workspace overview, architecture summary, execution contract
-3. `.claude/rules/` — load rules relevant to the current task
-4. `.claude/skills/` — load skills relevant to the current task
-
----
-
-## Skill Layers
-
-| Layer | Path | Role |
-|-------|------|------|
-| Always-on core shelf | `.claude/skills/` | 7 core skills — canonical |
-| Compatibility bridge | `.agents/skills` → `.claude/skills` | for tools resolving `.agents/` |
-| Runtime shelf | `.claude/skills-runtime/` | task-scoped, load on demand |
-| Legacy migration source | `.agent/` | NOT active — reference only |
-
----
-
-## Core Shelf (7 skills)
-
-| Skill | Trigger |
-|-------|---------|
-| `commit-writer` | Any commit |
-| `bugfix-flow` | Any bug investigation |
-| `implementation-flow` | Any feature implementation |
-| `ui-qa-check` | Any UI change (includes Tailwind v3 brand compliance) |
-| `docs-writer` | Any documentation task |
-| `handoff-flow` | Session end or agent switch |
-| `schema-markup` | Any JSON-LD / structured data task |
-
----
-
-## Key Operating Rules
-
-**Implementation flow**: Analysis → Plan → Approval → Execution → Verification.
-
-**Completion**: File paths, diff, verification output, and skill usage report required.
-
-**Critical**: `tailwind.config.ts` brand color tokens are locked — do not modify.
-
-**Commits**: `npm run lint && npm run build` before committing. Conventional commit format.
-
----
-
-## Stack Highlights (from CLAUDE.md)
-
-- Next.js 15 / React 19 / TypeScript / Tailwind CSS v3 / npm
-- GSAP 3 + `useGSAP` — register ScrollTrigger inside `useEffect`
-- Lenis — initialized once in `layout.tsx` only
-- Three.js — `dynamic import + ssr: false + <Suspense>`
-- Embla Carousel v8 — `"use client"` required
-- No database, no CMS, no auth layer
+## Stop Conditions
+- Unclear requirements
+- Brand impact uncertainty
+- SEO / GEO / MEO impact uncertainty
+- Cross-site consistency issues
+- Navigation or hierarchy side effects

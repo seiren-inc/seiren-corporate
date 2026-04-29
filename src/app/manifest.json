@@ -1,6 +1,10 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "株式会社清蓮",
+  "short_name": "清蓮",
+  "description": "お墓探し・永代供養・樹木葬・墓じまい・改葬を一貫してサポートするコーポレートサイト",
+  "lang": "ja-JP",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +19,8 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#2f8c9c",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "categories": ["business", "lifestyle", "utilities"]
 }
