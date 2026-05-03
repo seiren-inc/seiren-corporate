@@ -30,17 +30,10 @@ export const SERVICES: Service[] = [
     category: "memorial",
   },
   {
-    id: "grave-closure",
-    name: "お墓じまい",
+    id: "grave-closure-relocation",
+    name: "お墓じまい・改葬",
     shortDescription:
-      "撤去工事から閉眼供養・行政手続きまで一貫して代行します。",
-    category: "memorial",
-  },
-  {
-    id: "relocation",
-    name: "改葬",
-    shortDescription:
-      "既存の遺骨を別の墓地・納骨堂へ移すご相談と手続きを代行します。",
+      "撤去工事・閉眼供養・行政手続きから新たな納骨先への移送までワンストップで代行します。",
     category: "memorial",
   },
   {

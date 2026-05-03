@@ -139,7 +139,7 @@ const localBusinessLd = {
     "https://www.google.com/maps/search/?api=1&query=" +
     encodeURIComponent("神奈川県横浜市戸塚区戸塚町4170 高橋ビル1F"),
   serviceType: [
-    "海洋散骨", "粉骨", "洗骨", "手元供養", "お墓じまい", "改葬", "終活相談", "海外散骨", "遺骨ダイヤモンド紹介"
+    "海洋散骨", "粉骨", "洗骨", "手元供養", "お墓じまい・改葬", "終活相談", "海外散骨", "遺骨ダイヤモンド紹介"
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -148,8 +148,7 @@ const localBusinessLd = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓探し" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "永代供養" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "樹木葬" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓じまい" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "改葬" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓じまい・改葬" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "海洋散骨" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "粉骨" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "洗骨" } },
