@@ -27,7 +27,7 @@ const categoryAccent: Record<
   },
 };
 
-export function Services(): JSX.Element {
+export function Services() {
   return (
     <Section id="services" surface="muted" ariaLabel="サービス">
       <Container>

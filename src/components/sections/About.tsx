@@ -3,7 +3,7 @@ import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
 import { ABOUT_PILLARS } from "@/lib/content";
 
-export function About(): JSX.Element {
+export function About() {
   return (
     <Section id="about" surface="default" ariaLabel="私たちについて">
       <Container>

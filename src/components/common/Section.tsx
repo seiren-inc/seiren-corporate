@@ -23,7 +23,7 @@ export function Section({
   className,
   surface = "default",
   ariaLabel,
-}: SectionProps): JSX.Element {
+}: SectionProps) {
   return (
     <section
       id={id}

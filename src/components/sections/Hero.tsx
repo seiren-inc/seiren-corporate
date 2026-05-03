@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/common/Container";
 import { COMPANY_INFO } from "@/lib/content";
 
-export function Hero(): JSX.Element {
+export function Hero() {
   return (
     <section
       aria-label="ヒーロー"

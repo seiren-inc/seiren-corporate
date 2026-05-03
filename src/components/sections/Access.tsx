@@ -12,7 +12,7 @@ const rows: Row[] = [
   { label: "営業時間", value: COMPANY_INFO.hours },
 ];
 
-export function Access(): JSX.Element {
+export function Access() {
   return (
     <Section id="access" surface="default" ariaLabel="アクセス">
       <Container>

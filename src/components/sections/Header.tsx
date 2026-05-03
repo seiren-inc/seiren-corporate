@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { COMPANY_INFO, NAV_ITEMS } from "@/lib/content";
 
-function PhoneIcon(): JSX.Element {
+function PhoneIcon() {
   return (
     <svg
       aria-hidden="true"
@@ -21,7 +21,7 @@ function PhoneIcon(): JSX.Element {
   );
 }
 
-export function Header(): JSX.Element {
+export function Header() {
   return (
     <header className="sticky top-0 z-50 h-[var(--header-height)] w-full border-b border-neutral-line bg-white/85 backdrop-blur-md">
       <Container className="flex h-full items-center justify-between gap-4">
