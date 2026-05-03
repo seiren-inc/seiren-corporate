@@ -130,9 +130,16 @@ const localBusinessLd = {
       closes: "17:00",
     },
   ],
-  areaServed: [{ "@type": "Country", name: "Japan" }],
+  areaServed: [
+    { "@type": "City", name: "横浜市" },
+    { "@type": "AdministrativeArea", name: "神奈川県" },
+    { "@type": "Country", name: "Japan" },
+  ],
+  hasMap:
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent("神奈川県横浜市戸塚区戸塚町4170 高橋ビル1F"),
   serviceType: [
-    "海洋散骨", "粉骨", "洗骨", "手元供養", "お墓じまい", "改葬", "終活相談", "海外散骨", "遺骨ダイヤモンド紹介"
+    "海洋散骨", "粉骨", "洗骨", "手元供養", "お墓じまい・改葬", "終活相談", "海外散骨", "遺骨ダイヤモンド紹介"
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -141,8 +148,7 @@ const localBusinessLd = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓探し" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "永代供養" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "樹木葬" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓じまい" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "改葬" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "お墓じまい・改葬" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "海洋散骨" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "粉骨" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "洗骨" } },
@@ -152,8 +158,19 @@ const localBusinessLd = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "遺骨ダイヤモンド紹介" } },
     ],
   },
-  priceRange: "無料相談",
   parentOrganization: { "@type": "Organization", "@id": `${SEO_BASE_URL}/#organization` },
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SEO_BASE_URL}/#website`,
+  url: SEO_BASE_URL,
+  name: SEO_SITE_NAME,
+  description:
+    "お墓・供養のトータルサポート。お墓探し・永代供養・樹木葬・墓じまい・改葬を一貫してご相談いただけます。",
+  inLanguage: "ja-JP",
+  publisher: { "@id": `${SEO_BASE_URL}/#organization` },
 };
 
 export default function RootLayout({
@@ -171,6 +188,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
         />
         {children}
       </body>
