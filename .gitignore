@@ -55,3 +55,7 @@ __pycache__/
 data/aftercare/cases.json
 data/aftercare/submissions.json
 .vercel
+
+# SEO skills (Shared Vault symlinks — environment-specific absolute paths, do not commit)
+.claude/skills/seo
+.claude/skills/seo-*
